@@ -5,7 +5,7 @@ using System.Xml;
 using MySql.Data.MySqlClient;
 using System.Collections;
 
-namespace keshe
+namespace keshe.DAL
 {
 	/// <summary>
 	/// The MySqlHelper class is intended to encapsulate high performance, scalable best practices for 
