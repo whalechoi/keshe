@@ -1,9 +1,11 @@
-﻿// 引用 https://github.com/leomuller/MySqlHelper
+﻿// 修改自 https://github.com/leomuller/MySqlHelper
 using System;
 using System.Data;
 using System.Xml;
 using MySql.Data.MySqlClient;
 using System.Collections;
+using System.Reflection;
+using System.Collections.Generic;
 
 namespace keshe.DAL
 {
@@ -13,11 +15,11 @@ namespace keshe.DAL
 	/// </summary>
 	public sealed class MySqlHelper
 	{
-		#region private utility methods & constructors
+        #region private utility methods & constructors
 
-		//Since this class provides only static methods, make the default constructor private to prevent 
-		//instances from being created with "new MySqlHelper()".
-		private MySqlHelper() { }
+        //Since this class provides only static methods, make the default constructor private to prevent 
+        //instances from being created with "new MySqlHelper()".
+        private MySqlHelper() { }
 
 
 
@@ -394,6 +396,19 @@ namespace keshe.DAL
 			return ds.Tables[0];
 		}
 
+		public static DataTable GetData(string connectionString, CommandType commandType, string commandText)
+		{
+			DataSet ds = ExecuteDataset(connectionString, commandType, commandText, (MySqlParameter[])null);
+
+			return ds.Tables[0];
+		}
+
+		public static DataTable GetData(string connectionString, CommandType commandType, string commandText, params MySqlParameter[] commandParameters)
+		{
+			DataSet ds = ExecuteDataset(connectionString, commandType, commandText, commandParameters);
+
+			return ds.Tables[0];
+		}
 		#endregion ExecuteDataTable
 
 		#region ExecuteDataSet
@@ -1210,13 +1225,77 @@ namespace keshe.DAL
 
 		#endregion ExecuteScalar
 
+		#region DataTable and DataRow convert to T
+		/// <summary>
+		/// DataTable convert to List<T>
+		/// </summary>
+		public static List<T> DataTableToT<T>(DataTable source) where T : class, new()
+        {
+			List<T> itemlist = null;
+            if (source == null || source.Rows.Count == 0)
+            {
+				return itemlist;
+            }
+			itemlist = new List<T>();
+			T item = null;
+			Type targettype = typeof(T);
+			Type ptype = null;
+			Object value = null;
+			foreach(DataRow dr in source.Rows)
+            {
+				item = new T();
+				foreach(PropertyInfo pi in targettype.GetProperties())
+                {
+                    if (pi.CanWrite && source.Columns.Contains(pi.Name))
+                    {
+						if (!(pi.PropertyType.FullName == "System.Byte[]" && dr[pi.Name] == DBNull.Value))
+						{
+							ptype = Type.GetType(pi.PropertyType.FullName);
+							value = Convert.ChangeType(dr[pi.Name], ptype);
+							pi.SetValue(item, value, null);
+						}
+					}
+                }
+				itemlist.Add(item);
+            }
+			return itemlist;
+        }
+		/// <summary>
+		/// DataRow convert to <T>
+		/// </summary>
+		public static T DataRowToT<T>(DataRow source) where T : class, new()
+        {
+			T item = null;
+            if (source == null)
+            {
+				return item;
+            }
+			item = new T();
+			Type targettype = typeof(T);
+			Type ptype = null;
+			Object value = null;
+
+			foreach(PropertyInfo pi in targettype.GetProperties())
+            {
+                if (pi.CanWrite && source.Table.Columns.Contains(pi.Name)){
+                    if (!(pi.PropertyType.FullName == "System.Byte[]" && source[pi.Name] == DBNull.Value))
+                    {
+						ptype = Type.GetType(pi.PropertyType.FullName);
+						value = Convert.ChangeType(source[pi.Name], ptype);
+						pi.SetValue(item, value, null);
+                    }
+                }
+            }
+			return item;
+		}
+		#endregion
 	}
 
-	/// <summary>
-	/// MySqlHelperParameterCache provides functions to leverage a static cache of procedure parameters, and the
-	/// ability to discover parameters for stored procedures at run-time.
-	/// </summary>
-	public sealed class MySqlHelperParameterCache
+    /// <summary>
+    /// MySqlHelperParameterCache provides functions to leverage a static cache of procedure parameters, and the
+    /// ability to discover parameters for stored procedures at run-time.
+    /// </summary>
+    public sealed class MySqlHelperParameterCache
 	{
 		#region private methods, variables, and constructors
 
