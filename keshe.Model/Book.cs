@@ -22,7 +22,7 @@ namespace keshe.Model
         private string _bkISBN = ""; /* ISBN书号 */
         private string _bkCatalog = "";  /* 分类号（如：TP316-21/123） */
         private Int16 _bkLanguage = 0;   /* 语言：0-中文，1-英文，2-日文，3-俄文，4-德文，5-法文 */
-        private Int16 _bkPages = 0;  /* 页数 */
+        private Int32 _bkPages = 0;  /* 页数 */
         private decimal _bkPrice = 0m;   /* 价格 */
         private DateTime _bkDateIn = default(DateTime);  /* 入馆日期 */
         private string _bkBrief = "";    /* 内容简介 */
@@ -40,7 +40,7 @@ namespace keshe.Model
         public string bkISBN { get => _bkISBN; set => _bkISBN = value; }
         public string bkCatalog { get => _bkCatalog; set => _bkCatalog = value; }
         public short bkLanguage { get => _bkLanguage; set => _bkLanguage = value; }
-        public short bkPages { get => _bkPages; set => _bkPages = value; }
+        public int bkPages { get => _bkPages; set => _bkPages = value; }
         public decimal bkPrice { get => _bkPrice; set => _bkPrice = value; }
         public DateTime bkDateIn { get => _bkDateIn; set => _bkDateIn = value; }
         public string bkBrief { get => _bkBrief; set => _bkBrief = value; }

@@ -104,7 +104,7 @@ namespace keshe.DAL
         /// 由读者类型ID(rdType)得到读者信息类型，返回DataRow
         /// </summary>
         #region GetDRByID
-        public static DataRow GetDRByID(Int32 rdType)
+        public static DataRow GetDRByID(Int16 rdType)
         {
             string sql = "select * from TB_ReaderType where rdType=?rdType";
             MySqlParameter[] parameters = { new MySqlParameter("?rdType", rdType) };
@@ -124,7 +124,7 @@ namespace keshe.DAL
         /// 由读者类型ID(rdType)得到该读者信息对象
         /// </summary>
         #region GetObjectByID
-        public static ReaderType GetObjectByID(int rdType)
+        public static ReaderType GetObjectByID(Int16 rdType)
         {
             DataRow dr = GetDRByID(rdType);
             return MySqlHelper.DataRowToT<ReaderType>(dr);
