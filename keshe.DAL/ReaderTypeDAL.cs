@@ -10,7 +10,7 @@ using keshe.Model;
 
 namespace keshe.DAL
 {
-    class ReaderTypeDAL
+    public class ReaderTypeDAL
     {
         private static string _strConnection = "server=localhost; uid=root; pwd=qweasdwsad; database=keshe";
         /// <summary>

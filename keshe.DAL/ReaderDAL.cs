@@ -10,7 +10,7 @@ using System.Data;
 
 namespace keshe.DAL
 {
-    class ReaderDAL
+    public class ReaderDAL
     {
         private static string _strConnection = "server=localhost; uid=root; pwd=qweasdwsad; database=keshe";
         /// <summary>
@@ -142,7 +142,7 @@ namespace keshe.DAL
         /// 由读者ID(rdID)得到该读者对象
         /// </summary>
         #region GetObjectByID
-        public static Reader GetObjectByID(int rdID)
+        public static Reader GetObjectByID(Int32 rdID)
         {
             DataRow dr = GetDRByID(rdID);
             return MySqlHelper.DataRowToT<Reader>(dr);

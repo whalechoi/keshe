@@ -16,7 +16,10 @@ namespace keshe
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+            Form login = new login();
+            login.ShowDialog();
+            if(UserInfo.reader!=null)
+                Application.Run(new main());
         }
     }
 }

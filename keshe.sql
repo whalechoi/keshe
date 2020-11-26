@@ -25,7 +25,7 @@ create table `TB_Reader` (
 	`rdPhoto` MediumBlob, /* 读者照片 */
 	`rdStatus` nchar(2), /* 证件状态，3个：有效、挂失、注销 */
 	`rdBorrowQty` Int default 0, /* 已借书数量（缺省值0） */
-	`rdPwd` nchar(32) default '202cb962ac59075b964b07152d234b70', /* 读者密码（初值123），32bit MD5加密存储 */
+	`rdPwd` nchar(32) default '202CB962AC59075B964B07152D234B70', /* 读者密码（初值123），32bit MD5加密存储 */
 	`rdAdminRoles` SmallInt, /* 管理角色：0-读者、1-借书证管理、2-图书管理、4-借阅管理、8-系统管理，可组合 */
 	FOREIGN KEY(`rdType`) REFERENCES `TB_ReaderType`(`rdType`) /* 表级约束 */
 );
@@ -74,3 +74,7 @@ insert into TB_ReaderType values(20,'本科生',8,30,1,0.05,4);
 insert into TB_ReaderType values(21,'专科生',8,30,1,0.05,3);
 insert into TB_ReaderType values(30,'硕士研究生',8,30,1,0.05,3);
 insert into TB_ReaderType values(31,'博士研究生',8,30,1,0.05,4);
+
+-- default table TB_Reader
+insert into TB_Reader values
+(2020001, 'whalechoi', '男', 20, 'Yangtze University', '12345678901', 'cj1369636717@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 1);

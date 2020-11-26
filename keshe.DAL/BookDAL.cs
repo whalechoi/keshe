@@ -9,7 +9,7 @@ using System.Data;
 
 namespace keshe.DAL
 {
-    class BookDAL
+    public class BookDAL
     {
         private static string _strConnection = "server=localhost; uid=root; pwd=qweasdwsad; database=keshe";
         /// <summary>
