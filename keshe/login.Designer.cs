@@ -73,7 +73,7 @@ namespace keshe
             this.textBox_rdPwd.Location = new System.Drawing.Point(144, 113);
             this.textBox_rdPwd.Name = "textBox_rdPwd";
             this.textBox_rdPwd.Size = new System.Drawing.Size(243, 35);
-            this.textBox_rdPwd.TabIndex = 1;
+            this.textBox_rdPwd.TabIndex = 2;
             this.textBox_rdPwd.UseSystemPasswordChar = true;
             // 
             // label_welcome
@@ -103,7 +103,7 @@ namespace keshe
             this.button_exit.Location = new System.Drawing.Point(251, 164);
             this.button_exit.Name = "button_exit";
             this.button_exit.Size = new System.Drawing.Size(115, 38);
-            this.button_exit.TabIndex = 3;
+            this.button_exit.TabIndex = 4;
             this.button_exit.Text = "退出";
             this.button_exit.UseVisualStyleBackColor = true;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);

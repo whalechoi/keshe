@@ -12,7 +12,7 @@ namespace keshe.BLL
     public sealed class loginControler
     {
         /// <summary>
-        /// 此控制类仅提供静态方法，禁止继承或实例化。
+        /// 此类为登录界面的控制类，仅提供静态方法，禁止继承或实例化。
         /// </summary>
         private loginControler() { }
         public static Int32 Login(Int32 rdID, string rdPwd)
