@@ -83,6 +83,18 @@
     <Compile Include="addBook.Designer.cs">
       <DependentUpon>addBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="bookDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookDetail.Designer.cs">
+      <DependentUpon>bookDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="borrowCardManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="borrowCardManager.Designer.cs">
+      <DependentUpon>borrowCardManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="changePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +116,29 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GlobalObject.cs" />
+    <Compile Include="readerTypeManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="readerTypeManager.Designer.cs">
+      <DependentUpon>readerTypeManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bookManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookManager.Designer.cs">
+      <DependentUpon>bookManager.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="addBook.resx">
       <DependentUpon>addBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bookDetail.resx">
+      <DependentUpon>bookDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="borrowCardManager.resx">
+      <DependentUpon>borrowCardManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="changePassword.resx">
       <DependentUpon>changePassword.cs</DependentUpon>
@@ -128,6 +158,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="readerTypeManager.resx">
+      <DependentUpon>readerTypeManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bookManager.resx">
+      <DependentUpon>bookManager.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Action.datasource" />
     <None Include="Properties\DataSources\keshe.Model.UserAction.datasource" />
