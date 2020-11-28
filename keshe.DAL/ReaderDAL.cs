@@ -20,24 +20,37 @@ namespace keshe.DAL
         public static int Add(Reader reader)
         {
             int rows = 0;
-            string sql = "insert into TB_Reader(rdID, rdName, rdSex, rdType, rdDept, rdPhone, rdEmail, rdDateReg. rdPhoto. rdStatus, rdBorrowQty, rdPwd, rdAdminRoles)"
-                + " values(?rdID, ?rdName, ?rdSex, ?rdType, ?rdDept, ?rdPhone, ?rdEmail, ?rdDateReg. ?rdPhoto. ?rdStatus, ?rdBorrowQty, ?rdPwd, ?rdAdminRoles)";
+            string sql = "insert into TB_Reader(rdID, rdName, rdSex, rdType, rdDept, rdPhone, rdEmail, rdDateReg, rdPhoto, rdStatus, rdBorrowQty, rdPwd, rdAdminRoles)"
+                + " values(?rdID, ?rdName, ?rdSex, ?rdType, ?rdDept, ?rdPhone, ?rdEmail, ?rdDateReg, ?rdPhoto, ?rdStatus, ?rdBorrowQty, ?rdPwd, ?rdAdminRoles)";
             MySqlParameter[] parameters =
             {
-                new MySqlParameter("?rdID",reader.rdID),
-                new MySqlParameter("?rdName",reader.rdName),
-                new MySqlParameter("?rdSex",reader.rdSex),
-                new MySqlParameter("?rdType",reader.rdType),
-                new MySqlParameter("?rdDept",reader.rdDept),
-                new MySqlParameter("?rdPhone",reader.rdPhone),
-                new MySqlParameter("?rdEmail",reader.rdEmail),
-                new MySqlParameter("?rdDateReg",reader.rdDateReg),
-                new MySqlParameter("?rdPhoto",reader.rdPhoto),
-                new MySqlParameter("?rdStatus",reader.rdStatus),
-                new MySqlParameter("?rdBorrowQty",reader.rdBorrowQty),
-                new MySqlParameter("?rdPwd",reader.rdPwd),
-                new MySqlParameter("?rdAdminRoles",reader.rdAdminRoles)
+                new MySqlParameter("?rdID",MySqlDbType.Int32),
+                new MySqlParameter("?rdName",MySqlDbType.VarChar),
+                new MySqlParameter("?rdSex",MySqlDbType.VarChar),
+                new MySqlParameter("?rdType",MySqlDbType.Int16),
+                new MySqlParameter("?rdDept",MySqlDbType.VarChar),
+                new MySqlParameter("?rdPhone",MySqlDbType.VarChar),
+                new MySqlParameter("?rdEmail",MySqlDbType.VarChar),
+                new MySqlParameter("?rdDateReg",MySqlDbType.DateTime),
+                new MySqlParameter("?rdPhoto",MySqlDbType.MediumBlob),
+                new MySqlParameter("?rdStatus",MySqlDbType.VarChar),
+                new MySqlParameter("?rdBorrowQty",MySqlDbType.Int32),
+                new MySqlParameter("?rdPwd",MySqlDbType.VarChar),
+                new MySqlParameter("?rdAdminRoles",MySqlDbType.Int16)
             };
+            parameters[0].Value = reader.rdID;
+            parameters[1].Value = reader.rdName;
+            parameters[2].Value = reader.rdSex;
+            parameters[3].Value = reader.rdType;
+            parameters[4].Value = reader.rdDept;
+            parameters[5].Value = reader.rdPhone;
+            parameters[6].Value = reader.rdEmail;
+            parameters[7].Value = reader.rdDateReg;
+            parameters[8].Value = reader.rdPhoto;
+            parameters[9].Value = reader.rdStatus;
+            parameters[10].Value = reader.rdBorrowQty;
+            parameters[11].Value = reader.rdPwd;
+            parameters[12].Value = reader.rdAdminRoles;
             try
             {
                 rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.Text, sql, parameters);
@@ -57,7 +70,8 @@ namespace keshe.DAL
         {
             int rows = 0;
             string sql = "delete from TB_Reader where rdID=?rdID";
-            MySqlParameter[] parameters = { new MySqlParameter("?rdID", reader.rdID) };
+            MySqlParameter[] parameters = { new MySqlParameter("?rdID", MySqlDbType.Int32) };
+            parameters[0].Value = reader.rdID;
             try
             {
                 rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.Text, sql, parameters);
@@ -83,30 +97,43 @@ namespace keshe.DAL
                 + "rdType=?rdType, "
                 + "rdDept=?rdDept, "
                 + "rdPhone=?rdPhone, "
-                + "rdEmail=?rdEmail "
-                + "rdDateReg=?rdDateReg "
-                + "rdPhoto=?rdPhoto "
-                + "rdStatus=?rdStatus "
-                + "rdBorrowQty=?rdBorrowQty "
-                + "rdPwd=?rdPwd "
+                + "rdEmail=?rdEmail, "
+                + "rdDateReg=?rdDateReg, "
+                + "rdPhoto=?rdPhoto, "
+                + "rdStatus=?rdStatus, "
+                + "rdBorrowQty=?rdBorrowQty, "
+                + "rdPwd=?rdPwd, "
                 + "rdAdminRoles=?rdAdminRoles "
                 + "where rdID=?rdID";
             MySqlParameter[] parameters =
             {
-                new MySqlParameter("?rdName",reader.rdName),
-                new MySqlParameter("?rdSex",reader.rdSex),
-                new MySqlParameter("?rdType",reader.rdType),
-                new MySqlParameter("?rdDept",reader.rdDept),
-                new MySqlParameter("?rdPhone",reader.rdPhone),
-                new MySqlParameter("?rdEmail",reader.rdEmail),
-                new MySqlParameter("?rdDateReg",reader.rdDateReg),
-                new MySqlParameter("?rdPhoto",reader.rdPhoto),
-                new MySqlParameter("?rdStatus",reader.rdStatus),
-                new MySqlParameter("?rdBorrowQty",reader.rdBorrowQty),
-                new MySqlParameter("?rdPwd",reader.rdPwd),
-                new MySqlParameter("?rdAdminRoles",reader.rdAdminRoles),
-                new MySqlParameter("?rdID",reader.rdID)
+                new MySqlParameter("?rdName",MySqlDbType.VarChar),
+                new MySqlParameter("?rdSex",MySqlDbType.VarChar),
+                new MySqlParameter("?rdType",MySqlDbType.Int16),
+                new MySqlParameter("?rdDept",MySqlDbType.VarChar),
+                new MySqlParameter("?rdPhone",MySqlDbType.VarChar),
+                new MySqlParameter("?rdEmail",MySqlDbType.VarChar),
+                new MySqlParameter("?rdDateReg",MySqlDbType.DateTime),
+                new MySqlParameter("?rdPhoto",MySqlDbType.MediumBlob),
+                new MySqlParameter("?rdStatus",MySqlDbType.VarChar),
+                new MySqlParameter("?rdBorrowQty",MySqlDbType.Int32),
+                new MySqlParameter("?rdPwd",MySqlDbType.VarChar),
+                new MySqlParameter("?rdAdminRoles",MySqlDbType.Int16),
+                new MySqlParameter("?rdID",MySqlDbType.Int32)
             };
+            parameters[0].Value = reader.rdName;
+            parameters[1].Value = reader.rdSex;
+            parameters[2].Value = reader.rdType;
+            parameters[3].Value = reader.rdDept;
+            parameters[4].Value = reader.rdPhone;
+            parameters[5].Value = reader.rdEmail;
+            parameters[6].Value = reader.rdDateReg;
+            parameters[7].Value = reader.rdPhoto;
+            parameters[8].Value = reader.rdStatus;
+            parameters[9].Value = reader.rdBorrowQty;
+            parameters[10].Value = reader.rdPwd;
+            parameters[11].Value = reader.rdAdminRoles;
+            parameters[12].Value = reader.rdID;
             try
             {
                 rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.Text, sql, parameters);

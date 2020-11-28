@@ -1,7 +1,7 @@
 ﻿
 namespace keshe
 {
-    partial class 添加图书
+    partial class addBook
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,7 @@ namespace keshe
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addBook));
             this.labBookID = new System.Windows.Forms.Label();
             this.labBookName = new System.Windows.Forms.Label();
             this.labBookAuthor = new System.Windows.Forms.Label();
@@ -73,9 +74,10 @@ namespace keshe
             // labBookID
             // 
             this.labBookID.AutoSize = true;
-            this.labBookID.Location = new System.Drawing.Point(24, 38);
+            this.labBookID.Location = new System.Drawing.Point(18, 30);
+            this.labBookID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labBookID.Name = "labBookID";
-            this.labBookID.Size = new System.Drawing.Size(82, 15);
+            this.labBookID.Size = new System.Drawing.Size(65, 12);
             this.labBookID.TabIndex = 0;
             this.labBookID.Text = "图书编号：";
             this.labBookID.Click += new System.EventHandler(this.label1_Click);
@@ -83,9 +85,10 @@ namespace keshe
             // labBookName
             // 
             this.labBookName.AutoSize = true;
-            this.labBookName.Location = new System.Drawing.Point(24, 81);
+            this.labBookName.Location = new System.Drawing.Point(18, 65);
+            this.labBookName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labBookName.Name = "labBookName";
-            this.labBookName.Size = new System.Drawing.Size(82, 15);
+            this.labBookName.Size = new System.Drawing.Size(65, 12);
             this.labBookName.TabIndex = 0;
             this.labBookName.Text = "图书名称：";
             this.labBookName.Click += new System.EventHandler(this.label1_Click);
@@ -93,9 +96,10 @@ namespace keshe
             // labBookAuthor
             // 
             this.labBookAuthor.AutoSize = true;
-            this.labBookAuthor.Location = new System.Drawing.Point(24, 126);
+            this.labBookAuthor.Location = new System.Drawing.Point(18, 101);
+            this.labBookAuthor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labBookAuthor.Name = "labBookAuthor";
-            this.labBookAuthor.Size = new System.Drawing.Size(82, 15);
+            this.labBookAuthor.Size = new System.Drawing.Size(65, 12);
             this.labBookAuthor.TabIndex = 0;
             this.labBookAuthor.Text = "图书作者：";
             this.labBookAuthor.Click += new System.EventHandler(this.label1_Click);
@@ -103,9 +107,10 @@ namespace keshe
             // labBookPress
             // 
             this.labBookPress.AutoSize = true;
-            this.labBookPress.Location = new System.Drawing.Point(24, 172);
+            this.labBookPress.Location = new System.Drawing.Point(18, 138);
+            this.labBookPress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labBookPress.Name = "labBookPress";
-            this.labBookPress.Size = new System.Drawing.Size(82, 15);
+            this.labBookPress.Size = new System.Drawing.Size(65, 12);
             this.labBookPress.TabIndex = 0;
             this.labBookPress.Text = "出版社名：";
             this.labBookPress.Click += new System.EventHandler(this.label1_Click);
@@ -113,65 +118,73 @@ namespace keshe
             // labPressDate
             // 
             this.labPressDate.AutoSize = true;
-            this.labPressDate.Location = new System.Drawing.Point(24, 213);
+            this.labPressDate.Location = new System.Drawing.Point(18, 170);
+            this.labPressDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labPressDate.Name = "labPressDate";
-            this.labPressDate.Size = new System.Drawing.Size(82, 15);
+            this.labPressDate.Size = new System.Drawing.Size(65, 12);
             this.labPressDate.TabIndex = 0;
             this.labPressDate.Text = "出版日期：";
             this.labPressDate.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtBBookID
             // 
-            this.txtBBookID.Location = new System.Drawing.Point(112, 35);
+            this.txtBBookID.Location = new System.Drawing.Point(84, 28);
+            this.txtBBookID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBBookID.Name = "txtBBookID";
-            this.txtBBookID.Size = new System.Drawing.Size(184, 25);
+            this.txtBBookID.Size = new System.Drawing.Size(139, 21);
             this.txtBBookID.TabIndex = 1;
             // 
             // txtBBookName
             // 
-            this.txtBBookName.Location = new System.Drawing.Point(112, 78);
+            this.txtBBookName.Location = new System.Drawing.Point(84, 62);
+            this.txtBBookName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBBookName.Name = "txtBBookName";
-            this.txtBBookName.Size = new System.Drawing.Size(184, 25);
+            this.txtBBookName.Size = new System.Drawing.Size(139, 21);
             this.txtBBookName.TabIndex = 1;
             this.txtBBookName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtBBookAuthor
             // 
-            this.txtBBookAuthor.Location = new System.Drawing.Point(112, 123);
+            this.txtBBookAuthor.Location = new System.Drawing.Point(84, 98);
+            this.txtBBookAuthor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBBookAuthor.Name = "txtBBookAuthor";
-            this.txtBBookAuthor.Size = new System.Drawing.Size(184, 25);
+            this.txtBBookAuthor.Size = new System.Drawing.Size(139, 21);
             this.txtBBookAuthor.TabIndex = 1;
             // 
             // txtBBookPress
             // 
-            this.txtBBookPress.Location = new System.Drawing.Point(112, 169);
+            this.txtBBookPress.Location = new System.Drawing.Point(84, 135);
+            this.txtBBookPress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBBookPress.Name = "txtBBookPress";
-            this.txtBBookPress.Size = new System.Drawing.Size(184, 25);
+            this.txtBBookPress.Size = new System.Drawing.Size(139, 21);
             this.txtBBookPress.TabIndex = 1;
             // 
             // labISBN
             // 
             this.labISBN.AutoSize = true;
-            this.labISBN.Location = new System.Drawing.Point(24, 258);
+            this.labISBN.Location = new System.Drawing.Point(18, 206);
+            this.labISBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labISBN.Name = "labISBN";
-            this.labISBN.Size = new System.Drawing.Size(84, 15);
+            this.labISBN.Size = new System.Drawing.Size(65, 12);
             this.labISBN.TabIndex = 0;
             this.labISBN.Text = "标准ISBN：";
             this.labISBN.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtBISBN
             // 
-            this.txtBISBN.Location = new System.Drawing.Point(112, 255);
+            this.txtBISBN.Location = new System.Drawing.Point(84, 204);
+            this.txtBISBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBISBN.Name = "txtBISBN";
-            this.txtBISBN.Size = new System.Drawing.Size(184, 25);
+            this.txtBISBN.Size = new System.Drawing.Size(139, 21);
             this.txtBISBN.TabIndex = 1;
             // 
             // labDeptName
             // 
             this.labDeptName.AutoSize = true;
-            this.labDeptName.Location = new System.Drawing.Point(24, 302);
+            this.labDeptName.Location = new System.Drawing.Point(18, 242);
+            this.labDeptName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labDeptName.Name = "labDeptName";
-            this.labDeptName.Size = new System.Drawing.Size(82, 15);
+            this.labDeptName.Size = new System.Drawing.Size(65, 12);
             this.labDeptName.TabIndex = 0;
             this.labDeptName.Text = "分类名称：";
             this.labDeptName.Click += new System.EventHandler(this.label1_Click);
@@ -179,9 +192,10 @@ namespace keshe
             // labLanguage
             // 
             this.labLanguage.AutoSize = true;
-            this.labLanguage.Location = new System.Drawing.Point(24, 349);
+            this.labLanguage.Location = new System.Drawing.Point(18, 279);
+            this.labLanguage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labLanguage.Name = "labLanguage";
-            this.labLanguage.Size = new System.Drawing.Size(82, 15);
+            this.labLanguage.Size = new System.Drawing.Size(65, 12);
             this.labLanguage.TabIndex = 0;
             this.labLanguage.Text = "所属语种：";
             this.labLanguage.Click += new System.EventHandler(this.label1_Click);
@@ -189,9 +203,10 @@ namespace keshe
             // labBookPageNum
             // 
             this.labBookPageNum.AutoSize = true;
-            this.labBookPageNum.Location = new System.Drawing.Point(24, 394);
+            this.labBookPageNum.Location = new System.Drawing.Point(18, 315);
+            this.labBookPageNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labBookPageNum.Name = "labBookPageNum";
-            this.labBookPageNum.Size = new System.Drawing.Size(82, 15);
+            this.labBookPageNum.Size = new System.Drawing.Size(65, 12);
             this.labBookPageNum.TabIndex = 0;
             this.labBookPageNum.Text = "图书页数：";
             this.labBookPageNum.Click += new System.EventHandler(this.label1_Click);
@@ -199,34 +214,38 @@ namespace keshe
             // labBookPrice
             // 
             this.labBookPrice.AutoSize = true;
-            this.labBookPrice.Location = new System.Drawing.Point(24, 440);
+            this.labBookPrice.Location = new System.Drawing.Point(18, 352);
+            this.labBookPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labBookPrice.Name = "labBookPrice";
-            this.labBookPrice.Size = new System.Drawing.Size(82, 15);
+            this.labBookPrice.Size = new System.Drawing.Size(65, 12);
             this.labBookPrice.TabIndex = 0;
             this.labBookPrice.Text = "图书价格：";
             this.labBookPrice.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtBBookPageNum
             // 
-            this.txtBBookPageNum.Location = new System.Drawing.Point(112, 391);
+            this.txtBBookPageNum.Location = new System.Drawing.Point(84, 313);
+            this.txtBBookPageNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBBookPageNum.Name = "txtBBookPageNum";
-            this.txtBBookPageNum.Size = new System.Drawing.Size(184, 25);
+            this.txtBBookPageNum.Size = new System.Drawing.Size(139, 21);
             this.txtBBookPageNum.TabIndex = 1;
             // 
             // txtBBookPrice
             // 
-            this.txtBBookPrice.Location = new System.Drawing.Point(112, 437);
+            this.txtBBookPrice.Location = new System.Drawing.Point(84, 350);
+            this.txtBBookPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBBookPrice.Name = "txtBBookPrice";
-            this.txtBBookPrice.Size = new System.Drawing.Size(184, 25);
+            this.txtBBookPrice.Size = new System.Drawing.Size(139, 21);
             this.txtBBookPrice.TabIndex = 1;
             // 
             // labAddDate
             // 
             this.labAddDate.AutoSize = true;
             this.labAddDate.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labAddDate.Location = new System.Drawing.Point(26, 491);
+            this.labAddDate.Location = new System.Drawing.Point(20, 393);
+            this.labAddDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labAddDate.Name = "labAddDate";
-            this.labAddDate.Size = new System.Drawing.Size(82, 15);
+            this.labAddDate.Size = new System.Drawing.Size(65, 12);
             this.labAddDate.TabIndex = 0;
             this.labAddDate.Text = "入馆日期：";
             this.labAddDate.Click += new System.EventHandler(this.label1_Click);
@@ -234,18 +253,20 @@ namespace keshe
             // labBookQty
             // 
             this.labBookQty.AutoSize = true;
-            this.labBookQty.Location = new System.Drawing.Point(24, 545);
+            this.labBookQty.Location = new System.Drawing.Point(18, 436);
+            this.labBookQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labBookQty.Name = "labBookQty";
-            this.labBookQty.Size = new System.Drawing.Size(82, 15);
+            this.labBookQty.Size = new System.Drawing.Size(65, 12);
             this.labBookQty.TabIndex = 0;
             this.labBookQty.Text = "图书本数：";
             this.labBookQty.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtBBookQty
             // 
-            this.txtBBookQty.Location = new System.Drawing.Point(114, 542);
+            this.txtBBookQty.Location = new System.Drawing.Point(86, 434);
+            this.txtBBookQty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBBookQty.Name = "txtBBookQty";
-            this.txtBBookQty.Size = new System.Drawing.Size(182, 25);
+            this.txtBBookQty.Size = new System.Drawing.Size(138, 21);
             this.txtBBookQty.TabIndex = 1;
             // 
             // groupBox1
@@ -281,75 +302,85 @@ namespace keshe
             this.groupBox1.Controls.Add(this.txtBBookPress);
             this.groupBox1.Controls.Add(this.labPressDate);
             this.groupBox1.Controls.Add(this.labISBN);
-            this.groupBox1.Location = new System.Drawing.Point(25, 24);
+            this.groupBox1.Location = new System.Drawing.Point(19, 19);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1108, 579);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(831, 463);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "图书明细";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(373, 78);
+            this.textBox1.Location = new System.Drawing.Point(280, 62);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(311, 428);
+            this.textBox1.Size = new System.Drawing.Size(234, 343);
             this.textBox1.TabIndex = 9;
             // 
             // dTPPressDate
             // 
-            this.dTPPressDate.Location = new System.Drawing.Point(112, 206);
+            this.dTPPressDate.Location = new System.Drawing.Point(84, 165);
+            this.dTPPressDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dTPPressDate.Name = "dTPPressDate";
-            this.dTPPressDate.Size = new System.Drawing.Size(182, 25);
+            this.dTPPressDate.Size = new System.Drawing.Size(138, 21);
             this.dTPPressDate.TabIndex = 8;
             this.dTPPressDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dTPAddDate
             // 
-            this.dTPAddDate.Location = new System.Drawing.Point(114, 484);
+            this.dTPAddDate.Location = new System.Drawing.Point(86, 387);
+            this.dTPAddDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dTPAddDate.Name = "dTPAddDate";
-            this.dTPAddDate.Size = new System.Drawing.Size(182, 25);
+            this.dTPAddDate.Size = new System.Drawing.Size(138, 21);
             this.dTPAddDate.TabIndex = 8;
             this.dTPAddDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // cbBLanguage
             // 
             this.cbBLanguage.FormattingEnabled = true;
-            this.cbBLanguage.Location = new System.Drawing.Point(112, 346);
+            this.cbBLanguage.Location = new System.Drawing.Point(84, 277);
+            this.cbBLanguage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbBLanguage.Name = "cbBLanguage";
-            this.cbBLanguage.Size = new System.Drawing.Size(182, 23);
+            this.cbBLanguage.Size = new System.Drawing.Size(138, 20);
             this.cbBLanguage.TabIndex = 7;
             // 
             // cbBDeptName
             // 
             this.cbBDeptName.FormattingEnabled = true;
-            this.cbBDeptName.Location = new System.Drawing.Point(112, 299);
+            this.cbBDeptName.Location = new System.Drawing.Point(84, 239);
+            this.cbBDeptName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbBDeptName.Name = "cbBDeptName";
-            this.cbBDeptName.Size = new System.Drawing.Size(182, 23);
+            this.cbBDeptName.Size = new System.Drawing.Size(138, 20);
             this.cbBDeptName.TabIndex = 7;
             // 
             // txtBBookOrder
             // 
-            this.txtBBookOrder.Location = new System.Drawing.Point(508, 542);
+            this.txtBBookOrder.Location = new System.Drawing.Point(381, 434);
+            this.txtBBookOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBBookOrder.Name = "txtBBookOrder";
-            this.txtBBookOrder.Size = new System.Drawing.Size(190, 25);
+            this.txtBBookOrder.Size = new System.Drawing.Size(144, 21);
             this.txtBBookOrder.TabIndex = 6;
             // 
             // labBookOrder
             // 
             this.labBookOrder.AutoSize = true;
-            this.labBookOrder.Location = new System.Drawing.Point(370, 544);
+            this.labBookOrder.Location = new System.Drawing.Point(278, 435);
+            this.labBookOrder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labBookOrder.Name = "labBookOrder";
-            this.labBookOrder.Size = new System.Drawing.Size(112, 15);
+            this.labBookOrder.Size = new System.Drawing.Size(89, 12);
             this.labBookOrder.TabIndex = 5;
             this.labBookOrder.Text = "图书起始序号：";
             this.labBookOrder.Click += new System.EventHandler(this.label2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(965, 29);
+            this.button1.Location = new System.Drawing.Point(724, 23);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(56, 18);
             this.button1.TabIndex = 4;
             this.button1.Text = "上载图片";
             this.button1.UseVisualStyleBackColor = true;
@@ -358,44 +389,49 @@ namespace keshe
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(769, 37);
+            this.label1.Location = new System.Drawing.Point(577, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 15);
+            this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "图书封面：";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // picBBookPicture
             // 
-            this.picBBookPicture.Location = new System.Drawing.Point(772, 74);
+            this.picBBookPicture.Location = new System.Drawing.Point(579, 59);
+            this.picBBookPicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picBBookPicture.Name = "picBBookPicture";
-            this.picBBookPicture.Size = new System.Drawing.Size(330, 432);
+            this.picBBookPicture.Size = new System.Drawing.Size(248, 346);
             this.picBBookPicture.TabIndex = 3;
             this.picBBookPicture.TabStop = false;
             // 
             // labDetailsIntro
             // 
             this.labDetailsIntro.AutoSize = true;
-            this.labDetailsIntro.Location = new System.Drawing.Point(367, 37);
+            this.labDetailsIntro.Location = new System.Drawing.Point(275, 30);
+            this.labDetailsIntro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labDetailsIntro.Name = "labDetailsIntro";
-            this.labDetailsIntro.Size = new System.Drawing.Size(82, 15);
+            this.labDetailsIntro.Size = new System.Drawing.Size(65, 12);
             this.labDetailsIntro.TabIndex = 2;
             this.labDetailsIntro.Text = "内容简介：";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(54, 630);
+            this.btnAdd.Location = new System.Drawing.Point(40, 504);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 34);
+            this.btnAdd.Size = new System.Drawing.Size(70, 27);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "添加";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(228, 630);
+            this.btnCancel.Location = new System.Drawing.Point(171, 504);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(93, 34);
+            this.btnCancel.Size = new System.Drawing.Size(70, 27);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -412,15 +448,17 @@ namespace keshe
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
-            // 添加图书
+            // addBook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 676);
+            this.ClientSize = new System.Drawing.Size(878, 541);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.groupBox1);
-            this.Name = "添加图书";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "addBook";
             this.Text = "添加图书";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

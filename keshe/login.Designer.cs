@@ -56,6 +56,7 @@ namespace keshe
             this.textBox_rdID.Name = "textBox_rdID";
             this.textBox_rdID.Size = new System.Drawing.Size(243, 35);
             this.textBox_rdID.TabIndex = 1;
+            this.textBox_rdID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_rdID_KeyPress);
             // 
             // label_rdPwd
             // 
@@ -123,7 +124,7 @@ namespace keshe
             this.Controls.Add(this.lable_rdID);
             this.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

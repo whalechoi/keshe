@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace keshe
 {
-    public partial class 添加图书 : Form
+    public partial class addBook : Form
     {
-        public 添加图书()
+        public addBook()
         {
             InitializeComponent();
         }

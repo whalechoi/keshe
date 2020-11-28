@@ -45,21 +45,5 @@ namespace keshe.Model
         #endregion
 
         public Borrow() { }
-        public Borrow(Borrow r)
-        {
-            this.BorrowID = r.BorrowID;
-            this.rdID = r.rdID;
-            this.bkID = r.bkID;
-            this.ldContinueTimes = r.ldContinueTimes;
-            this.ldDateOut = r.ldDateOut;
-            this.ldDateRetPlan = r.ldDateRetPlan;
-            this.ldDateRetAct = r.ldDateRetAct;
-            this.ldOverDay = r.ldOverDay;
-            this.ldOverMoney = r.ldOverMoney;
-            this.ldPunishMoney = r.ldPunishMoney;
-            this.lsHasReturn = r.lsHasReturn;
-            this.OperatorLend = r.OperatorLend;
-            this.OperatorRet = r.OperatorRet;
-        }
     }
 }

@@ -18,7 +18,7 @@ namespace keshe
             Application.SetCompatibleTextRenderingDefault(false);
             while (true)
             {
-                if(UserInfo.reader == null)
+                if(GlobalObject.reader == null)
                 {
                     Form login = new login();
                     login.ShowDialog();

@@ -19,24 +19,37 @@ namespace keshe.DAL
         public static int Add(Borrow borrow)
         {
             int rows = 0;
-            string sql = "insert into TB_Borrow(BorrowID, rdID, bkID, ldContinueTimes, ldDateOut, ldDateRetPlan, ldDateRetAct, ldOverDay. ldOverMoney. ldPunishMoney, lsHasReturn, OperatorLend, OperatorRet)"
-                + " values(?BorrowID, ?rdID, ?bkID, ?ldContinueTimes, ?ldDateOut, ?ldDateRetPlan, ?ldDateRetAct, ?ldOverDay. ?ldOverMoney. ?ldPunishMoney, ?lsHasReturn, ?OperatorLend, ?OperatorRet)";
+            string sql = "insert into TB_Borrow(BorrowID, rdID, bkID, ldContinueTimes, ldDateOut, ldDateRetPlan, ldDateRetAct, ldOverDay, ldOverMoney, ldPunishMoney, lsHasReturn, OperatorLend, OperatorRet)"
+                + " values(?BorrowID, ?rdID, ?bkID, ?ldContinueTimes, ?ldDateOut, ?ldDateRetPlan, ?ldDateRetAct, ?ldOverDay, ?ldOverMoney, ?ldPunishMoney, ?lsHasReturn, ?OperatorLend, ?OperatorRet)";
             MySqlParameter[] parameters =
             {
-                new MySqlParameter("?BorrowID",borrow.BorrowID),
-                new MySqlParameter("?rdID",borrow.rdID),
-                new MySqlParameter("?bkID",borrow.bkID),
-                new MySqlParameter("?ldContinueTimes",borrow.ldContinueTimes),
-                new MySqlParameter("?ldDateOut",borrow.ldDateOut),
-                new MySqlParameter("?ldDateRetPlan",borrow.ldDateRetPlan),
-                new MySqlParameter("?ldDateRetAct",borrow.ldDateRetAct),
-                new MySqlParameter("?ldOverDay",borrow.ldOverDay),
-                new MySqlParameter("?ldOverMoney",borrow.ldOverMoney),
-                new MySqlParameter("?ldPunishMoney",borrow.ldPunishMoney),
-                new MySqlParameter("?lsHasReturn",borrow.lsHasReturn),
-                new MySqlParameter("?OperatorLend",borrow.OperatorLend),
-                new MySqlParameter("?OperatorRet",borrow.OperatorRet)
+                new MySqlParameter("?BorrowID",MySqlDbType.NewDecimal),
+                new MySqlParameter("?rdID",MySqlDbType.Int32),
+                new MySqlParameter("?bkID",MySqlDbType.Int32),
+                new MySqlParameter("?ldContinueTimes",MySqlDbType.Int32),
+                new MySqlParameter("?ldDateOut",MySqlDbType.DateTime),
+                new MySqlParameter("?ldDateRetPlan",MySqlDbType.DateTime),
+                new MySqlParameter("?ldDateRetAct",MySqlDbType.DateTime),
+                new MySqlParameter("?ldOverDay",MySqlDbType.Int32),
+                new MySqlParameter("?ldOverMoney",MySqlDbType.NewDecimal),
+                new MySqlParameter("?ldPunishMoney",MySqlDbType.NewDecimal),
+                new MySqlParameter("?lsHasReturn",MySqlDbType.Bit),
+                new MySqlParameter("?OperatorLend",MySqlDbType.VarChar),
+                new MySqlParameter("?OperatorRet",MySqlDbType.VarChar)
             };
+            parameters[0].Value = borrow.BorrowID;
+            parameters[1].Value = borrow.rdID;
+            parameters[2].Value = borrow.bkID;
+            parameters[3].Value = borrow.ldContinueTimes;
+            parameters[4].Value = borrow.ldDateOut;
+            parameters[5].Value = borrow.ldDateRetPlan;
+            parameters[6].Value = borrow.ldDateRetAct;
+            parameters[7].Value = borrow.ldOverDay;
+            parameters[8].Value = borrow.ldOverMoney;
+            parameters[9].Value = borrow.ldPunishMoney;
+            parameters[10].Value = borrow.lsHasReturn;
+            parameters[11].Value = borrow.OperatorLend;
+            parameters[12].Value = borrow.OperatorRet;
             try
             {
                 rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.Text, sql, parameters);
@@ -56,7 +69,8 @@ namespace keshe.DAL
         {
             int rows = 0;
             string sql = "delete from TB_Borrow where BorrowID=?BorrowID";
-            MySqlParameter[] parameters = { new MySqlParameter("?BorrowID", borrow.BorrowID) };
+            MySqlParameter[] parameters = { new MySqlParameter("?BorrowID", MySqlDbType.NewDecimal) };
+            parameters[0].Value = borrow.BorrowID;
             try
             {
                 rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.Text, sql, parameters);
@@ -82,30 +96,43 @@ namespace keshe.DAL
                 + "ldContinueTimes=?ldContinueTimes, "
                 + "ldDateOut=?ldDateOut, "
                 + "ldDateRetPlan=?ldDateRetPlan, "
-                + "ldDateRetAct=?ldDateRetAct "
-                + "ldOverDay=?ldOverDay "
-                + "ldOverMoney=?ldOverMoney "
-                + "ldPunishMoney=?ldPunishMoney "
-                + "lsHasReturn=?lsHasReturn "
-                + "OperatorLend=?OperatorLend "
+                + "ldDateRetAct=?ldDateRetAct, "
+                + "ldOverDay=?ldOverDay, "
+                + "ldOverMoney=?ldOverMoney, "
+                + "ldPunishMoney=?ldPunishMoney, "
+                + "lsHasReturn=?lsHasReturn, "
+                + "OperatorLend=?OperatorLend, "
                 + "OperatorRet=?OperatorRet "
                 + "where BorrowID=?BorrowID";
             MySqlParameter[] parameters =
             {
-                new MySqlParameter("?rdID",borrow.rdID),
-                new MySqlParameter("?bkID",borrow.bkID),
-                new MySqlParameter("?ldContinueTimes",borrow.ldContinueTimes),
-                new MySqlParameter("?ldDateOut",borrow.ldDateOut),
-                new MySqlParameter("?ldDateRetPlan",borrow.ldDateRetPlan),
-                new MySqlParameter("?ldDateRetAct",borrow.ldDateRetAct),
-                new MySqlParameter("?ldOverDay",borrow.ldOverDay),
-                new MySqlParameter("?ldOverMoney",borrow.ldOverMoney),
-                new MySqlParameter("?ldPunishMoney",borrow.ldPunishMoney),
-                new MySqlParameter("?lsHasReturn",borrow.lsHasReturn),
-                new MySqlParameter("?OperatorLend",borrow.OperatorLend),
-                new MySqlParameter("?OperatorRet",borrow.OperatorRet),
-                new MySqlParameter("?BorrowID",borrow.BorrowID)
+                new MySqlParameter("?rdID",MySqlDbType.Int32),
+                new MySqlParameter("?bkID",MySqlDbType.Int32),
+                new MySqlParameter("?ldContinueTimes",MySqlDbType.Int32),
+                new MySqlParameter("?ldDateOut",MySqlDbType.DateTime),
+                new MySqlParameter("?ldDateRetPlan",MySqlDbType.DateTime),
+                new MySqlParameter("?ldDateRetAct",MySqlDbType.DateTime),
+                new MySqlParameter("?ldOverDay",MySqlDbType.Int32),
+                new MySqlParameter("?ldOverMoney",MySqlDbType.NewDecimal),
+                new MySqlParameter("?ldPunishMoney",MySqlDbType.NewDecimal),
+                new MySqlParameter("?lsHasReturn",MySqlDbType.Bit),
+                new MySqlParameter("?OperatorLend",MySqlDbType.VarChar),
+                new MySqlParameter("?OperatorRet",MySqlDbType.VarChar),
+                new MySqlParameter("?BorrowID",MySqlDbType.NewDecimal)
             };
+            parameters[0].Value = borrow.rdID;
+            parameters[1].Value = borrow.bkID;
+            parameters[2].Value = borrow.ldContinueTimes;
+            parameters[3].Value = borrow.ldDateOut;
+            parameters[4].Value = borrow.ldDateRetPlan;
+            parameters[5].Value = borrow.ldDateRetAct;
+            parameters[6].Value = borrow.ldOverDay;
+            parameters[7].Value = borrow.ldOverMoney;
+            parameters[8].Value = borrow.ldPunishMoney;
+            parameters[9].Value = borrow.lsHasReturn;
+            parameters[10].Value = borrow.OperatorLend;
+            parameters[11].Value = borrow.OperatorRet;
+            parameters[12].Value = borrow.BorrowID;
             try
             {
                 rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.Text, sql, parameters);

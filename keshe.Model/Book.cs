@@ -49,23 +49,5 @@ namespace keshe.Model
         #endregion
 
         public Book() { }
-        public Book(Book r)
-        {
-            this.bkID = r.bkID;
-            this.bkCode = r.bkCode;
-            this.bkName = r.bkName;
-            this.bkAuthor = r.bkAuthor;
-            this.bkPress = r.bkPress;
-            this.bkDatePress = r.bkDatePress;
-            this.bkISBN = r.bkISBN;
-            this.bkCatalog = r.bkCatalog;
-            this.bkLanguage = r.bkLanguage;
-            this.bkPages = r.bkPages;
-            this.bkPrice = r.bkPrice;
-            this.bkDateIn = r.bkDateIn;
-            this.bkBrief = r.bkBrief;
-            this.bkCover = r.bkCover;
-            this.bkStatus = r.bkStatus;
-        }
     }
 }

@@ -106,5 +106,10 @@ namespace keshe
         {
             this.Close();
         }
+
+        private void logoPictureBox_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://blog.whalechoi.cn/");
+        }
     }
 }

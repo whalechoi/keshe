@@ -1289,7 +1289,17 @@ namespace keshe.DAL
 			return item;
 		}
 		#endregion
-	}
+		#region NullToMySqlNull
+		public static object NullToMySqlNull(object obj)
+        {
+            if (obj == null)
+            {
+				return DBNull.Value;
+			}
+			return obj;
+		}
+        #endregion
+    }
 
     /// <summary>
     /// MySqlHelperParameterCache provides functions to leverage a static cache of procedure parameters, and the

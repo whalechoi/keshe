@@ -17,7 +17,7 @@ create table `TB_Reader` (
 	`rdID` int PRIMARY KEY, /* 读者编号/借书证号【主键】 */
 	`rdName` nvarchar(20), /* 读者姓名 */
 	`rdSex` nchar(2), /* 性别：男/女 */
-	`rdType` SmallInt not null, /* 读者类别【外键TB_ReaderType】【非空】 */
+	`rdType` SmallInt not null, /* 读者类别【外键TB_ReaderType】 */
 	`rdDept` nvarchar(20), /* 单位代码/单位名称 */
 	`rdPhone` nvarchar(25), /* 电话号码 */
 	`rdEmail` nvarchar(25), /* 电子邮箱 */
@@ -69,12 +69,45 @@ CREATE TABLE `TB_Borrow` (
 );
 
 -- default table TB_ReaderType
-insert into TB_ReaderType values(10,'教师',12,60,2,0.05,0);
-insert into TB_ReaderType values(20,'本科生',8,30,1,0.05,4);
-insert into TB_ReaderType values(21,'专科生',8,30,1,0.05,3);
-insert into TB_ReaderType values(30,'硕士研究生',8,30,1,0.05,3);
-insert into TB_ReaderType values(31,'博士研究生',8,30,1,0.05,4);
+insert into `TB_ReaderType` values(0,'未指定',1,1,1,0.50,1);
+insert into `TB_ReaderType` values(1,'专科生',8,30,1,0.05,3);
+insert into `TB_ReaderType` values(2,'本科生',8,30,1,0.05,4);
+insert into `TB_ReaderType` values(3,'硕士研究生',8,30,1,0.05,3);
+insert into `TB_ReaderType` values(4,'博士研究生',8,30,1,0.05,4);
+insert into `TB_ReaderType` values(5,'教师',12,60,2,0.05,0);
 
 -- default table TB_Reader
-insert into TB_Reader values
-(2020001, 'whalechoi', '男', 20, 'Yangtze University', '12345678901', 'cj1369636717@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 1);
+insert into `TB_Reader` values
+(0, '用户已被移除', '男', 0, '', '', '', '2000-01-01', null, '注销', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020001, 'whalechoi', '男', 2, 'Yangtze University', '12345678901', 'cj1369636717@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 1);
+
+-- default table TB_Book
+insert into `TB_Book` values
+(0, '', '图书已被移除', '', '', '2000-01-01', '', '', 0, 0, 0.00, '2000-01-01', '', null, '销毁');
+
+-- trigger TB_ReaderType
+delimiter //
+create trigger `TB_ReaderType` before delete on `TB_ReaderType`
+for each row
+begin
+	update `TB_Reader` set `rdType` = 0 where `rdType` = old.rdType;
+end //
+delimiter ;
+
+-- trigger TB_Reader
+delimiter //
+create trigger `TB_Reader` before delete on `TB_Reader`
+for each row
+begin
+	update `TB_Borrow` set `rdID` = 0 where rdID = old.rdID;
+end //
+delimiter ;
+
+-- trigger TB_Book
+delimiter //
+create trigger `TB_Book` before delete on `TB_Book`
+for each row
+begin
+	update `TB_Borrow` set `bkID` = 0 where bkID = old.bkID;
+end //
+delimiter ;

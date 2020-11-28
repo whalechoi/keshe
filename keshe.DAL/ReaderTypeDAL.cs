@@ -24,14 +24,21 @@ namespace keshe.DAL
                 + " values(?rdType, ?rdTypeName, ?CanLendQty, ?CanLendDay, ?CanContinueTimes, ?PunishRate, ?DateValid)";
             MySqlParameter[] parameters =
             {
-                new MySqlParameter("?rdType",readertype.rdType),
-                new MySqlParameter("?rdTypeName",readertype.rdTypeName),
-                new MySqlParameter("?CanLendQty",readertype.CanLendQty),
-                new MySqlParameter("?CanLendDay",readertype.CanLendDay),
-                new MySqlParameter("?CanContinueTimes",readertype.CanContinueTimes),
-                new MySqlParameter("?PunishRate",readertype.PunishRate),
-                new MySqlParameter("?DateValid",readertype.DateValid)
+                new MySqlParameter("?rdType",MySqlDbType.Int16),
+                new MySqlParameter("?rdTypeName",MySqlDbType.VarChar),
+                new MySqlParameter("?CanLendQty",MySqlDbType.Int32),
+                new MySqlParameter("?CanLendDay",MySqlDbType.Int32),
+                new MySqlParameter("?CanContinueTimes",MySqlDbType.Int32),
+                new MySqlParameter("?PunishRate",MySqlDbType.Float),
+                new MySqlParameter("?DateValid",MySqlDbType.Int16)
             };
+            parameters[0].Value = readertype.rdType;
+            parameters[1].Value = readertype.rdTypeName;
+            parameters[2].Value = readertype.CanLendQty;
+            parameters[3].Value = readertype.CanLendDay;
+            parameters[4].Value = readertype.CanContinueTimes;
+            parameters[5].Value = readertype.PunishRate;
+            parameters[6].Value = readertype.DateValid;
             try
             {
                 rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.Text, sql, parameters);
@@ -51,7 +58,8 @@ namespace keshe.DAL
         {
             int rows = 0;
             string sql = "delete from TB_ReaderType where rdType=?rdType";
-            MySqlParameter[] parameters = { new MySqlParameter("?rdType", readertype.rdType) };
+            MySqlParameter[] parameters = { new MySqlParameter("?rdType", MySqlDbType.Int16) };
+            parameters[0].Value = readertype.rdType;
             try
             {
                 rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.Text, sql, parameters);
@@ -81,14 +89,21 @@ namespace keshe.DAL
                 + "where rdType=?rdType";
             MySqlParameter[] parameters =
             {
-                new MySqlParameter("?rdTypeName",readertype.rdTypeName),
-                new MySqlParameter("?CanLendQty",readertype.CanLendQty),
-                new MySqlParameter("?CanLendDay",readertype.CanLendDay),
-                new MySqlParameter("?CanContinueTimes",readertype.CanContinueTimes),
-                new MySqlParameter("?PunishRate",readertype.PunishRate),
-                new MySqlParameter("?DateValid",readertype.DateValid),
-                new MySqlParameter("?rdType",readertype.rdType)
+                new MySqlParameter("?rdTypeName",MySqlDbType.VarChar),
+                new MySqlParameter("?CanLendQty",MySqlDbType.Int32),
+                new MySqlParameter("?CanLendDay",MySqlDbType.Int32),
+                new MySqlParameter("?CanContinueTimes",MySqlDbType.Int32),
+                new MySqlParameter("?PunishRate",MySqlDbType.Float),
+                new MySqlParameter("?DateValid",MySqlDbType.Int16),
+                new MySqlParameter("?rdType",MySqlDbType.Int16)
             };
+            parameters[0].Value = readertype.rdTypeName;
+            parameters[1].Value = readertype.CanLendQty;
+            parameters[2].Value = readertype.CanLendDay;
+            parameters[3].Value = readertype.CanContinueTimes;
+            parameters[4].Value = readertype.PunishRate;
+            parameters[5].Value = readertype.DateValid;
+            parameters[6].Value = readertype.rdType;
             try
             {
                 rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.Text, sql, parameters);

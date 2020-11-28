@@ -33,15 +33,5 @@ namespace keshe.Model
         #endregion
 
         public ReaderType() { }
-        public ReaderType(ReaderType r)
-        {
-            this.rdType = r.rdType;
-            this.rdTypeName = r.rdTypeName;
-            this.CanLendQty = r.CanLendQty;
-            this.CanLendDay = r.CanLendDay;
-            this.CanContinueTimes = r.CanContinueTimes;
-            this.PunishRate = r.PunishRate;
-            this.DateValid = r.DateValid;
-        }
     }
 }

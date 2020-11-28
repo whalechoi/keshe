@@ -45,21 +45,5 @@ namespace keshe.Model
         #endregion
 
         public Reader() { }
-        public Reader(Reader r)
-        {
-            this.rdID = r.rdID;
-            this.rdName = r.rdName;
-            this.rdSex = r.rdSex;
-            this.rdType = r.rdType;
-            this.rdDept = r.rdDept;
-            this.rdPhone = r.rdPhone;
-            this.rdEmail = r.rdEmail;
-            this.rdDateReg = r.rdDateReg;
-            this.rdPhoto = r.rdPhoto;
-            this.rdStatus = r.rdStatus;
-            this.rdBorrowQty = r.rdBorrowQty;
-            this.rdPwd = r.rdPwd;
-            this.rdAdminRoles = r.rdAdminRoles;
-        }
     }
 }
