@@ -15,10 +15,6 @@ namespace keshe
         public static void addAction(UserAction action)
         {
             ActionList.Add(new UserAction(action)); // 添加拷贝后的用户操作，而不是操作本身的引用
-            //Book test = (Book)ActionList[ActionList.Count - 1].actionModel;
-            //test.bkID = 0;
-            //Book test2 = (Book)action.actionModel;
-            //test2.bkID = 0;
         }
         protected override void WndProc(ref Message msg)
         {
@@ -30,19 +26,15 @@ namespace keshe
                 /// 若用户点了关闭按钮，则执行下面代码
                 /// 调用Close()或者Dispose()方法不会触发
                 /// </summary>
-                if (ActionList.Count != 0)
+                if (canClose())
                 {
-                    DialogResult dr = MessageBox.Show($"您还有 {ActionList.Count} 个操作未提交，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (dr != DialogResult.OK)
-                    {
-                        return;
-                    }
+                    ActionList.Clear();
+                    GlobalObject.logout();
+                    _instance = null;
+                    this.Dispose();
+                    System.Environment.Exit(0);
                 }
-                ActionList.Clear();
-                GlobalObject.logout();
-                _instance = null;
-                this.Dispose();
-                System.Environment.Exit(0);
+                return;
             }
             base.WndProc(ref msg);
         }
@@ -57,6 +49,27 @@ namespace keshe
             dgv_Actions.Columns["actionSource"].FillWeight = 15;
             dgv_Actions.Columns["actionType"].FillWeight = 15;
             dgv_Actions.Columns["actionDescription"].FillWeight = 70;
+        }
+
+        private bool canClose()
+        {
+            if (ActionList.Count != 0)
+            {
+                DialogResult dr = MessageBox.Show($"您还有 {ActionList.Count} 个操作未提交，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr != DialogResult.OK)
+                {
+                    return false;
+                }
+            }
+            if (bookAdd.isExist)
+            {
+                DialogResult dr = MessageBox.Show($"检测到您正在添加图书，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr != DialogResult.OK)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private static main _instance = null; // 单例模式
@@ -135,18 +148,13 @@ namespace keshe
 
         private void 退出系统ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (ActionList.Count != 0)
+            if (canClose())
             {
-                DialogResult dr = MessageBox.Show($"您还有 {ActionList.Count} 个操作未提交，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dr != DialogResult.OK)
-                {
-                    return;
-                }
+                ActionList.Clear();
+                GlobalObject.logout();
+                _instance = null;
+                this.Dispose();
             }
-            ActionList.Clear();
-            GlobalObject.logout();
-            _instance = null;
-            this.Dispose();
         }
 
         private void 密码修改ToolStripMenuItem_Click(object sender, EventArgs e)
