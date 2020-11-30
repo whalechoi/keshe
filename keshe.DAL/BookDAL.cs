@@ -184,5 +184,21 @@ namespace keshe.DAL
             return MySqlHelper.DataRowToT<Book>(dr);
         }
         #endregion
+        #region GetLastObject
+        public static Book GetLastObject()
+        {
+            string sql = "select * from TB_Book order by bkID DESC limit 1";
+            DataTable dt = null;
+            dt = MySqlHelper.GetData(_strConnection, CommandType.Text, sql);
+            DataRow dr = null;
+            if (dt == null || dt.Rows.Count == 0)
+                return null;
+            else
+            {
+                dr = dt.Rows[0];
+                return MySqlHelper.DataRowToT<Book>(dr);
+            }
+        }
+        #endregion
     }
 }

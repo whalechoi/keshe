@@ -26,7 +26,7 @@ create table `TB_Reader` (
 	`rdStatus` nchar(2), /* 证件状态，3个：有效、挂失、注销 */
 	`rdBorrowQty` Int default 0, /* 已借书数量（缺省值0） */
 	`rdPwd` nchar(32) default '202CB962AC59075B964B07152D234B70', /* 读者密码（初值123），32bit MD5加密存储 */
-	`rdAdminRoles` SmallInt, /* 管理角色：0-读者、1-借书证管理、2-图书管理、4-借阅管理、8-系统管理，可组合 */
+	`rdAdminRoles` SmallInt, /* 管理角色：(第一位)借书证管理、(第二位)图书管理、(第三位)借阅管理、(第四位)系统管理，可组合 */
 	FOREIGN KEY(`rdType`) REFERENCES `TB_ReaderType`(`rdType`) /* 表级约束 */
 );
 

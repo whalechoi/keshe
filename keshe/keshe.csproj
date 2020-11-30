@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NETCore.Encrypt, Version=2.0.9.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NETCore.Encrypt.2.0.9\lib\netstandard2.0\NETCore.Encrypt.dll</HintPath>
@@ -77,11 +80,11 @@
     <Compile Include="AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="addBook.cs">
+    <Compile Include="bookAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addBook.Designer.cs">
-      <DependentUpon>addBook.cs</DependentUpon>
+    <Compile Include="bookAdd.Designer.cs">
+      <DependentUpon>bookAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="bookDetail.cs">
       <SubType>Form</SubType>
@@ -89,11 +92,11 @@
     <Compile Include="bookDetail.Designer.cs">
       <DependentUpon>bookDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="borrowCardManager.cs">
+    <Compile Include="borrowCardChanger.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="borrowCardManager.Designer.cs">
-      <DependentUpon>borrowCardManager.cs</DependentUpon>
+    <Compile Include="borrowCardChanger.Designer.cs">
+      <DependentUpon>borrowCardChanger.cs</DependentUpon>
     </Compile>
     <Compile Include="changePassword.cs">
       <SubType>Form</SubType>
@@ -131,14 +134,14 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="addBook.resx">
-      <DependentUpon>addBook.cs</DependentUpon>
+    <EmbeddedResource Include="bookAdd.resx">
+      <DependentUpon>bookAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="bookDetail.resx">
       <DependentUpon>bookDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="borrowCardManager.resx">
-      <DependentUpon>borrowCardManager.cs</DependentUpon>
+    <EmbeddedResource Include="borrowCardChanger.resx">
+      <DependentUpon>borrowCardChanger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="changePassword.resx">
       <DependentUpon>changePassword.cs</DependentUpon>
@@ -164,6 +167,7 @@
     <EmbeddedResource Include="bookManager.resx">
       <DependentUpon>bookManager.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Action.datasource" />
     <None Include="Properties\DataSources\keshe.Model.UserAction.datasource" />

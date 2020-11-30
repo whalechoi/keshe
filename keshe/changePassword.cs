@@ -13,14 +13,23 @@ namespace keshe
 {
     public partial class changePassword : Form
     {
-        public changePassword()
+        private static changePassword _instance = null; // 单例模式
+        public static changePassword CreateInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new changePassword();
+            }
+            return _instance;
+        }
+        private changePassword()
         {
             InitializeComponent();
         }
 
         private void button_Cancel_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            _instance = null;
             this.Dispose();
         }
 
@@ -46,6 +55,11 @@ namespace keshe
                 MessageBox.Show("原密码错误！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
+            if (textBox_new_pwd.Text == textBox_old_pwd.Text)
+            {
+                MessageBox.Show("新密码不能与旧密码一样！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
             GlobalObject.readerSource.rdID = GlobalObject.reader.rdID;
             GlobalObject.readerSource.rdName = GlobalObject.reader.rdName;
             GlobalObject.readerSource.rdSex = GlobalObject.reader.rdSex;
@@ -59,7 +73,15 @@ namespace keshe
             GlobalObject.readerSource.rdBorrowQty = GlobalObject.reader.rdBorrowQty;
             GlobalObject.readerSource.rdPwd = EncryptProvider.Md5(textBox_new_pwd.Text);
             GlobalObject.readerSource.rdAdminRoles = GlobalObject.reader.rdAdminRoles;
-            this.DialogResult = DialogResult.OK;
+
+            GlobalObject.actionSource.actionSource = "Reader";
+            GlobalObject.actionSource.actionModel = GlobalObject.readerSource;
+            GlobalObject.actionSource.actionType = "Update";
+            GlobalObject.actionSource.actionDescription = $"修改用户 {GlobalObject.readerSource.rdName}(rdID:{GlobalObject.readerSource.rdID}) 的密码。";
+
+            main.addAction(GlobalObject.actionSource);
+            MessageBox.Show("操作已挂起！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            _instance = null;
             this.Dispose();
         }
     }

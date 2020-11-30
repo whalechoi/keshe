@@ -10,8 +10,16 @@ namespace keshe
 {
     public partial class main : Form
     {
-        private static readonly BindingList<UserAction> ActionList = new BindingList<UserAction>();
+        public static readonly BindingList<UserAction> ActionList = new BindingList<UserAction>();
         private int index = -1;
+        public static void addAction(UserAction action)
+        {
+            ActionList.Add(new UserAction(action)); // 添加拷贝后的用户操作，而不是操作本身的引用
+            //Book test = (Book)ActionList[ActionList.Count - 1].actionModel;
+            //test.bkID = 0;
+            //Book test2 = (Book)action.actionModel;
+            //test2.bkID = 0;
+        }
         protected override void WndProc(ref Message msg)
         {
             const int WM_SYSCOMMAND = 0x0112;
@@ -25,13 +33,15 @@ namespace keshe
                 if (ActionList.Count != 0)
                 {
                     DialogResult dr = MessageBox.Show($"您还有 {ActionList.Count} 个操作未提交，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (dr == DialogResult.Cancel)
+                    if (dr != DialogResult.OK)
                     {
                         return;
                     }
                 }
                 ActionList.Clear();
-                GlobalObject.reader = null;
+                GlobalObject.logout();
+                _instance = null;
+                this.Dispose();
                 System.Environment.Exit(0);
             }
             base.WndProc(ref msg);
@@ -49,7 +59,17 @@ namespace keshe
             dgv_Actions.Columns["actionDescription"].FillWeight = 70;
         }
 
-        public main()
+        private static main _instance = null; // 单例模式
+        public static main CreateInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new main();
+            }
+            return _instance;
+        }
+
+        private main()
         {
             InitializeComponent();
         }
@@ -59,33 +79,49 @@ namespace keshe
             this.Text =$"keshe 图书管理系统 v{Assembly.GetExecutingAssembly().GetName().Version.ToString()} 祝您阅读愉快！ 当前登录：{GlobalObject.reader.rdName}";
             dgv_Actions.DataSource = ActionList;
             dvg_style();
+            if (GlobalObject.borrowCardAdmin)
+            {
+                借书证管理ToolStripMenuItem.Visible = true;
+            }
+            if (GlobalObject.bookAdmin)
+            {
+                图书管理ToolStripMenuItem.Visible = true;
+            }
+            if (GlobalObject.borrowAdmin)
+            {
+                借阅管理ToolStripMenuItem.Visible = true;
+            }
+            if (GlobalObject.systemAdmin)
+            {
+                系统管理ToolStripMenuItem.Visible = true;
+            }
 
             #region 测试数据
-            UserAction test1 = new UserAction();
-            UserAction test2 = new UserAction();
-            UserAction test3 = new UserAction();
-            UserAction test4 = new UserAction();
-            UserAction test5 = new UserAction();
-            ReaderType test_rdtype = new ReaderType();
-            test_rdtype.rdType = 99;
-            test_rdtype.rdTypeName = "测试";
-            test1.actionType = "Update";
-            test1.actionDescription = "TEST_ONLY_1";
-            ActionList.Add(test1);
-            test2.actionSource = "ReaderType";
-            test2.actionModel = test_rdtype;
-            test2.actionType = "Add";
-            test2.actionDescription = "ReaderType TEST_ONLY_2";
-            ActionList.Add(test2);
-            test3.actionType = "Delete";
-            test3.actionDescription = "TEST_ONLY_3";
-            ActionList.Add(test3);
-            test4.actionType = "Update";
-            test4.actionDescription = "TEST_ONLY_4";
-            ActionList.Add(test4);
-            test5.actionType = "Update";
-            test5.actionDescription = "TEST_ONLY_5";
-            ActionList.Add(test5);
+            //UserAction test1 = new UserAction();
+            //UserAction test2 = new UserAction();
+            //UserAction test3 = new UserAction();
+            //UserAction test4 = new UserAction();
+            //UserAction test5 = new UserAction();
+            //ReaderType test_rdtype = new ReaderType();
+            //test_rdtype.rdType = 99;
+            //test_rdtype.rdTypeName = "测试";
+            //test1.actionType = "Update";
+            //test1.actionDescription = "TEST_ONLY_1";
+            //ActionList.Add(test1);
+            //test2.actionSource = "ReaderType";
+            //test2.actionModel = test_rdtype;
+            //test2.actionType = "Add";
+            //test2.actionDescription = "ReaderType TEST_ONLY_2";
+            //ActionList.Add(test2);
+            //test3.actionType = "Delete";
+            //test3.actionDescription = "TEST_ONLY_3";
+            //ActionList.Add(test3);
+            //test4.actionType = "Update";
+            //test4.actionDescription = "TEST_ONLY_4";
+            //ActionList.Add(test4);
+            //test5.actionType = "Update";
+            //test5.actionDescription = "TEST_ONLY_5";
+            //ActionList.Add(test5);
             #endregion
 
             toolStripStatusLabel.Text = $"[Info] 加载完毕，就绪";
@@ -102,38 +138,27 @@ namespace keshe
             if (ActionList.Count != 0)
             {
                 DialogResult dr = MessageBox.Show($"您还有 {ActionList.Count} 个操作未提交，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dr == DialogResult.OK)
+                if (dr != DialogResult.OK)
                 {
-                    GlobalObject.reader = null;
-                    ActionList.Clear();
-                    this.Dispose();
-                }
-                else
                     return;
+                }
             }
-            GlobalObject.reader = null;
             ActionList.Clear();
+            GlobalObject.logout();
+            _instance = null;
             this.Dispose();
         }
 
         private void 密码修改ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form changePassword = new changePassword();
-            DialogResult result = changePassword.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                GlobalObject.actionSource.actionSource = "Reader";
-                GlobalObject.actionSource.actionModel = GlobalObject.readerSource;
-                GlobalObject.actionSource.actionType = "Update";
-                GlobalObject.actionSource.actionDescription = $"修改用户 {GlobalObject.readerSource.rdName}(ID:{GlobalObject.readerSource.rdID}) 的密码。";
-                ActionList.Add(new UserAction(GlobalObject.actionSource));
-            }
+            Form _changePassword = changePassword.CreateInstance();
+            _changePassword.ShowDialog();
         }
 
         private void 新书入库ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form addBook = new addBook();
-            addBook.ShowDialog();
+            Form _bookAdd = bookAdd.CreateInstance();
+            _bookAdd.Show();
         }
         private void dgv_Actions_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {

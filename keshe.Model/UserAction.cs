@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace keshe.Model
     {
         #region 私有字段
         private string _actionSource = "ReaderType"; // 来源 -> ReaderType Reader Book Borrow
-        private Object _actionModel = null; // 需要进行操作的Model对象，Model(ReaderType、Reader、Book、Borrow)
+        private Object _actionModel = null; // 需要进行操作的Model对象 -> Model(ReaderType、Reader、Book、Borrow)
         private string _actionType = "Add"; // 操作类型 -> Add Update Delete
         private string _actionDescription = ""; // 动作描述信息 -> 提供给用户的提示信息
         #endregion
@@ -36,19 +37,20 @@ namespace keshe.Model
             this.actionDescription = r.actionDescription;
         }
         /// <summary>
-        /// 使用反射对对象进行深复制
+        /// 利用二进制序列化和反序列化实现深复制
         /// </summary>
         private T DeepCopy<T>(T obj)
         {
-            // string 类型不需要深复制
-            if (obj == null || obj is string || obj.GetType().IsValueType) return obj;
-
-            object retval = Activator.CreateInstance(obj.GetType());
-            System.Reflection.FieldInfo[] fields = obj.GetType().GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-            foreach (System.Reflection.FieldInfo field in fields)
+            object retval;
+            using (MemoryStream ms = new MemoryStream())
             {
-                try { field.SetValue(retval, DeepCopy(field.GetValue(obj))); }
-                catch { }
+                BinaryFormatter bf = new BinaryFormatter();
+                //序列化成流
+                bf.Serialize(ms, obj);
+                ms.Seek(0, SeekOrigin.Begin);
+                //反序列化成对象
+                retval = bf.Deserialize(ms);
+                ms.Close();
             }
             return (T)retval;
         }

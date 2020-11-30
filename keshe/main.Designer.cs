@@ -32,23 +32,22 @@ namespace keshe
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.借书证管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.图书管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.新书入库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.图书信息维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.读者管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.办理借书证ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.借书证信息变更ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.借书证挂失与解除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.注销借书证ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.读者类型管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图书维护ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.借阅管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.借阅信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.读者类别管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.权限管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.借阅ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.借书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.续借ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.还书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.用户管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.权限管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.密码修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.提交全部操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.放弃全部操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,134 +58,134 @@ namespace keshe
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.提交操作ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.放弃ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Actions)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.借书证管理ToolStripMenuItem,
             this.图书管理ToolStripMenuItem,
-            this.读者管理ToolStripMenuItem,
             this.借阅管理ToolStripMenuItem,
-            this.用户管理ToolStripMenuItem,
-            this.信息ToolStripMenuItem});
+            this.系统管理ToolStripMenuItem,
+            this.借阅ToolStripMenuItem,
+            this.用户ToolStripMenuItem,
+            this.操作ToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1024, 28);
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 3, 0, 3);
+            this.menuStrip.Size = new System.Drawing.Size(847, 30);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
+            // 
+            // 借书证管理ToolStripMenuItem
+            // 
+            this.借书证管理ToolStripMenuItem.Name = "借书证管理ToolStripMenuItem";
+            this.借书证管理ToolStripMenuItem.Size = new System.Drawing.Size(98, 24);
+            this.借书证管理ToolStripMenuItem.Text = "借书证管理";
+            this.借书证管理ToolStripMenuItem.Visible = false;
             // 
             // 图书管理ToolStripMenuItem
             // 
             this.图书管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.新书入库ToolStripMenuItem,
-            this.图书信息维护ToolStripMenuItem});
+            this.图书维护ToolStripMenuItem});
             this.图书管理ToolStripMenuItem.Name = "图书管理ToolStripMenuItem";
             this.图书管理ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.图书管理ToolStripMenuItem.Text = "图书管理";
+            this.图书管理ToolStripMenuItem.Visible = false;
             // 
             // 新书入库ToolStripMenuItem
             // 
             this.新书入库ToolStripMenuItem.Name = "新书入库ToolStripMenuItem";
-            this.新书入库ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.新书入库ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.新书入库ToolStripMenuItem.Text = "新书入库";
             this.新书入库ToolStripMenuItem.Click += new System.EventHandler(this.新书入库ToolStripMenuItem_Click);
             // 
-            // 图书信息维护ToolStripMenuItem
+            // 图书维护ToolStripMenuItem
             // 
-            this.图书信息维护ToolStripMenuItem.Name = "图书信息维护ToolStripMenuItem";
-            this.图书信息维护ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.图书信息维护ToolStripMenuItem.Text = "图书信息维护";
-            // 
-            // 读者管理ToolStripMenuItem
-            // 
-            this.读者管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.办理借书证ToolStripMenuItem,
-            this.借书证信息变更ToolStripMenuItem,
-            this.借书证挂失与解除ToolStripMenuItem,
-            this.注销借书证ToolStripMenuItem,
-            this.读者类型管理ToolStripMenuItem});
-            this.读者管理ToolStripMenuItem.Name = "读者管理ToolStripMenuItem";
-            this.读者管理ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
-            this.读者管理ToolStripMenuItem.Text = "读者管理";
-            // 
-            // 办理借书证ToolStripMenuItem
-            // 
-            this.办理借书证ToolStripMenuItem.Name = "办理借书证ToolStripMenuItem";
-            this.办理借书证ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.办理借书证ToolStripMenuItem.Text = "办理借书证";
-            // 
-            // 借书证信息变更ToolStripMenuItem
-            // 
-            this.借书证信息变更ToolStripMenuItem.Name = "借书证信息变更ToolStripMenuItem";
-            this.借书证信息变更ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.借书证信息变更ToolStripMenuItem.Text = "借书证信息变更";
-            // 
-            // 借书证挂失与解除ToolStripMenuItem
-            // 
-            this.借书证挂失与解除ToolStripMenuItem.Name = "借书证挂失与解除ToolStripMenuItem";
-            this.借书证挂失与解除ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.借书证挂失与解除ToolStripMenuItem.Text = "借书证挂失与解除";
-            // 
-            // 注销借书证ToolStripMenuItem
-            // 
-            this.注销借书证ToolStripMenuItem.Name = "注销借书证ToolStripMenuItem";
-            this.注销借书证ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.注销借书证ToolStripMenuItem.Text = "注销借书证";
-            // 
-            // 读者类型管理ToolStripMenuItem
-            // 
-            this.读者类型管理ToolStripMenuItem.Name = "读者类型管理ToolStripMenuItem";
-            this.读者类型管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.读者类型管理ToolStripMenuItem.Text = "读者类型管理";
+            this.图书维护ToolStripMenuItem.Name = "图书维护ToolStripMenuItem";
+            this.图书维护ToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.图书维护ToolStripMenuItem.Text = "图书维护";
             // 
             // 借阅管理ToolStripMenuItem
             // 
             this.借阅管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.借书ToolStripMenuItem,
-            this.续借ToolStripMenuItem,
-            this.还书ToolStripMenuItem});
+            this.借阅信息ToolStripMenuItem});
             this.借阅管理ToolStripMenuItem.Name = "借阅管理ToolStripMenuItem";
             this.借阅管理ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
             this.借阅管理ToolStripMenuItem.Text = "借阅管理";
+            this.借阅管理ToolStripMenuItem.Visible = false;
+            // 
+            // 借阅信息ToolStripMenuItem
+            // 
+            this.借阅信息ToolStripMenuItem.Name = "借阅信息ToolStripMenuItem";
+            this.借阅信息ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.借阅信息ToolStripMenuItem.Text = "借阅信息管理";
+            // 
+            // 系统管理ToolStripMenuItem
+            // 
+            this.系统管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.读者类别管理ToolStripMenuItem,
+            this.权限管理ToolStripMenuItem});
+            this.系统管理ToolStripMenuItem.Name = "系统管理ToolStripMenuItem";
+            this.系统管理ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.系统管理ToolStripMenuItem.Text = "系统管理";
+            this.系统管理ToolStripMenuItem.Visible = false;
+            // 
+            // 读者类别管理ToolStripMenuItem
+            // 
+            this.读者类别管理ToolStripMenuItem.Name = "读者类别管理ToolStripMenuItem";
+            this.读者类别管理ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.读者类别管理ToolStripMenuItem.Text = "读者类别管理";
+            // 
+            // 权限管理ToolStripMenuItem
+            // 
+            this.权限管理ToolStripMenuItem.Name = "权限管理ToolStripMenuItem";
+            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.权限管理ToolStripMenuItem.Text = "权限管理";
+            // 
+            // 借阅ToolStripMenuItem
+            // 
+            this.借阅ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.借书ToolStripMenuItem,
+            this.续借ToolStripMenuItem,
+            this.还书ToolStripMenuItem});
+            this.借阅ToolStripMenuItem.Name = "借阅ToolStripMenuItem";
+            this.借阅ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.借阅ToolStripMenuItem.Text = "借阅";
             // 
             // 借书ToolStripMenuItem
             // 
             this.借书ToolStripMenuItem.Name = "借书ToolStripMenuItem";
-            this.借书ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.借书ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.借书ToolStripMenuItem.Text = "借书";
             // 
             // 续借ToolStripMenuItem
             // 
             this.续借ToolStripMenuItem.Name = "续借ToolStripMenuItem";
-            this.续借ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.续借ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.续借ToolStripMenuItem.Text = "续借";
             // 
             // 还书ToolStripMenuItem
             // 
             this.还书ToolStripMenuItem.Name = "还书ToolStripMenuItem";
-            this.还书ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.还书ToolStripMenuItem.Size = new System.Drawing.Size(122, 26);
             this.还书ToolStripMenuItem.Text = "还书";
             // 
-            // 用户管理ToolStripMenuItem
+            // 用户ToolStripMenuItem
             // 
-            this.用户管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.权限管理ToolStripMenuItem,
+            this.用户ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.密码修改ToolStripMenuItem});
-            this.用户管理ToolStripMenuItem.Name = "用户管理ToolStripMenuItem";
-            this.用户管理ToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
-            this.用户管理ToolStripMenuItem.Text = "用户管理";
-            // 
-            // 权限管理ToolStripMenuItem
-            // 
-            this.权限管理ToolStripMenuItem.Name = "权限管理ToolStripMenuItem";
-            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.权限管理ToolStripMenuItem.Text = "权限管理";
+            this.用户ToolStripMenuItem.Name = "用户ToolStripMenuItem";
+            this.用户ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.用户ToolStripMenuItem.Text = "用户";
             // 
             // 密码修改ToolStripMenuItem
             // 
@@ -195,16 +194,16 @@ namespace keshe
             this.密码修改ToolStripMenuItem.Text = "密码修改";
             this.密码修改ToolStripMenuItem.Click += new System.EventHandler(this.密码修改ToolStripMenuItem_Click);
             // 
-            // 信息ToolStripMenuItem
+            // 操作ToolStripMenuItem
             // 
-            this.信息ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.提交全部操作ToolStripMenuItem,
             this.放弃全部操作ToolStripMenuItem,
             this.退出系统ToolStripMenuItem,
             this.关于ToolStripMenuItem});
-            this.信息ToolStripMenuItem.Name = "信息ToolStripMenuItem";
-            this.信息ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.信息ToolStripMenuItem.Text = "操作";
+            this.操作ToolStripMenuItem.Name = "操作ToolStripMenuItem";
+            this.操作ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.操作ToolStripMenuItem.Text = "操作";
             // 
             // 提交全部操作ToolStripMenuItem
             // 
@@ -239,10 +238,10 @@ namespace keshe
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 556);
+            this.statusStrip.Location = new System.Drawing.Point(0, 487);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip.Size = new System.Drawing.Size(1024, 26);
+            this.statusStrip.Size = new System.Drawing.Size(847, 26);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip";
@@ -265,8 +264,8 @@ namespace keshe
             this.dgv_Actions.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_Actions.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgv_Actions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Actions.Location = new System.Drawing.Point(12, 40);
-            this.dgv_Actions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_Actions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Actions.Location = new System.Drawing.Point(3, 3);
             this.dgv_Actions.MultiSelect = false;
             this.dgv_Actions.Name = "dgv_Actions";
             this.dgv_Actions.ReadOnly = true;
@@ -275,7 +274,7 @@ namespace keshe
             this.dgv_Actions.RowTemplate.Height = 27;
             this.dgv_Actions.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv_Actions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Actions.Size = new System.Drawing.Size(1000, 502);
+            this.dgv_Actions.Size = new System.Drawing.Size(841, 451);
             this.dgv_Actions.TabIndex = 2;
             this.dgv_Actions.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_Actions_CellMouseClick);
             this.dgv_Actions.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_Actions_CellMouseDoubleClick);
@@ -304,19 +303,32 @@ namespace keshe
             this.放弃ToolStripMenuItem.Text = "放弃操作";
             this.放弃ToolStripMenuItem.Click += new System.EventHandler(this.放弃ToolStripMenuItem_Click);
             // 
+            // tableLayoutPanel
+            // 
+            this.tableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel.ColumnCount = 1;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.Controls.Add(this.dgv_Actions, 0, 0);
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 30);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 1;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(847, 457);
+            this.tableLayoutPanel.TabIndex = 3;
+            // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 582);
-            this.Controls.Add(this.dgv_Actions);
-            this.Controls.Add(this.statusStrip);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(847, 513);
+            this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.menuStrip);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Controls.Add(this.statusStrip);
+            this.Font = new System.Drawing.Font("字由心雨 常规体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(865, 560);
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "keshe 图书管理系统";
@@ -327,6 +339,7 @@ namespace keshe
             this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Actions)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
+            this.tableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,21 +351,15 @@ namespace keshe
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripMenuItem 图书管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 新书入库ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 图书信息维护ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 读者管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 办理借书证ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 借书证信息变更ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 借书证挂失与解除ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 注销借书证ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 读者类型管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 借阅管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 图书维护ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 借书证管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 借阅ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 借书ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 续借ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 还书ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 用户管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 权限管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 用户ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 密码修改ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 信息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 操作ToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolStripMenuItem 退出系统ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
@@ -362,5 +369,11 @@ namespace keshe
         private System.Windows.Forms.ToolStripMenuItem 提交操作ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 提交全部操作ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 放弃全部操作ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 系统管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 权限管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 读者类别管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 借阅管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 借阅信息ToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
     }
 }

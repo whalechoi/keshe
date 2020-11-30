@@ -20,13 +20,13 @@ namespace keshe
             {
                 if(GlobalObject.reader == null)
                 {
-                    Form login = new login();
-                    login.ShowDialog();
+                    Form _login = login.CreateInstance();
+                    _login.ShowDialog();
                 }
                 else
                 {
-                    Form main = new main();
-                    main.ShowDialog();
+                    Form _main = main.CreateInstance();
+                    _main.ShowDialog();
                 }
             }
         }

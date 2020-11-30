@@ -15,13 +15,24 @@ namespace keshe
 {
     public partial class login : Form
     {
-        public login()
+        private static login _instance = null; // 单例模式
+        public static login CreateInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new login();
+            }
+            return _instance;
+        }
+        private login()
         {
             InitializeComponent();
         }
 
         private void button_exit_Click(object sender, EventArgs e)
         {
+            _instance = null;
+            this.Dispose();
             System.Environment.Exit(0);
         }
 
@@ -53,22 +64,32 @@ namespace keshe
                     break;
                 case 0:
                     this.Visible = false;
-                    GlobalObject.reader = loginControler.GetReader(Int32.Parse(textBox_rdID.Text));
+                    GlobalObject.login(loginControler.GetReader(Int32.Parse(textBox_rdID.Text)));
+                    if (GlobalObject.reader.rdStatus == "挂失")
+                    {
+                        MessageBox.Show("您当前的借书证已被挂失，欲了解详细情况请与借书证管理员联系！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        GlobalObject.logout();
+                        this.Visible = true;
+                        break;
+                    }
+                    if (GlobalObject.reader.rdStatus == "注销")
+                    {
+                        MessageBox.Show("您当前的借书证已被注销，您不能登入此图书管理系统！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        GlobalObject.logout();
+                        this.Visible = true;
+                        break;
+                    }
                     MessageBox.Show($"登录成功，{GlobalObject.reader.rdName}，欢迎使用 keshe 图书管理系统!", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    _instance = null;
                     this.Dispose();
                     break;
                 case -1:
-                    MessageBox.Show("登录失败，请检查您的网络连接！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("登录失败，请检查您的网络连接！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
                 default:
                     MessageBox.Show("登录失败，未知错误！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     break;
             }
-        }
-
-        private void label_welcome_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/whalechoi/keshe");
         }
 
         private void textBox_rdID_KeyPress(object sender, KeyPressEventArgs e)
@@ -82,6 +103,11 @@ namespace keshe
             {
                 e.Handled = false;
             } 
+        }
+
+        private void label_welcome_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/whalechoi/keshe");
         }
     }
 }

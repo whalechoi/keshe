@@ -39,7 +39,9 @@ namespace keshe
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.labBookNumber = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtBBookNumber = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -57,8 +59,6 @@ namespace keshe
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.labBookNumber = new System.Windows.Forms.Label();
-            this.txtBBookNumber = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
@@ -176,6 +176,15 @@ namespace keshe
             this.label4.TabIndex = 2;
             this.label4.Text = "内容简介：";
             // 
+            // labBookNumber
+            // 
+            this.labBookNumber.AutoSize = true;
+            this.labBookNumber.Location = new System.Drawing.Point(24, 36);
+            this.labBookNumber.Name = "labBookNumber";
+            this.labBookNumber.Size = new System.Drawing.Size(82, 15);
+            this.labBookNumber.TabIndex = 0;
+            this.labBookNumber.Text = "图书序号：";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -184,6 +193,13 @@ namespace keshe
             this.label5.Size = new System.Drawing.Size(82, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "图书编号：";
+            // 
+            // txtBBookNumber
+            // 
+            this.txtBBookNumber.Location = new System.Drawing.Point(108, 33);
+            this.txtBBookNumber.Name = "txtBBookNumber";
+            this.txtBBookNumber.Size = new System.Drawing.Size(184, 25);
+            this.txtBBookNumber.TabIndex = 1;
             // 
             // textBox5
             // 
@@ -333,22 +349,6 @@ namespace keshe
             this.label16.Text = "标准ISBN：";
             this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
-            // labBookNumber
-            // 
-            this.labBookNumber.AutoSize = true;
-            this.labBookNumber.Location = new System.Drawing.Point(24, 36);
-            this.labBookNumber.Name = "labBookNumber";
-            this.labBookNumber.Size = new System.Drawing.Size(82, 15);
-            this.labBookNumber.TabIndex = 0;
-            this.labBookNumber.Text = "图书序号：";
-            // 
-            // txtBBookNumber
-            // 
-            this.txtBBookNumber.Location = new System.Drawing.Point(108, 33);
-            this.txtBBookNumber.Name = "txtBBookNumber";
-            this.txtBBookNumber.Size = new System.Drawing.Size(184, 25);
-            this.txtBBookNumber.TabIndex = 1;
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(220, 493);
@@ -368,7 +368,7 @@ namespace keshe
             this.btnBack.Text = "返回";
             this.btnBack.UseVisualStyleBackColor = true;
             // 
-            // BookDetail
+            // bookDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -376,7 +376,7 @@ namespace keshe
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox2);
-            this.Name = "BookDetail";
+            this.Name = "bookDetail";
             this.Text = "BookDetail";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
