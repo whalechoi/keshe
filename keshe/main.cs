@@ -28,6 +28,7 @@ namespace keshe
                 /// </summary>
                 if (canClose())
                 {
+                    bookAdd.disposeAll();
                     ActionList.Clear();
                     GlobalObject.logout();
                     _instance = null;
@@ -61,7 +62,7 @@ namespace keshe
                     return false;
                 }
             }
-            if (bookAdd.isExist)
+            if (bookAdd.isExist())
             {
                 DialogResult dr = MessageBox.Show($"检测到您正在添加图书，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dr != DialogResult.OK)
@@ -150,6 +151,7 @@ namespace keshe
         {
             if (canClose())
             {
+                bookAdd.disposeAll();
                 ActionList.Clear();
                 GlobalObject.logout();
                 _instance = null;
@@ -296,6 +298,11 @@ namespace keshe
             {
                 toolStripStatusLabel.Text = "[Info] 等待操作，就绪";
             }
+        }
+
+        private void 图书维护ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

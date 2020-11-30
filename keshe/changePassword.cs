@@ -80,6 +80,7 @@ namespace keshe
             GlobalObject.actionSource.actionDescription = $"修改用户 {GlobalObject.readerSource.rdName}(rdID:{GlobalObject.readerSource.rdID}) 的密码。";
 
             main.addAction(GlobalObject.actionSource);
+            this.Visible = false;
             MessageBox.Show("操作已挂起！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             _instance = null;
             this.Dispose();

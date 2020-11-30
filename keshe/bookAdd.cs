@@ -14,14 +14,28 @@ namespace keshe
 {
     public partial class bookAdd : Form
     {
-        public static bool isExist = false;
+        public static bool isExist()
+        {
+            if (_instance != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static void disposeAll()
+        {
+            if (_instance != null)
+            {
+                _instance.Dispose();
+                _instance = null;
+            }
+        }
         private static bookAdd _instance = null; // 单例模式
         public static bookAdd CreateInstance()
         {
             if (_instance == null)
             {
                 _instance = new bookAdd();
-                isExist = true;
             }
             return _instance;
         }
@@ -33,14 +47,12 @@ namespace keshe
         private void btnCancel_Click(object sender, EventArgs e)
         {
             _instance = null;
-            isExist = false;
             this.Dispose();
         }
 
         private void bookAdd_FormClosing(object sender, FormClosingEventArgs e)
         {
             _instance = null;
-            isExist = false;
             this.Dispose();
         }
 
@@ -155,7 +167,7 @@ namespace keshe
             int index = -1;
             foreach (UserAction action in main.ActionList)
             {
-                if (action.actionSource == "Book")
+                if (action.actionSource == "Book" && action.actionType == "Add")
                 {
                     Book tmp = (Book)action.actionModel;
                     index = tmp.bkID;
@@ -174,7 +186,6 @@ namespace keshe
             this.Visible = false;
             MessageBox.Show("操作已挂起！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             _instance = null;
-            isExist = false;
             this.Dispose();
         }
 
@@ -185,7 +196,6 @@ namespace keshe
             {
                 MessageBox.Show("连接数据库失败，请检查您的网络连接！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _instance = null;
-                isExist = false;
                 this.Dispose();
             }
             textBox_bkID.Text = (bkID + 1).ToString();
