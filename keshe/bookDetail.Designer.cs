@@ -306,7 +306,7 @@ namespace keshe
             "3-俄文",
             "4-德文",
             "5-法文"});
-            this.comboBox_bkLanguage.Location = new System.Drawing.Point(86, 227);
+            this.comboBox_bkLanguage.Location = new System.Drawing.Point(86, 230);
             this.comboBox_bkLanguage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBox_bkLanguage.Name = "comboBox_bkLanguage";
             this.comboBox_bkLanguage.Size = new System.Drawing.Size(195, 25);
@@ -520,7 +520,7 @@ namespace keshe
             "O-数理科学和化学",
             "P-天文学、地球科学",
             "Q-生物科学"});
-            this.comboBox_bkCatalog.Location = new System.Drawing.Point(86, 195);
+            this.comboBox_bkCatalog.Location = new System.Drawing.Point(86, 198);
             this.comboBox_bkCatalog.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBox_bkCatalog.Name = "comboBox_bkCatalog";
             this.comboBox_bkCatalog.Size = new System.Drawing.Size(195, 25);
@@ -558,7 +558,7 @@ namespace keshe
             "遗失",
             "变卖",
             "销毁"});
-            this.comboBox_Status.Location = new System.Drawing.Point(86, 391);
+            this.comboBox_Status.Location = new System.Drawing.Point(86, 394);
             this.comboBox_Status.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBox_Status.Name = "comboBox_Status";
             this.comboBox_Status.Size = new System.Drawing.Size(195, 25);
