@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace keshe
 {
-    public partial class bookAdd : Form
+    public partial class bookDetail : Form
     {
         public static bool isExist()
         {
@@ -23,16 +23,16 @@ namespace keshe
                 _instance = null;
             }
         }
-        private static bookAdd _instance = null; // 单例模式
-        public static bookAdd CreateInstance()
+        private static bookDetail _instance = null; // 单例模式
+        public static bookDetail CreateInstance()
         {
             if (_instance == null)
             {
-                _instance = new bookAdd();
+                _instance = new bookDetail();
             }
             return _instance;
         }
-        private bookAdd()
+        private bookDetail()
         {
             InitializeComponent();
         }
@@ -43,7 +43,7 @@ namespace keshe
             this.Dispose();
         }
 
-        private void bookAdd_FormClosing(object sender, FormClosingEventArgs e)
+        private void bookDetail_FormClosing(object sender, FormClosingEventArgs e)
         {
             _instance = null;
             this.Dispose();
@@ -51,6 +51,7 @@ namespace keshe
 
         private void setBookInfo()
         {
+            GlobalObject.bookSource.bkID = Int32.Parse(textBox_bkID.Text);
             GlobalObject.bookSource.bkCode = textBox_bkCode.Text;
             GlobalObject.bookSource.bkName = textBox_bkName.Text;
             GlobalObject.bookSource.bkAuthor = textBox_bkAuthor.Text;
@@ -63,15 +64,15 @@ namespace keshe
             GlobalObject.bookSource.bkPrice = decimal.Parse(textBox_bkPrice.Text);
             GlobalObject.bookSource.bkDateIn = dTP_bkDateIn.Value;
             GlobalObject.bookSource.bkBrief = textBox_bkBrief.Text;
-            GlobalObject.bookSource.bkCover = bookAddControler.ImageToByte(pic_bkCover.Image);
-            GlobalObject.bookSource.bkStatus = "在馆";
-
+            GlobalObject.bookSource.bkCover = bookDetailControler.ImageToByte(pic_bkCover.Image);
+            GlobalObject.bookSource.bkStatus = comboBox_Status.SelectedItem.ToString();
+            GlobalObject.actionSource.actionDescription = $"修改图书信息 {GlobalObject.bookSource.bkCode}(bkID:{GlobalObject.bookSource.bkID}) ";
             GlobalObject.actionSource.actionSource = "Book";
             GlobalObject.actionSource.actionModel = GlobalObject.bookSource;
-            GlobalObject.actionSource.actionType = "Add";
+            GlobalObject.actionSource.actionType = "Update";
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnChange_Click(object sender, EventArgs e)
         {
             if (textBox_bkCode.Text == "")
             {
@@ -124,75 +125,58 @@ namespace keshe
                 MessageBox.Show("请输入正确的价格！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            try
-            {
-                if (Int32.Parse(textBox_quantity.Text) <= 0)
-                {
-                    MessageBox.Show("图书本书必须大于0！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    return;
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("请输入正确的图书本书！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (textBox_bkBrief.Text == "")
             {
                 MessageBox.Show("内容简介不能为空！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
             setBookInfo();
-            // 如果还存在未提交的添加图书操作，则bkID从未提交操作中获取！
-            int index = -1;
+            // 如果该图书还存在未提交的修改图书操作，报错！
             foreach (UserAction action in main.ActionList)
             {
-                if (action.actionSource == "Book" && action.actionType == "Add")
+                if (action.actionSource == "Book" && action.actionType == "Update")
                 {
                     Book tmp = (Book)action.actionModel;
-                    index = tmp.bkID;
+                    if (tmp.bkID == GlobalObject.bookSource.bkID)
+                    {
+                        MessageBox.Show("对当前图书的修改操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
-            for (int i = 0; i < Int32.Parse(textBox_quantity.Text); i++)
-            {
-                if (index != -1)
-                {
-                    textBox_bkID.Text = (index + 1).ToString();
-                }
-                GlobalObject.bookSource.bkID = Int32.Parse(textBox_bkID.Text) + i;
-                GlobalObject.actionSource.actionDescription = $"添加图书 {GlobalObject.bookSource.bkCode}(bkID:{GlobalObject.bookSource.bkID}) 。";
-                main.addAction(GlobalObject.actionSource);
-            }
+            main.addAction(GlobalObject.actionSource);
             this.Visible = false;
+            this.DialogResult = DialogResult.OK;
             _instance = null;
             this.Dispose();
         }
 
-        private void bookAdd_Load(object sender, EventArgs e)
+        private void bookDetail_Load(object sender, EventArgs e)
         {
-            int bkID = bookAddControler.GetLastBkID();
-            if (bkID == -1)
+            Book temp = bookDetailControler.GetBookbybkID(bookSearch.bkID);
+            if (temp == null)
             {
                 MessageBox.Show("连接数据库失败，请检查您的网络连接！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _instance = null;
                 this.Dispose();
             }
-            textBox_bkID.Text = (bkID + 1).ToString();
-            comboBox_bkCatalog.SelectedIndex = 0;
-            comboBox_bkLanguage.SelectedIndex = 0;
-        }
 
-        private void textBox_quantity_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // 只能输入数字！ (char)8表示退格键
-            if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (char)8)
-            {
-                e.Handled = true;
-            }
-            else
-            {
-                e.Handled = false;
-            }
+            textBox_bkID.Text = temp.bkID.ToString();
+            textBox_bkCode.Text = temp.bkCode;
+            textBox_bkName.Text = temp.bkName;
+            textBox_bkAuthor.Text = temp.bkAuthor;
+            textBox_bkPress.Text = temp.bkPress;
+            dTP_bkDatePress.Value = temp.bkDatePress;
+            textBox_bkISBN.Text = temp.bkISBN;
+            comboBox_bkCatalog.SelectedIndex = Int32.Parse(temp.bkCatalog);
+            comboBox_bkLanguage.SelectedIndex = temp.bkLanguage;
+            textBox_bkPages.Text = temp.bkPages.ToString();
+            textBox_bkPrice.Text = temp.bkPrice.ToString();
+            dTP_bkDateIn.Value = temp.bkDateIn;
+            textBox_bkBrief.Text = temp.bkBrief;
+            pic_bkCover.Image = bookDetailControler.ByteToImage(temp.bkCover);
+            comboBox_Status.SelectedItem = temp.bkStatus;
+
         }
 
         private void textBox_bkPrice_KeyPress(object sender, KeyPressEventArgs e)

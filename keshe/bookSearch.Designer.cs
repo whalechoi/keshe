@@ -69,20 +69,20 @@ namespace keshe
             this.toolStripTextBox_text});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1182, 33);
+            this.toolStrip.Size = new System.Drawing.Size(947, 26);
             this.toolStrip.TabIndex = 0;
             this.toolStrip.Text = "toolStrip1";
             // 
             // toolStripLabel_type
             // 
             this.toolStripLabel_type.Name = "toolStripLabel_type";
-            this.toolStripLabel_type.Size = new System.Drawing.Size(88, 30);
+            this.toolStripLabel_type.Size = new System.Drawing.Size(70, 23);
             this.toolStripLabel_type.Text = "查找方式";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 26);
             // 
             // toolStripComboBox_type
             // 
@@ -96,7 +96,7 @@ namespace keshe
             "出版社名",
             "标准ISBN"});
             this.toolStripComboBox_type.Name = "toolStripComboBox_type";
-            this.toolStripComboBox_type.Size = new System.Drawing.Size(120, 33);
+            this.toolStripComboBox_type.Size = new System.Drawing.Size(97, 26);
             // 
             // toolStripButton_search
             // 
@@ -105,7 +105,7 @@ namespace keshe
             this.toolStripButton_search.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_search.Image")));
             this.toolStripButton_search.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton_search.Name = "toolStripButton_search";
-            this.toolStripButton_search.Size = new System.Drawing.Size(54, 30);
+            this.toolStripButton_search.Size = new System.Drawing.Size(44, 23);
             this.toolStripButton_search.Text = "查找";
             this.toolStripButton_search.Click += new System.EventHandler(this.toolStripButton_search_Click);
             // 
@@ -113,14 +113,14 @@ namespace keshe
             // 
             this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 26);
             // 
             // toolStripTextBox_text
             // 
             this.toolStripTextBox_text.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripTextBox_text.Font = new System.Drawing.Font("字由心雨 常规体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripTextBox_text.Name = "toolStripTextBox_text";
-            this.toolStripTextBox_text.Size = new System.Drawing.Size(300, 33);
+            this.toolStripTextBox_text.Size = new System.Drawing.Size(241, 26);
             // 
             // tableLayoutPanel_main
             // 
@@ -130,12 +130,13 @@ namespace keshe
             this.tableLayoutPanel_main.Controls.Add(this.dgv_target, 0, 0);
             this.tableLayoutPanel_main.Controls.Add(this.tableLayoutPanel_bottom, 0, 1);
             this.tableLayoutPanel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_main.Location = new System.Drawing.Point(0, 33);
+            this.tableLayoutPanel_main.Location = new System.Drawing.Point(0, 26);
+            this.tableLayoutPanel_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel_main.Name = "tableLayoutPanel_main";
             this.tableLayoutPanel_main.RowCount = 2;
             this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
-            this.tableLayoutPanel_main.Size = new System.Drawing.Size(1182, 640);
+            this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel_main.Size = new System.Drawing.Size(947, 519);
             this.tableLayoutPanel_main.TabIndex = 1;
             // 
             // dgv_target
@@ -149,7 +150,8 @@ namespace keshe
             this.dgv_target.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dgv_target.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_target.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_target.Location = new System.Drawing.Point(3, 3);
+            this.dgv_target.Location = new System.Drawing.Point(2, 2);
+            this.dgv_target.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgv_target.MultiSelect = false;
             this.dgv_target.Name = "dgv_target";
             this.dgv_target.ReadOnly = true;
@@ -158,7 +160,7 @@ namespace keshe
             this.dgv_target.RowTemplate.Height = 27;
             this.dgv_target.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgv_target.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_target.Size = new System.Drawing.Size(1176, 592);
+            this.dgv_target.Size = new System.Drawing.Size(943, 481);
             this.dgv_target.TabIndex = 0;
             this.dgv_target.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_target_CellMouseUp);
             // 
@@ -167,26 +169,28 @@ namespace keshe
             this.tableLayoutPanel_bottom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel_bottom.ColumnCount = 3;
             this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel_bottom.Controls.Add(this.label_info, 0, 0);
             this.tableLayoutPanel_bottom.Controls.Add(this.button_previous, 1, 0);
             this.tableLayoutPanel_bottom.Controls.Add(this.button_next, 2, 0);
             this.tableLayoutPanel_bottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_bottom.Location = new System.Drawing.Point(3, 601);
+            this.tableLayoutPanel_bottom.Location = new System.Drawing.Point(2, 487);
+            this.tableLayoutPanel_bottom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel_bottom.Name = "tableLayoutPanel_bottom";
             this.tableLayoutPanel_bottom.RowCount = 1;
             this.tableLayoutPanel_bottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_bottom.Size = new System.Drawing.Size(1176, 36);
+            this.tableLayoutPanel_bottom.Size = new System.Drawing.Size(943, 30);
             this.tableLayoutPanel_bottom.TabIndex = 1;
             // 
             // label_info
             // 
             this.label_info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_info.AutoSize = true;
-            this.label_info.Location = new System.Drawing.Point(3, 15);
+            this.label_info.Location = new System.Drawing.Point(2, 13);
+            this.label_info.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_info.Name = "label_info";
-            this.label_info.Size = new System.Drawing.Size(95, 21);
+            this.label_info.Size = new System.Drawing.Size(75, 17);
             this.label_info.TabIndex = 0;
             this.label_info.Text = "[Info] 加载中";
             // 
@@ -194,9 +198,10 @@ namespace keshe
             // 
             this.button_previous.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_previous.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button_previous.Location = new System.Drawing.Point(981, 3);
+            this.button_previous.Location = new System.Drawing.Point(787, 3);
+            this.button_previous.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_previous.Name = "button_previous";
-            this.button_previous.Size = new System.Drawing.Size(90, 30);
+            this.button_previous.Size = new System.Drawing.Size(72, 24);
             this.button_previous.TabIndex = 1;
             this.button_previous.Text = "上一页";
             this.button_previous.UseVisualStyleBackColor = true;
@@ -206,9 +211,10 @@ namespace keshe
             // 
             this.button_next.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_next.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button_next.Location = new System.Drawing.Point(1081, 3);
+            this.button_next.Location = new System.Drawing.Point(867, 3);
+            this.button_next.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_next.Name = "button_next";
-            this.button_next.Size = new System.Drawing.Size(90, 30);
+            this.button_next.Size = new System.Drawing.Size(72, 24);
             this.button_next.TabIndex = 1;
             this.button_next.Text = "下一页";
             this.button_next.UseVisualStyleBackColor = true;
@@ -221,33 +227,34 @@ namespace keshe
             this.编辑图书信息ToolStripMenuItem,
             this.删除图书ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(169, 52);
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
             // 
             // 编辑图书信息ToolStripMenuItem
             // 
             this.编辑图书信息ToolStripMenuItem.Name = "编辑图书信息ToolStripMenuItem";
-            this.编辑图书信息ToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
+            this.编辑图书信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.编辑图书信息ToolStripMenuItem.Text = "编辑图书信息";
+            this.编辑图书信息ToolStripMenuItem.Click += new System.EventHandler(this.编辑图书信息ToolStripMenuItem_Click);
             // 
             // 删除图书ToolStripMenuItem
             // 
             this.删除图书ToolStripMenuItem.Name = "删除图书ToolStripMenuItem";
-            this.删除图书ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.删除图书ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除图书ToolStripMenuItem.Text = "删除图书";
             this.删除图书ToolStripMenuItem.Click += new System.EventHandler(this.删除图书ToolStripMenuItem_Click);
             // 
             // bookSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1182, 673);
+            this.ClientSize = new System.Drawing.Size(947, 545);
             this.Controls.Add(this.tableLayoutPanel_main);
             this.Controls.Add(this.toolStrip);
             this.Font = new System.Drawing.Font("字由心雨 常规体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1200, 720);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MinimumSize = new System.Drawing.Size(963, 584);
             this.Name = "bookSearch";
             this.Text = "查找您要维护的图书";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.bookSearch_FormClosing);

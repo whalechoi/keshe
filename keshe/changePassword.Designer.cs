@@ -39,15 +39,15 @@ namespace keshe
             this.label_new_pwd2 = new System.Windows.Forms.Label();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel_new_pwd2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel_new_pwd = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel_old_pwd = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_button = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel_old_pwd = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel_new_pwd = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel_new_pwd2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel_new_pwd2.SuspendLayout();
-            this.tableLayoutPanel_new_pwd.SuspendLayout();
-            this.tableLayoutPanel_old_pwd.SuspendLayout();
             this.tableLayoutPanel_button.SuspendLayout();
+            this.tableLayoutPanel_old_pwd.SuspendLayout();
+            this.tableLayoutPanel_new_pwd.SuspendLayout();
+            this.tableLayoutPanel_new_pwd2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_OK
@@ -55,7 +55,7 @@ namespace keshe
             this.button_OK.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_OK.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_OK.Location = new System.Drawing.Point(59, 9);
-            this.button_OK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_OK.Margin = new System.Windows.Forms.Padding(2);
             this.button_OK.Name = "button_OK";
             this.button_OK.Size = new System.Drawing.Size(76, 30);
             this.button_OK.TabIndex = 0;
@@ -68,7 +68,7 @@ namespace keshe
             this.textBox_old_pwd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox_old_pwd.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_old_pwd.Location = new System.Drawing.Point(118, 8);
-            this.textBox_old_pwd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_old_pwd.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_old_pwd.Name = "textBox_old_pwd";
             this.textBox_old_pwd.Size = new System.Drawing.Size(216, 30);
             this.textBox_old_pwd.TabIndex = 1;
@@ -91,7 +91,7 @@ namespace keshe
             this.textBox_new_pwd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox_new_pwd.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_new_pwd.Location = new System.Drawing.Point(118, 8);
-            this.textBox_new_pwd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_new_pwd.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_new_pwd.Name = "textBox_new_pwd";
             this.textBox_new_pwd.Size = new System.Drawing.Size(216, 30);
             this.textBox_new_pwd.TabIndex = 1;
@@ -114,7 +114,7 @@ namespace keshe
             this.textBox_new_pwd2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox_new_pwd2.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_new_pwd2.Location = new System.Drawing.Point(118, 8);
-            this.textBox_new_pwd2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_new_pwd2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_new_pwd2.Name = "textBox_new_pwd2";
             this.textBox_new_pwd2.Size = new System.Drawing.Size(216, 30);
             this.textBox_new_pwd2.TabIndex = 1;
@@ -137,7 +137,7 @@ namespace keshe
             this.button_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_Cancel.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Cancel.Location = new System.Drawing.Point(253, 9);
-            this.button_Cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_Cancel.Margin = new System.Windows.Forms.Padding(2);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(76, 30);
             this.button_Cancel.TabIndex = 1;
@@ -156,7 +156,7 @@ namespace keshe
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel_new_pwd2, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -165,54 +165,6 @@ namespace keshe
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(395, 213);
             this.tableLayoutPanel1.TabIndex = 7;
-            // 
-            // tableLayoutPanel_new_pwd2
-            // 
-            this.tableLayoutPanel_new_pwd2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel_new_pwd2.ColumnCount = 2;
-            this.tableLayoutPanel_new_pwd2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel_new_pwd2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel_new_pwd2.Controls.Add(this.textBox_new_pwd2, 1, 0);
-            this.tableLayoutPanel_new_pwd2.Controls.Add(this.label_new_pwd2, 0, 0);
-            this.tableLayoutPanel_new_pwd2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_new_pwd2.Location = new System.Drawing.Point(3, 109);
-            this.tableLayoutPanel_new_pwd2.Name = "tableLayoutPanel_new_pwd2";
-            this.tableLayoutPanel_new_pwd2.RowCount = 1;
-            this.tableLayoutPanel_new_pwd2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_new_pwd2.Size = new System.Drawing.Size(389, 47);
-            this.tableLayoutPanel_new_pwd2.TabIndex = 2;
-            // 
-            // tableLayoutPanel_new_pwd
-            // 
-            this.tableLayoutPanel_new_pwd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel_new_pwd.ColumnCount = 2;
-            this.tableLayoutPanel_new_pwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel_new_pwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel_new_pwd.Controls.Add(this.textBox_new_pwd, 1, 0);
-            this.tableLayoutPanel_new_pwd.Controls.Add(this.label_new_pwd, 0, 0);
-            this.tableLayoutPanel_new_pwd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_new_pwd.Location = new System.Drawing.Point(3, 56);
-            this.tableLayoutPanel_new_pwd.Name = "tableLayoutPanel_new_pwd";
-            this.tableLayoutPanel_new_pwd.RowCount = 1;
-            this.tableLayoutPanel_new_pwd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_new_pwd.Size = new System.Drawing.Size(389, 47);
-            this.tableLayoutPanel_new_pwd.TabIndex = 1;
-            // 
-            // tableLayoutPanel_old_pwd
-            // 
-            this.tableLayoutPanel_old_pwd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel_old_pwd.ColumnCount = 2;
-            this.tableLayoutPanel_old_pwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel_old_pwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel_old_pwd.Controls.Add(this.textBox_old_pwd, 1, 0);
-            this.tableLayoutPanel_old_pwd.Controls.Add(this.label_old_pwd, 0, 0);
-            this.tableLayoutPanel_old_pwd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_old_pwd.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel_old_pwd.Name = "tableLayoutPanel_old_pwd";
-            this.tableLayoutPanel_old_pwd.RowCount = 1;
-            this.tableLayoutPanel_old_pwd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_old_pwd.Size = new System.Drawing.Size(389, 47);
-            this.tableLayoutPanel_old_pwd.TabIndex = 0;
             // 
             // tableLayoutPanel_button
             // 
@@ -230,6 +182,54 @@ namespace keshe
             this.tableLayoutPanel_button.Size = new System.Drawing.Size(389, 48);
             this.tableLayoutPanel_button.TabIndex = 3;
             // 
+            // tableLayoutPanel_old_pwd
+            // 
+            this.tableLayoutPanel_old_pwd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel_old_pwd.ColumnCount = 2;
+            this.tableLayoutPanel_old_pwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel_old_pwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel_old_pwd.Controls.Add(this.textBox_old_pwd, 1, 0);
+            this.tableLayoutPanel_old_pwd.Controls.Add(this.label_old_pwd, 0, 0);
+            this.tableLayoutPanel_old_pwd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel_old_pwd.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel_old_pwd.Name = "tableLayoutPanel_old_pwd";
+            this.tableLayoutPanel_old_pwd.RowCount = 1;
+            this.tableLayoutPanel_old_pwd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_old_pwd.Size = new System.Drawing.Size(389, 47);
+            this.tableLayoutPanel_old_pwd.TabIndex = 0;
+            // 
+            // tableLayoutPanel_new_pwd
+            // 
+            this.tableLayoutPanel_new_pwd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel_new_pwd.ColumnCount = 2;
+            this.tableLayoutPanel_new_pwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel_new_pwd.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel_new_pwd.Controls.Add(this.textBox_new_pwd, 1, 0);
+            this.tableLayoutPanel_new_pwd.Controls.Add(this.label_new_pwd, 0, 0);
+            this.tableLayoutPanel_new_pwd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel_new_pwd.Location = new System.Drawing.Point(3, 56);
+            this.tableLayoutPanel_new_pwd.Name = "tableLayoutPanel_new_pwd";
+            this.tableLayoutPanel_new_pwd.RowCount = 1;
+            this.tableLayoutPanel_new_pwd.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_new_pwd.Size = new System.Drawing.Size(389, 47);
+            this.tableLayoutPanel_new_pwd.TabIndex = 1;
+            // 
+            // tableLayoutPanel_new_pwd2
+            // 
+            this.tableLayoutPanel_new_pwd2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel_new_pwd2.ColumnCount = 2;
+            this.tableLayoutPanel_new_pwd2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel_new_pwd2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel_new_pwd2.Controls.Add(this.textBox_new_pwd2, 1, 0);
+            this.tableLayoutPanel_new_pwd2.Controls.Add(this.label_new_pwd2, 0, 0);
+            this.tableLayoutPanel_new_pwd2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel_new_pwd2.Location = new System.Drawing.Point(3, 109);
+            this.tableLayoutPanel_new_pwd2.Name = "tableLayoutPanel_new_pwd2";
+            this.tableLayoutPanel_new_pwd2.RowCount = 1;
+            this.tableLayoutPanel_new_pwd2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_new_pwd2.Size = new System.Drawing.Size(389, 47);
+            this.tableLayoutPanel_new_pwd2.TabIndex = 2;
+            // 
             // changePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -240,7 +240,7 @@ namespace keshe
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "changePassword";
@@ -250,13 +250,13 @@ namespace keshe
             this.Text = "修改密码";
             this.TopMost = true;
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel_new_pwd2.ResumeLayout(false);
-            this.tableLayoutPanel_new_pwd2.PerformLayout();
-            this.tableLayoutPanel_new_pwd.ResumeLayout(false);
-            this.tableLayoutPanel_new_pwd.PerformLayout();
+            this.tableLayoutPanel_button.ResumeLayout(false);
             this.tableLayoutPanel_old_pwd.ResumeLayout(false);
             this.tableLayoutPanel_old_pwd.PerformLayout();
-            this.tableLayoutPanel_button.ResumeLayout(false);
+            this.tableLayoutPanel_new_pwd.ResumeLayout(false);
+            this.tableLayoutPanel_new_pwd.PerformLayout();
+            this.tableLayoutPanel_new_pwd2.ResumeLayout(false);
+            this.tableLayoutPanel_new_pwd2.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -9,7 +9,7 @@ namespace keshe
     public partial class bookSearch : Form
     {
         private static readonly int _maxrow = 20;
-        private static int bkID = -1;
+        public static int bkID = -1;
         private int index = -1;
         private int target = -1;
         public static bool isExist()
@@ -64,6 +64,14 @@ namespace keshe
                             if (dgv_target.Rows[i].Cells[0].Value.ToString() == tmp.bkID.ToString())
                             {
                                 dgv_target.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                            }
+                        }
+                        if (action.actionSource == "Book" && action.actionType == "Update")
+                        {
+                            Book tmp = (Book)action.actionModel;
+                            if (dgv_target.Rows[i].Cells[0].Value.ToString() == tmp.bkID.ToString())
+                            {
+                                dgv_target.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
                             }
                         }
 
@@ -262,6 +270,17 @@ namespace keshe
                 {
                     if (dgv_target.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Blue)
                     {
+                        MessageBox.Show("该图书属于系统，禁止对其进行任何操作！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (dgv_target.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Red)
+                    {
+                        MessageBox.Show("对当前图书的删除操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (dgv_target.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Orange)
+                    {
+                        MessageBox.Show("对当前图书的修改操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     this.dgv_target.Rows[e.RowIndex].Selected = true;//是否选中当前行
@@ -286,8 +305,7 @@ namespace keshe
             GlobalObject.actionSource.actionDescription = $"删除图书 {GlobalObject.bookSource.bkCode}(bkID:{GlobalObject.bookSource.bkID}) 。";
             main.addAction(GlobalObject.actionSource);
             dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Red;
-            MessageBox.Show("操作已挂起！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
+            label_info.Text = $"[Info] 删除图书 bkCode:{dgv_target.Rows[target].Cells[1].Value}(bkID:{dgv_target.Rows[target].Cells[0].Value}) 已挂起，就绪";
         }
 
         private void bookSearch_FormClosing(object sender, FormClosingEventArgs e)
@@ -295,6 +313,17 @@ namespace keshe
             bkID = -1;
             _instance = null;
             this.Dispose();
+        }
+
+        private void 编辑图书信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bkID = Int32.Parse(dgv_target.Rows[target].Cells[0].Value.ToString());
+            Form _bookDetail = bookDetail.CreateInstance();
+            if(_bookDetail.ShowDialog() == DialogResult.OK)
+            {
+                dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Orange;
+                label_info.Text = $"[Info] 修改图书信息 bkCode:{dgv_target.Rows[target].Cells[1].Value}(bkID:{dgv_target.Rows[target].Cells[0].Value}) 已挂起，就绪";
+            }
         }
     }
 }

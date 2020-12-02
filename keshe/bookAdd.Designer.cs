@@ -61,12 +61,12 @@ namespace keshe
             this.label_bkCover = new System.Windows.Forms.Label();
             this.pic_bkCover = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel_left = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox_bkID = new System.Windows.Forms.TextBox();
             this.dTP_bkDateIn = new System.Windows.Forms.DateTimePicker();
-            this.lable_bkID = new System.Windows.Forms.Label();
             this.dTP_bkDatePress = new System.Windows.Forms.DateTimePicker();
             this.comboBox_bkLanguage = new System.Windows.Forms.ComboBox();
             this.comboBox_bkCatalog = new System.Windows.Forms.ComboBox();
+            this.lable_bkID = new System.Windows.Forms.Label();
+            this.textBox_bkID = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel_main = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_bottom = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_bottom_right = new System.Windows.Forms.TableLayoutPanel();
@@ -88,10 +88,10 @@ namespace keshe
             // 
             this.lable_bkCode.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkCode.AutoSize = true;
-            this.lable_bkCode.Location = new System.Drawing.Point(19, 9);
+            this.lable_bkCode.Location = new System.Drawing.Point(14, 7);
             this.lable_bkCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkCode.Name = "lable_bkCode";
-            this.lable_bkCode.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkCode.Size = new System.Drawing.Size(68, 17);
             this.lable_bkCode.TabIndex = 0;
             this.lable_bkCode.Text = "图书编号：";
             // 
@@ -99,10 +99,10 @@ namespace keshe
             // 
             this.lable_bkName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkName.AutoSize = true;
-            this.lable_bkName.Location = new System.Drawing.Point(19, 49);
+            this.lable_bkName.Location = new System.Drawing.Point(14, 39);
             this.lable_bkName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkName.Name = "lable_bkName";
-            this.lable_bkName.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkName.Size = new System.Drawing.Size(68, 17);
             this.lable_bkName.TabIndex = 0;
             this.lable_bkName.Text = "图书名称：";
             // 
@@ -110,10 +110,10 @@ namespace keshe
             // 
             this.lable_bkAuthor.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkAuthor.AutoSize = true;
-            this.lable_bkAuthor.Location = new System.Drawing.Point(19, 89);
+            this.lable_bkAuthor.Location = new System.Drawing.Point(14, 71);
             this.lable_bkAuthor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkAuthor.Name = "lable_bkAuthor";
-            this.lable_bkAuthor.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkAuthor.Size = new System.Drawing.Size(68, 17);
             this.lable_bkAuthor.TabIndex = 0;
             this.lable_bkAuthor.Text = "图书作者：";
             // 
@@ -121,10 +121,10 @@ namespace keshe
             // 
             this.lable_bkPress.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkPress.AutoSize = true;
-            this.lable_bkPress.Location = new System.Drawing.Point(19, 129);
+            this.lable_bkPress.Location = new System.Drawing.Point(14, 103);
             this.lable_bkPress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkPress.Name = "lable_bkPress";
-            this.lable_bkPress.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkPress.Size = new System.Drawing.Size(68, 17);
             this.lable_bkPress.TabIndex = 0;
             this.lable_bkPress.Text = "出版社名：";
             // 
@@ -132,78 +132,77 @@ namespace keshe
             // 
             this.lable_bkDatePress.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkDatePress.AutoSize = true;
-            this.lable_bkDatePress.Location = new System.Drawing.Point(19, 169);
+            this.lable_bkDatePress.Location = new System.Drawing.Point(14, 135);
             this.lable_bkDatePress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkDatePress.Name = "lable_bkDatePress";
-            this.lable_bkDatePress.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkDatePress.Size = new System.Drawing.Size(68, 17);
             this.lable_bkDatePress.TabIndex = 0;
             this.lable_bkDatePress.Text = "出版日期：";
             // 
             // textBox_bkCode
             // 
             this.textBox_bkCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_bkCode.Location = new System.Drawing.Point(108, 6);
+            this.textBox_bkCode.Location = new System.Drawing.Point(86, 4);
             this.textBox_bkCode.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_bkCode.Name = "textBox_bkCode";
-            this.textBox_bkCode.Size = new System.Drawing.Size(229, 28);
+            this.textBox_bkCode.Size = new System.Drawing.Size(184, 24);
             this.textBox_bkCode.TabIndex = 1;
-            this.textBox_bkCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBBookID_KeyPress);
             // 
             // textBox_bkName
             // 
             this.textBox_bkName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_bkName.Location = new System.Drawing.Point(108, 46);
+            this.textBox_bkName.Location = new System.Drawing.Point(86, 36);
             this.textBox_bkName.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_bkName.Name = "textBox_bkName";
-            this.textBox_bkName.Size = new System.Drawing.Size(229, 28);
+            this.textBox_bkName.Size = new System.Drawing.Size(184, 24);
             this.textBox_bkName.TabIndex = 2;
             // 
             // textBox_bkAuthor
             // 
             this.textBox_bkAuthor.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_bkAuthor.Location = new System.Drawing.Point(108, 86);
+            this.textBox_bkAuthor.Location = new System.Drawing.Point(86, 68);
             this.textBox_bkAuthor.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_bkAuthor.Name = "textBox_bkAuthor";
-            this.textBox_bkAuthor.Size = new System.Drawing.Size(229, 28);
+            this.textBox_bkAuthor.Size = new System.Drawing.Size(184, 24);
             this.textBox_bkAuthor.TabIndex = 3;
             // 
             // textBox_bkPress
             // 
             this.textBox_bkPress.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_bkPress.Location = new System.Drawing.Point(108, 126);
+            this.textBox_bkPress.Location = new System.Drawing.Point(86, 100);
             this.textBox_bkPress.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_bkPress.Name = "textBox_bkPress";
-            this.textBox_bkPress.Size = new System.Drawing.Size(229, 28);
+            this.textBox_bkPress.Size = new System.Drawing.Size(184, 24);
             this.textBox_bkPress.TabIndex = 4;
             // 
             // lable_bkISBN
             // 
             this.lable_bkISBN.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkISBN.AutoSize = true;
-            this.lable_bkISBN.Location = new System.Drawing.Point(17, 209);
+            this.lable_bkISBN.Location = new System.Drawing.Point(13, 167);
             this.lable_bkISBN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkISBN.Name = "lable_bkISBN";
-            this.lable_bkISBN.Size = new System.Drawing.Size(87, 21);
+            this.lable_bkISBN.Size = new System.Drawing.Size(69, 17);
             this.lable_bkISBN.TabIndex = 0;
             this.lable_bkISBN.Text = "标准ISBN：";
             // 
             // textBox_bkISBN
             // 
             this.textBox_bkISBN.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_bkISBN.Location = new System.Drawing.Point(108, 206);
+            this.textBox_bkISBN.Location = new System.Drawing.Point(86, 164);
             this.textBox_bkISBN.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_bkISBN.Name = "textBox_bkISBN";
-            this.textBox_bkISBN.Size = new System.Drawing.Size(229, 28);
+            this.textBox_bkISBN.Size = new System.Drawing.Size(184, 24);
             this.textBox_bkISBN.TabIndex = 6;
             // 
             // lable_bkCatalog
             // 
             this.lable_bkCatalog.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkCatalog.AutoSize = true;
-            this.lable_bkCatalog.Location = new System.Drawing.Point(19, 249);
+            this.lable_bkCatalog.Location = new System.Drawing.Point(14, 199);
             this.lable_bkCatalog.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkCatalog.Name = "lable_bkCatalog";
-            this.lable_bkCatalog.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkCatalog.Size = new System.Drawing.Size(68, 17);
             this.lable_bkCatalog.TabIndex = 0;
             this.lable_bkCatalog.Text = "分类名称：";
             // 
@@ -211,10 +210,10 @@ namespace keshe
             // 
             this.lable_bkLanguage.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkLanguage.AutoSize = true;
-            this.lable_bkLanguage.Location = new System.Drawing.Point(19, 289);
+            this.lable_bkLanguage.Location = new System.Drawing.Point(14, 231);
             this.lable_bkLanguage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkLanguage.Name = "lable_bkLanguage";
-            this.lable_bkLanguage.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkLanguage.Size = new System.Drawing.Size(68, 17);
             this.lable_bkLanguage.TabIndex = 0;
             this.lable_bkLanguage.Text = "所属语种：";
             // 
@@ -222,10 +221,10 @@ namespace keshe
             // 
             this.lable_bkPages.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkPages.AutoSize = true;
-            this.lable_bkPages.Location = new System.Drawing.Point(19, 329);
+            this.lable_bkPages.Location = new System.Drawing.Point(14, 263);
             this.lable_bkPages.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkPages.Name = "lable_bkPages";
-            this.lable_bkPages.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkPages.Size = new System.Drawing.Size(68, 17);
             this.lable_bkPages.TabIndex = 0;
             this.lable_bkPages.Text = "图书页数：";
             // 
@@ -233,30 +232,30 @@ namespace keshe
             // 
             this.lable_bkPrice.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkPrice.AutoSize = true;
-            this.lable_bkPrice.Location = new System.Drawing.Point(19, 369);
+            this.lable_bkPrice.Location = new System.Drawing.Point(14, 295);
             this.lable_bkPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkPrice.Name = "lable_bkPrice";
-            this.lable_bkPrice.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkPrice.Size = new System.Drawing.Size(68, 17);
             this.lable_bkPrice.TabIndex = 0;
             this.lable_bkPrice.Text = "图书价格：";
             // 
             // textBox_bkPages
             // 
             this.textBox_bkPages.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_bkPages.Location = new System.Drawing.Point(108, 326);
+            this.textBox_bkPages.Location = new System.Drawing.Point(86, 260);
             this.textBox_bkPages.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_bkPages.Name = "textBox_bkPages";
-            this.textBox_bkPages.Size = new System.Drawing.Size(229, 28);
+            this.textBox_bkPages.Size = new System.Drawing.Size(184, 24);
             this.textBox_bkPages.TabIndex = 9;
             this.textBox_bkPages.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_bkPages_KeyPress);
             // 
             // textBox_bkPrice
             // 
             this.textBox_bkPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_bkPrice.Location = new System.Drawing.Point(108, 366);
+            this.textBox_bkPrice.Location = new System.Drawing.Point(86, 292);
             this.textBox_bkPrice.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_bkPrice.Name = "textBox_bkPrice";
-            this.textBox_bkPrice.Size = new System.Drawing.Size(229, 28);
+            this.textBox_bkPrice.Size = new System.Drawing.Size(184, 24);
             this.textBox_bkPrice.TabIndex = 10;
             this.textBox_bkPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_bkPrice_KeyPress);
             // 
@@ -265,10 +264,10 @@ namespace keshe
             this.lable_bkDateIn.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_bkDateIn.AutoSize = true;
             this.lable_bkDateIn.Font = new System.Drawing.Font("字由心雨 常规体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lable_bkDateIn.Location = new System.Drawing.Point(19, 409);
+            this.lable_bkDateIn.Location = new System.Drawing.Point(14, 327);
             this.lable_bkDateIn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkDateIn.Name = "lable_bkDateIn";
-            this.lable_bkDateIn.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkDateIn.Size = new System.Drawing.Size(68, 17);
             this.lable_bkDateIn.TabIndex = 0;
             this.lable_bkDateIn.Text = "入馆日期：";
             // 
@@ -276,20 +275,20 @@ namespace keshe
             // 
             this.lable_quantity.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lable_quantity.AutoSize = true;
-            this.lable_quantity.Location = new System.Drawing.Point(19, 449);
+            this.lable_quantity.Location = new System.Drawing.Point(14, 359);
             this.lable_quantity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_quantity.Name = "lable_quantity";
-            this.lable_quantity.Size = new System.Drawing.Size(85, 21);
+            this.lable_quantity.Size = new System.Drawing.Size(68, 17);
             this.lable_quantity.TabIndex = 0;
             this.lable_quantity.Text = "图书本数：";
             // 
             // textBox_quantity
             // 
             this.textBox_quantity.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_quantity.Location = new System.Drawing.Point(108, 446);
+            this.textBox_quantity.Location = new System.Drawing.Point(86, 356);
             this.textBox_quantity.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_quantity.Name = "textBox_quantity";
-            this.textBox_quantity.Size = new System.Drawing.Size(229, 28);
+            this.textBox_quantity.Size = new System.Drawing.Size(184, 24);
             this.textBox_quantity.TabIndex = 13;
             this.textBox_quantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_quantity_KeyPress);
             // 
@@ -302,7 +301,7 @@ namespace keshe
             this.groupBox.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox.Name = "groupBox";
             this.groupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox.Size = new System.Drawing.Size(1030, 555);
+            this.groupBox.Size = new System.Drawing.Size(825, 449);
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "图书明细";
@@ -318,12 +317,12 @@ namespace keshe
             this.tableLayoutPanel_full.Controls.Add(this.tableLayoutPanel_right, 2, 0);
             this.tableLayoutPanel_full.Controls.Add(this.tableLayoutPanel_left, 0, 0);
             this.tableLayoutPanel_full.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_full.Location = new System.Drawing.Point(2, 23);
+            this.tableLayoutPanel_full.Location = new System.Drawing.Point(2, 19);
             this.tableLayoutPanel_full.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_full.Name = "tableLayoutPanel_full";
             this.tableLayoutPanel_full.RowCount = 1;
             this.tableLayoutPanel_full.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_full.Size = new System.Drawing.Size(1026, 530);
+            this.tableLayoutPanel_full.Size = new System.Drawing.Size(821, 428);
             this.tableLayoutPanel_full.TabIndex = 0;
             // 
             // tableLayoutPanel_center
@@ -334,34 +333,34 @@ namespace keshe
             this.tableLayoutPanel_center.Controls.Add(this.textBox_bkBrief, 0, 1);
             this.tableLayoutPanel_center.Controls.Add(this.lable_bkBrief, 0, 0);
             this.tableLayoutPanel_center.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_center.Location = new System.Drawing.Point(361, 2);
+            this.tableLayoutPanel_center.Location = new System.Drawing.Point(289, 2);
             this.tableLayoutPanel_center.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_center.Name = "tableLayoutPanel_center";
             this.tableLayoutPanel_center.RowCount = 2;
             this.tableLayoutPanel_center.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel_center.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92F));
-            this.tableLayoutPanel_center.Size = new System.Drawing.Size(329, 526);
+            this.tableLayoutPanel_center.Size = new System.Drawing.Size(262, 424);
             this.tableLayoutPanel_center.TabIndex = 1;
             // 
             // textBox_bkBrief
             // 
             this.textBox_bkBrief.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_bkBrief.Location = new System.Drawing.Point(2, 44);
+            this.textBox_bkBrief.Location = new System.Drawing.Point(2, 35);
             this.textBox_bkBrief.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_bkBrief.Multiline = true;
             this.textBox_bkBrief.Name = "textBox_bkBrief";
             this.textBox_bkBrief.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_bkBrief.Size = new System.Drawing.Size(325, 480);
+            this.textBox_bkBrief.Size = new System.Drawing.Size(258, 387);
             this.textBox_bkBrief.TabIndex = 1;
             // 
             // lable_bkBrief
             // 
             this.lable_bkBrief.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lable_bkBrief.AutoSize = true;
-            this.lable_bkBrief.Location = new System.Drawing.Point(2, 10);
+            this.lable_bkBrief.Location = new System.Drawing.Point(2, 8);
             this.lable_bkBrief.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lable_bkBrief.Name = "lable_bkBrief";
-            this.lable_bkBrief.Size = new System.Drawing.Size(85, 21);
+            this.lable_bkBrief.Size = new System.Drawing.Size(68, 17);
             this.lable_bkBrief.TabIndex = 0;
             this.lable_bkBrief.Text = "内容简介：";
             // 
@@ -373,13 +372,13 @@ namespace keshe
             this.tableLayoutPanel_right.Controls.Add(this.tableLayoutPanel_right_top, 0, 0);
             this.tableLayoutPanel_right.Controls.Add(this.pic_bkCover, 0, 1);
             this.tableLayoutPanel_right.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_right.Location = new System.Drawing.Point(694, 2);
+            this.tableLayoutPanel_right.Location = new System.Drawing.Point(555, 2);
             this.tableLayoutPanel_right.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_right.Name = "tableLayoutPanel_right";
             this.tableLayoutPanel_right.RowCount = 2;
             this.tableLayoutPanel_right.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
             this.tableLayoutPanel_right.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92F));
-            this.tableLayoutPanel_right.Size = new System.Drawing.Size(330, 526);
+            this.tableLayoutPanel_right.Size = new System.Drawing.Size(264, 424);
             this.tableLayoutPanel_right.TabIndex = 2;
             // 
             // tableLayoutPanel_right_top
@@ -391,21 +390,20 @@ namespace keshe
             this.tableLayoutPanel_right_top.Controls.Add(this.button_bkCover, 1, 0);
             this.tableLayoutPanel_right_top.Controls.Add(this.label_bkCover, 0, 0);
             this.tableLayoutPanel_right_top.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_right_top.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel_right_top.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel_right_top.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel_right_top.Name = "tableLayoutPanel_right_top";
             this.tableLayoutPanel_right_top.RowCount = 1;
             this.tableLayoutPanel_right_top.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_right_top.Size = new System.Drawing.Size(322, 34);
+            this.tableLayoutPanel_right_top.Size = new System.Drawing.Size(258, 27);
             this.tableLayoutPanel_right_top.TabIndex = 0;
             // 
             // button_bkCover
             // 
             this.button_bkCover.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button_bkCover.Location = new System.Drawing.Point(212, 2);
+            this.button_bkCover.Location = new System.Drawing.Point(170, 2);
             this.button_bkCover.Margin = new System.Windows.Forms.Padding(2);
             this.button_bkCover.Name = "button_bkCover";
-            this.button_bkCover.Size = new System.Drawing.Size(108, 29);
+            this.button_bkCover.Size = new System.Drawing.Size(86, 23);
             this.button_bkCover.TabIndex = 1;
             this.button_bkCover.Text = "选择图片";
             this.button_bkCover.UseVisualStyleBackColor = true;
@@ -415,10 +413,10 @@ namespace keshe
             // 
             this.label_bkCover.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label_bkCover.AutoSize = true;
-            this.label_bkCover.Location = new System.Drawing.Point(2, 6);
+            this.label_bkCover.Location = new System.Drawing.Point(2, 5);
             this.label_bkCover.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_bkCover.Name = "label_bkCover";
-            this.label_bkCover.Size = new System.Drawing.Size(85, 21);
+            this.label_bkCover.Size = new System.Drawing.Size(68, 17);
             this.label_bkCover.TabIndex = 0;
             this.label_bkCover.Text = "图书封面：";
             // 
@@ -426,10 +424,10 @@ namespace keshe
             // 
             this.pic_bkCover.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pic_bkCover.Image = ((System.Drawing.Image)(resources.GetObject("pic_bkCover.Image")));
-            this.pic_bkCover.Location = new System.Drawing.Point(2, 44);
+            this.pic_bkCover.Location = new System.Drawing.Point(2, 35);
             this.pic_bkCover.Margin = new System.Windows.Forms.Padding(2);
             this.pic_bkCover.Name = "pic_bkCover";
-            this.pic_bkCover.Size = new System.Drawing.Size(326, 480);
+            this.pic_bkCover.Size = new System.Drawing.Size(260, 387);
             this.pic_bkCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_bkCover.TabIndex = 3;
             this.pic_bkCover.TabStop = false;
@@ -440,9 +438,7 @@ namespace keshe
             this.tableLayoutPanel_left.ColumnCount = 2;
             this.tableLayoutPanel_left.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel_left.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel_left.Controls.Add(this.textBox_bkID, 1, 12);
             this.tableLayoutPanel_left.Controls.Add(this.dTP_bkDateIn, 1, 10);
-            this.tableLayoutPanel_left.Controls.Add(this.lable_bkID, 0, 12);
             this.tableLayoutPanel_left.Controls.Add(this.dTP_bkDatePress, 1, 4);
             this.tableLayoutPanel_left.Controls.Add(this.textBox_quantity, 1, 11);
             this.tableLayoutPanel_left.Controls.Add(this.comboBox_bkLanguage, 1, 7);
@@ -466,64 +462,45 @@ namespace keshe
             this.tableLayoutPanel_left.Controls.Add(this.textBox_bkISBN, 1, 5);
             this.tableLayoutPanel_left.Controls.Add(this.lable_bkCatalog, 0, 6);
             this.tableLayoutPanel_left.Controls.Add(this.comboBox_bkCatalog, 1, 6);
+            this.tableLayoutPanel_left.Controls.Add(this.lable_bkID, 0, 12);
+            this.tableLayoutPanel_left.Controls.Add(this.textBox_bkID, 1, 12);
             this.tableLayoutPanel_left.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_left.Location = new System.Drawing.Point(2, 2);
             this.tableLayoutPanel_left.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_left.Name = "tableLayoutPanel_left";
             this.tableLayoutPanel_left.RowCount = 13;
             this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692307F));
-            this.tableLayoutPanel_left.Size = new System.Drawing.Size(355, 526);
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308F));
+            this.tableLayoutPanel_left.Size = new System.Drawing.Size(283, 424);
             this.tableLayoutPanel_left.TabIndex = 0;
-            // 
-            // textBox_bkID
-            // 
-            this.textBox_bkID.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_bkID.Location = new System.Drawing.Point(108, 489);
-            this.textBox_bkID.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox_bkID.Name = "textBox_bkID";
-            this.textBox_bkID.ReadOnly = true;
-            this.textBox_bkID.Size = new System.Drawing.Size(229, 28);
-            this.textBox_bkID.TabIndex = 14;
             // 
             // dTP_bkDateIn
             // 
             this.dTP_bkDateIn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dTP_bkDateIn.Location = new System.Drawing.Point(108, 406);
+            this.dTP_bkDateIn.Location = new System.Drawing.Point(86, 324);
             this.dTP_bkDateIn.Margin = new System.Windows.Forms.Padding(2);
             this.dTP_bkDateIn.Name = "dTP_bkDateIn";
-            this.dTP_bkDateIn.Size = new System.Drawing.Size(229, 28);
+            this.dTP_bkDateIn.Size = new System.Drawing.Size(184, 24);
             this.dTP_bkDateIn.TabIndex = 11;
-            // 
-            // lable_bkID
-            // 
-            this.lable_bkID.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lable_bkID.AutoSize = true;
-            this.lable_bkID.Location = new System.Drawing.Point(19, 492);
-            this.lable_bkID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lable_bkID.Name = "lable_bkID";
-            this.lable_bkID.Size = new System.Drawing.Size(85, 21);
-            this.lable_bkID.TabIndex = 0;
-            this.lable_bkID.Text = "起始序号：";
             // 
             // dTP_bkDatePress
             // 
             this.dTP_bkDatePress.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.dTP_bkDatePress.Location = new System.Drawing.Point(108, 166);
+            this.dTP_bkDatePress.Location = new System.Drawing.Point(86, 132);
             this.dTP_bkDatePress.Margin = new System.Windows.Forms.Padding(2);
             this.dTP_bkDatePress.Name = "dTP_bkDatePress";
-            this.dTP_bkDatePress.Size = new System.Drawing.Size(229, 28);
+            this.dTP_bkDatePress.Size = new System.Drawing.Size(184, 24);
             this.dTP_bkDatePress.TabIndex = 5;
             // 
             // comboBox_bkLanguage
@@ -538,10 +515,10 @@ namespace keshe
             "3-俄文",
             "4-德文",
             "5-法文"});
-            this.comboBox_bkLanguage.Location = new System.Drawing.Point(108, 288);
+            this.comboBox_bkLanguage.Location = new System.Drawing.Point(86, 230);
             this.comboBox_bkLanguage.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox_bkLanguage.Name = "comboBox_bkLanguage";
-            this.comboBox_bkLanguage.Size = new System.Drawing.Size(229, 29);
+            this.comboBox_bkLanguage.Size = new System.Drawing.Size(184, 25);
             this.comboBox_bkLanguage.TabIndex = 8;
             // 
             // comboBox_bkCatalog
@@ -565,11 +542,32 @@ namespace keshe
             "O-数理科学和化学",
             "P-天文学、地球科学",
             "Q-生物科学"});
-            this.comboBox_bkCatalog.Location = new System.Drawing.Point(108, 248);
+            this.comboBox_bkCatalog.Location = new System.Drawing.Point(86, 198);
             this.comboBox_bkCatalog.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox_bkCatalog.Name = "comboBox_bkCatalog";
-            this.comboBox_bkCatalog.Size = new System.Drawing.Size(229, 29);
+            this.comboBox_bkCatalog.Size = new System.Drawing.Size(184, 25);
             this.comboBox_bkCatalog.TabIndex = 7;
+            // 
+            // lable_bkID
+            // 
+            this.lable_bkID.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lable_bkID.AutoSize = true;
+            this.lable_bkID.Location = new System.Drawing.Point(14, 395);
+            this.lable_bkID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lable_bkID.Name = "lable_bkID";
+            this.lable_bkID.Size = new System.Drawing.Size(68, 17);
+            this.lable_bkID.TabIndex = 0;
+            this.lable_bkID.Text = "起始序号：";
+            // 
+            // textBox_bkID
+            // 
+            this.textBox_bkID.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox_bkID.Location = new System.Drawing.Point(86, 392);
+            this.textBox_bkID.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_bkID.Name = "textBox_bkID";
+            this.textBox_bkID.ReadOnly = true;
+            this.textBox_bkID.Size = new System.Drawing.Size(184, 24);
+            this.textBox_bkID.TabIndex = 14;
             // 
             // tableLayoutPanel_main
             // 
@@ -584,8 +582,8 @@ namespace keshe
             this.tableLayoutPanel_main.Name = "tableLayoutPanel_main";
             this.tableLayoutPanel_main.RowCount = 2;
             this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tableLayoutPanel_main.Size = new System.Drawing.Size(1034, 611);
+            this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel_main.Size = new System.Drawing.Size(829, 495);
             this.tableLayoutPanel_main.TabIndex = 0;
             // 
             // tableLayoutPanel_bottom
@@ -593,15 +591,15 @@ namespace keshe
             this.tableLayoutPanel_bottom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel_bottom.ColumnCount = 2;
             this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 160F));
             this.tableLayoutPanel_bottom.Controls.Add(this.tableLayoutPanel_bottom_right, 1, 0);
             this.tableLayoutPanel_bottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_bottom.Location = new System.Drawing.Point(2, 561);
+            this.tableLayoutPanel_bottom.Location = new System.Drawing.Point(2, 455);
             this.tableLayoutPanel_bottom.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_bottom.Name = "tableLayoutPanel_bottom";
             this.tableLayoutPanel_bottom.RowCount = 1;
             this.tableLayoutPanel_bottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_bottom.Size = new System.Drawing.Size(1030, 48);
+            this.tableLayoutPanel_bottom.Size = new System.Drawing.Size(825, 38);
             this.tableLayoutPanel_bottom.TabIndex = 1;
             // 
             // tableLayoutPanel_bottom_right
@@ -613,21 +611,21 @@ namespace keshe
             this.tableLayoutPanel_bottom_right.Controls.Add(this.button_Cancel, 1, 0);
             this.tableLayoutPanel_bottom_right.Controls.Add(this.button_Add, 0, 0);
             this.tableLayoutPanel_bottom_right.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_bottom_right.Location = new System.Drawing.Point(834, 4);
-            this.tableLayoutPanel_bottom_right.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel_bottom_right.Location = new System.Drawing.Point(667, 2);
+            this.tableLayoutPanel_bottom_right.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_bottom_right.Name = "tableLayoutPanel_bottom_right";
             this.tableLayoutPanel_bottom_right.RowCount = 1;
             this.tableLayoutPanel_bottom_right.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_bottom_right.Size = new System.Drawing.Size(192, 40);
+            this.tableLayoutPanel_bottom_right.Size = new System.Drawing.Size(156, 34);
             this.tableLayoutPanel_bottom_right.TabIndex = 0;
             // 
             // button_Cancel
             // 
             this.button_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_Cancel.Location = new System.Drawing.Point(99, 5);
+            this.button_Cancel.Location = new System.Drawing.Point(81, 5);
             this.button_Cancel.Margin = new System.Windows.Forms.Padding(2);
             this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(90, 30);
+            this.button_Cancel.Size = new System.Drawing.Size(72, 24);
             this.button_Cancel.TabIndex = 1;
             this.button_Cancel.Text = "取消";
             this.button_Cancel.UseVisualStyleBackColor = true;
@@ -639,7 +637,7 @@ namespace keshe
             this.button_Add.Location = new System.Drawing.Point(3, 5);
             this.button_Add.Margin = new System.Windows.Forms.Padding(2);
             this.button_Add.Name = "button_Add";
-            this.button_Add.Size = new System.Drawing.Size(90, 30);
+            this.button_Add.Size = new System.Drawing.Size(72, 24);
             this.button_Add.TabIndex = 0;
             this.button_Add.Text = "添加";
             this.button_Add.UseVisualStyleBackColor = true;
@@ -647,14 +645,14 @@ namespace keshe
             // 
             // bookAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1034, 611);
+            this.ClientSize = new System.Drawing.Size(829, 495);
             this.Controls.Add(this.tableLayoutPanel_main);
             this.Font = new System.Drawing.Font("字由心雨 常规体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MinimumSize = new System.Drawing.Size(1052, 658);
+            this.MinimumSize = new System.Drawing.Size(845, 534);
             this.Name = "bookAdd";
             this.Text = "添加图书";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.bookAdd_FormClosing);
