@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using keshe.DAL;
 using keshe.Model;
-using keshe.DAL;
+using System;
 
 namespace keshe.BLL
 {
@@ -16,65 +12,142 @@ namespace keshe.BLL
         private mainControler() { }
         public static Int32 SubmitAction(UserAction action)
         {
-            try
+            switch (action.actionSource)
             {
-                switch (action.actionSource)
-                {
-                    case "ReaderType":
-                        switch (action.actionType)
-                        {
-                            case "Add":
+                case "ReaderType":
+                    switch (action.actionType)
+                    {
+                        case "Add":
+                            try
+                            {
                                 return ReaderTypeDAL.Add((ReaderType)action.actionModel);
-                            case "Update":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Update":
+                            try
+                            {
                                 return ReaderTypeDAL.Update((ReaderType)action.actionModel);
-                            case "Delete":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Delete":
+                            try
+                            {
                                 return ReaderTypeDAL.Delete((ReaderType)action.actionModel);
-                            default:
-                                throw new Exception("Error actionType!");
-                        }
-                    case "Reader":
-                        switch (action.actionType)
-                        {
-                            case "Add":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        default:
+                            throw new Exception("Error actionType!");
+                    }
+                case "Reader":
+                    switch (action.actionType)
+                    {
+                        case "Add":
+                            try
+                            {
                                 return ReaderDAL.Add((Reader)action.actionModel);
-                            case "Update":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Update":
+                            try
+                            {
                                 return ReaderDAL.Update((Reader)action.actionModel);
-                            case "Delete":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Delete":
+                            try
+                            {
                                 return ReaderDAL.Delete((Reader)action.actionModel);
-                            default:
-                                throw new Exception("Error actionType!");
-                        }
-                    case "Book":
-                        switch (action.actionType)
-                        {
-                            case "Add":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        default:
+                            throw new Exception("Error actionType!");
+                    }
+                case "Book":
+                    switch (action.actionType)
+                    {
+                        case "Add":
+                            try
+                            {
                                 return BookDAL.Add((Book)action.actionModel);
-                            case "Update":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Update":
+                            try
+                            {
                                 return BookDAL.Update((Book)action.actionModel);
-                            case "Delete":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Delete":
+                            try
+                            {
                                 return BookDAL.Delete((Book)action.actionModel);
-                            default:
-                                throw new Exception("Error actionType!");
-                        }
-                    case "Borrow":
-                        switch (action.actionType)
-                        {
-                            case "Add":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        default:
+                            throw new Exception("Error actionType!");
+                    }
+                case "Borrow":
+                    switch (action.actionType)
+                    {
+                        case "Add":
+                            try
+                            {
                                 return BorrowDAL.Add((Borrow)action.actionModel);
-                            case "Update":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Update":
+                            try
+                            {
                                 return BorrowDAL.Update((Borrow)action.actionModel);
-                            case "Delete":
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Delete":
+                            try
+                            {
                                 return BorrowDAL.Delete((Borrow)action.actionModel);
-                            default:
-                                throw new Exception("Error actionType!");
-                        }
-                    default:
-                        throw (new Exception("Error actionSource!"));
-                }
-            }
-            catch (Exception)
-            {
-                return 0;
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        default:
+                            throw new Exception("Error actionType!");
+                    }
+                default:
+                    throw (new Exception("Error actionSource!"));
             }
         }
     }

@@ -1,15 +1,7 @@
-﻿using keshe.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using keshe.BLL;
+﻿using keshe.BLL;
 using NETCore.Encrypt;
+using System;
+using System.Windows.Forms;
 
 namespace keshe
 {
@@ -102,7 +94,7 @@ namespace keshe
             else
             {
                 e.Handled = false;
-            } 
+            }
         }
 
         private void label_welcome_Click(object sender, EventArgs e)

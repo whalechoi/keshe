@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace keshe
@@ -18,7 +15,7 @@ namespace keshe
             Application.SetCompatibleTextRenderingDefault(false);
             while (true)
             {
-                if(GlobalObject.reader == null)
+                if (GlobalObject.reader == null)
                 {
                     Form _login = login.CreateInstance();
                     _login.ShowDialog();

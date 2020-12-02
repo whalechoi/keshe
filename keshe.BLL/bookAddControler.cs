@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
+﻿using keshe.DAL;
 using keshe.Model;
-using keshe.DAL;
-using System.IO;
+using System;
+using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 
 namespace keshe.BLL
 {

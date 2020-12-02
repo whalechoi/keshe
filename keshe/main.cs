@@ -1,10 +1,9 @@
-﻿using System;
+﻿using keshe.BLL;
+using keshe.Model;
+using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
-using keshe.Model;
-using keshe.BLL;
 
 namespace keshe
 {
@@ -29,6 +28,7 @@ namespace keshe
                 if (canClose())
                 {
                     bookAdd.disposeAll();
+                    bookSearch.disposeAll();
                     ActionList.Clear();
                     GlobalObject.logout();
                     _instance = null;
@@ -42,7 +42,6 @@ namespace keshe
 
         private void dvg_style()
         {
-            dgv_Actions.ColumnHeadersDefaultCellStyle.Font = new Font("宋体", 12, FontStyle.Bold);
             dgv_Actions.Columns["actionSource"].HeaderText = "操作源";
             dgv_Actions.Columns["actionModel"].Visible = false;
             dgv_Actions.Columns["actionType"].HeaderText = "操作类型";
@@ -70,6 +69,14 @@ namespace keshe
                     return false;
                 }
             }
+            if (bookSearch.isExist())
+            {
+                DialogResult dr = MessageBox.Show($"检测到您正在维护图书，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr != DialogResult.OK)
+                {
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -90,7 +97,7 @@ namespace keshe
 
         private void main_Load(object sender, EventArgs e)
         {
-            this.Text =$"keshe 图书管理系统 v{Assembly.GetExecutingAssembly().GetName().Version.ToString()} 祝您阅读愉快！ 当前登录：{GlobalObject.reader.rdName}";
+            this.Text = $"keshe 图书管理系统 v{Assembly.GetExecutingAssembly().GetName().Version.ToString()} 祝您阅读愉快！ 当前登录：{GlobalObject.reader.rdName}";
             dgv_Actions.DataSource = ActionList;
             dvg_style();
             if (GlobalObject.borrowCardAdmin)
@@ -232,7 +239,7 @@ namespace keshe
 
         private void 提交全部操作ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            for (int i=0;i<ActionList.Count;i++)
+            for (int i = 0; i < ActionList.Count; i++)
             {
                 // 遍历删除，不能使用foreach，因为容器的count会发生变化！
                 if (ActionList[i].actionModel != null)
@@ -302,7 +309,8 @@ namespace keshe
 
         private void 图书维护ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form _bookSearch = bookSearch.CreateInstance();
+            _bookSearch.Show();
         }
     }
 }

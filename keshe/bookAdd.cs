@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using keshe.BLL;
+﻿using keshe.BLL;
 using keshe.Model;
+using System;
+using System.Windows.Forms;
 
 namespace keshe
 {
@@ -173,7 +166,7 @@ namespace keshe
                     index = tmp.bkID;
                 }
             }
-            for (int i=0;i< Int32.Parse(textBox_quantity.Text); i++)
+            for (int i = 0; i < Int32.Parse(textBox_quantity.Text); i++)
             {
                 if (index != -1)
                 {

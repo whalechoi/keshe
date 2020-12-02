@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using keshe.Model;
 using MySql.Data.MySqlClient;
-using keshe.Model;
+using System;
 using System.Data;
 
 namespace keshe.DAL
@@ -198,6 +194,53 @@ namespace keshe.DAL
                 dr = dt.Rows[0];
                 return MySqlHelper.DataRowToT<Book>(dr);
             }
+        }
+        #endregion
+        #region
+        public static DataTable Searchby(string type, string content, int row, int number)
+        {
+            string sql = "select bkID as 图书序号, bkCode as 图书编号, bkName as 图书名称, bkAuthor as 图书作者, bkPress as 出版社名, bkISBN 标准ISBN, bkDatePress as 出版日期, bkStatus as 图书状态  from TB_Book";
+            MySqlParameter parameter = null;
+            switch (type)
+            {
+                case "_ALL":
+                    sql = sql + $" limit {row}, {number}";
+                    return MySqlHelper.GetData(_strConnection, CommandType.Text, sql);
+                case "bkID":
+                    sql = sql + $" where bkID=?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.Int32);
+                    parameter.Value = Int32.Parse(content);
+                    break;
+                case "bkCode":
+                    sql = sql + $" where bkCode=?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
+                    parameter.Value = content;
+                    break;
+                case "bkName":
+                    sql = sql + $" where bkName=?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
+                    parameter.Value = content;
+                    break;
+                case "bkAuthor":
+                    sql = sql + $" where bkAuthor=?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
+                    parameter.Value = content;
+                    break;
+                case "bkPress":
+                    sql = sql + $" where bkPress=?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
+                    parameter.Value = content;
+                    break;
+                case "bkISBN":
+                    sql = sql + $" where bkISBN=?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
+                    parameter.Value = content;
+                    break;
+                default:
+                    throw (new Exception("Error search type!"));
+            }
+            MySqlParameter[] parameters = { parameter };
+            return MySqlHelper.GetData(_strConnection, CommandType.Text, sql, parameters);
         }
         #endregion
     }
