@@ -51,7 +51,7 @@ CREATE TABLE `TB_Book` (
 
 -- table TB_Borrow
 CREATE TABLE `TB_Borrow` (
-	`BorrowID` Numeric(12,0) PRIMARY KEY, /* 借书顺序号【主键】 */
+	`BorrowID` bigint not null auto_increment PRIMARY KEY, /* 借书顺序号【主键】 */
 	`rdID` int, /* 读者序号【外键TB_Reader】 */
 	`bkID` int, /* 图书序号【外键TB_Book】 */
 	`ldContinueTimes` int default 0, /* 续借次数（第一次借时，记为0） */
@@ -66,7 +66,7 @@ CREATE TABLE `TB_Borrow` (
 	`OperatorRet` Nvarchar(20), /* 还书操作员 */
 	FOREIGN KEY(`rdID`) REFERENCES `TB_Reader`(`rdID`), /* 表级约束 */
 	FOREIGN KEY(`bkID`) REFERENCES `TB_Book`(`bkID`) /* 表级约束 */
-);
+)auto_increment=1;
 
 -- default table TB_ReaderType
 insert into `TB_ReaderType` values(0,'未指定',1,1,1,0.50,1);
@@ -109,5 +109,40 @@ create trigger `TB_Book` before delete on `TB_Book`
 for each row
 begin
 	update `TB_Borrow` set `bkID` = 0 where bkID = old.bkID;
+end //
+delimiter ;
+
+delimiter //
+create procedure `usp_borrow_book` (in inrdID int,in inbkID int,in inOperatorLend varchar(20))
+begin
+	set @CanLendDay=(
+		select CanLendDay from TB_ReaderType
+		where rdType=(
+			select TB_Reader.rdType from TB_Reader where TB_Reader.rdID=inrdID
+		)
+	);
+	insert into TB_Borrow values
+	(NULL, inrdID, inbkID, 0, CURRENT_DATE, DATE_ADD(CURRENT_DATE, interval @CanLendDay day), NULL, NULL, NULL, NULL, 0, inOperatorLend, NULL);
+	update TB_Book set bkStatus = '借出' where bkID = inbkID;
+end //
+delimiter ;
+
+delimiter //
+create procedure `usp_return_book` (in inBorrowID bigint,in inOperatorRet varchar(20))
+begin
+	set @OverDay=DATEDIFF(CURRENT_DATE,(select ldDateRetPlan from TB_Borrow where BorrowID=inBorrowID));
+	if @OverDay < 0 then
+		set @OverDay = 0;
+	end if;
+	select PunishRate into @Rate from TB_ReaderType where rdType=(
+		select TB_Reader.rdType from TB_Reader where TB_Reader.rdID=(
+			select TB_Borrow.rdID from TB_Borrow where TB_Borrow.BorrowID=inBorrowID
+		)
+	);
+	set @PunishMoney=@OverDay * @Rate;
+	update TB_Borrow set ldDateRetAct=CURRENT_DATE, ldOverDay=@OverDay, ldOverMoney=@PunishMoney, ldPunishMoney=@PunishMoney, lsHasReturn=1, OperatorRet=inOperatorRet where BorrowID=inBorrowID;
+	update TB_Book set bkStatus = '在馆' where bkID =(
+		select TB_Borrow.bkID from TB_Borrow where TB_Borrow.BorrowID=inBorrowID
+	);
 end //
 delimiter ;

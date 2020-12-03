@@ -116,10 +116,10 @@ namespace keshe.BLL
                 case "Borrow":
                     switch (action.actionType)
                     {
-                        case "Add":
+                        case "Borrow":
                             try
                             {
-                                return BorrowDAL.Add((Borrow)action.actionModel);
+                                return BorrowDAL.Borrow((Borrow)action.actionModel);
                             }
                             catch (Exception)
                             {
@@ -138,6 +138,24 @@ namespace keshe.BLL
                             try
                             {
                                 return BorrowDAL.Delete((Borrow)action.actionModel);
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Return":
+                            try
+                            {
+                                return BorrowDAL.Return((Borrow)action.actionModel);
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Continue":
+                            try
+                            {
+                                return BorrowDAL.Continue((Borrow)action.actionModel);
                             }
                             catch (Exception)
                             {

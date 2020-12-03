@@ -166,7 +166,7 @@ namespace keshe
             this.添加读者类别ToolStripMenuItem,
             this.读者类别维护ToolStripMenuItem});
             this.读者类别管理ToolStripMenuItem.Name = "读者类别管理ToolStripMenuItem";
-            this.读者类别管理ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.读者类别管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.读者类别管理ToolStripMenuItem.Text = "读者类别管理";
             // 
             // 添加读者类别ToolStripMenuItem
@@ -184,7 +184,7 @@ namespace keshe
             // 权限管理ToolStripMenuItem
             // 
             this.权限管理ToolStripMenuItem.Name = "权限管理ToolStripMenuItem";
-            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.权限管理ToolStripMenuItem.Text = "权限管理";
             // 
             // 借阅ToolStripMenuItem
@@ -200,19 +200,20 @@ namespace keshe
             // 借书ToolStripMenuItem
             // 
             this.借书ToolStripMenuItem.Name = "借书ToolStripMenuItem";
-            this.借书ToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
+            this.借书ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.借书ToolStripMenuItem.Text = "借书";
+            this.借书ToolStripMenuItem.Click += new System.EventHandler(this.借书ToolStripMenuItem_Click);
             // 
             // 续借ToolStripMenuItem
             // 
             this.续借ToolStripMenuItem.Name = "续借ToolStripMenuItem";
-            this.续借ToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
+            this.续借ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.续借ToolStripMenuItem.Text = "续借";
             // 
             // 还书ToolStripMenuItem
             // 
             this.还书ToolStripMenuItem.Name = "还书ToolStripMenuItem";
-            this.还书ToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
+            this.还书ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.还书ToolStripMenuItem.Text = "还书";
             // 
             // 用户ToolStripMenuItem
@@ -226,7 +227,7 @@ namespace keshe
             // 密码修改ToolStripMenuItem
             // 
             this.密码修改ToolStripMenuItem.Name = "密码修改ToolStripMenuItem";
-            this.密码修改ToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.密码修改ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.密码修改ToolStripMenuItem.Text = "密码修改";
             this.密码修改ToolStripMenuItem.Click += new System.EventHandler(this.密码修改ToolStripMenuItem_Click);
             // 
@@ -244,28 +245,28 @@ namespace keshe
             // 提交全部操作ToolStripMenuItem
             // 
             this.提交全部操作ToolStripMenuItem.Name = "提交全部操作ToolStripMenuItem";
-            this.提交全部操作ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.提交全部操作ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.提交全部操作ToolStripMenuItem.Text = "提交全部操作";
             this.提交全部操作ToolStripMenuItem.Click += new System.EventHandler(this.提交全部操作ToolStripMenuItem_Click);
             // 
             // 放弃全部操作ToolStripMenuItem
             // 
             this.放弃全部操作ToolStripMenuItem.Name = "放弃全部操作ToolStripMenuItem";
-            this.放弃全部操作ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.放弃全部操作ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.放弃全部操作ToolStripMenuItem.Text = "放弃全部操作";
             this.放弃全部操作ToolStripMenuItem.Click += new System.EventHandler(this.放弃全部操作ToolStripMenuItem_Click);
             // 
             // 退出系统ToolStripMenuItem
             // 
             this.退出系统ToolStripMenuItem.Name = "退出系统ToolStripMenuItem";
-            this.退出系统ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.退出系统ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.退出系统ToolStripMenuItem.Text = "退出系统";
             this.退出系统ToolStripMenuItem.Click += new System.EventHandler(this.退出系统ToolStripMenuItem_Click);
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
@@ -324,19 +325,19 @@ namespace keshe
             this.提交操作ToolStripMenuItem1,
             this.放弃ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(211, 80);
+            this.contextMenuStrip.Size = new System.Drawing.Size(139, 52);
             // 
             // 提交操作ToolStripMenuItem1
             // 
             this.提交操作ToolStripMenuItem1.Name = "提交操作ToolStripMenuItem1";
-            this.提交操作ToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.提交操作ToolStripMenuItem1.Size = new System.Drawing.Size(138, 24);
             this.提交操作ToolStripMenuItem1.Text = "提交操作";
             this.提交操作ToolStripMenuItem1.Click += new System.EventHandler(this.提交操作ToolStripMenuItem1_Click);
             // 
             // 放弃ToolStripMenuItem
             // 
             this.放弃ToolStripMenuItem.Name = "放弃ToolStripMenuItem";
-            this.放弃ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.放弃ToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.放弃ToolStripMenuItem.Text = "放弃操作";
             this.放弃ToolStripMenuItem.Click += new System.EventHandler(this.放弃ToolStripMenuItem_Click);
             // 

@@ -9,7 +9,7 @@ namespace keshe.Model
     public class Borrow
     {
         #region 私有字段
-        private decimal _BorrowID = 0m;  /* 借书顺序号 */
+        private Int64 _BorrowID = 1;  /* 借书顺序号 */
         private Int32 _rdID = 0; /* 读者序号 */
         private Int32 _bkID = 0; /* 图书序号 */
         private Int32 _ldContinueTimes = 0;  /* 续借次数（第一次借时，记为0） */
@@ -25,7 +25,7 @@ namespace keshe.Model
         #endregion
 
         #region 对私有字段的封装
-        public decimal BorrowID { get => _BorrowID; set => _BorrowID = value; }
+        public Int64 BorrowID { get => _BorrowID; set => _BorrowID = value; }
         public int rdID { get => _rdID; set => _rdID = value; }
         public int bkID { get => _bkID; set => _bkID = value; }
         public int ldContinueTimes { get => _ldContinueTimes; set => _ldContinueTimes = value; }

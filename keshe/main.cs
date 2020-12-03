@@ -312,5 +312,11 @@ namespace keshe
             Form _bookSearch = bookSearch.CreateInstance();
             _bookSearch.Show();
         }
+
+        private void 借书ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form _bookSearch_available = bookSearch_reader.CreateInstance();
+            _bookSearch_available.Show();
+        }
     }
 }

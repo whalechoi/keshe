@@ -7,6 +7,29 @@ namespace keshe
 {
     public partial class bookDetail : Form
     {
+        private void readonlymode()
+        {
+            this.Text = "图书详细信息";
+            textBox_bkID.Enabled = false;
+            textBox_bkCode.Enabled = false;
+            textBox_bkName.Enabled = false;
+            textBox_bkAuthor.Enabled = false;
+            textBox_bkPress.Enabled = false;
+            dTP_bkDatePress.Enabled = false;
+            textBox_bkISBN.Enabled = false;
+            comboBox_bkCatalog.Enabled = false;
+            comboBox_bkLanguage.Enabled = false;
+            textBox_bkPages.Enabled = false;
+            textBox_bkPrice.Enabled = false;
+            dTP_bkDateIn.Enabled = false;
+            textBox_bkBrief.Enabled = false;
+            comboBox_Status.Enabled = false;
+            button_bkCover.Enabled = false;
+            button_bkCover.Visible = false;
+            button_Change.Enabled = false;
+            button_Change.Visible = false;
+            button_Cancel.Text = "关闭";
+        }
         public static bool isExist()
         {
             if (_instance != null)
@@ -156,9 +179,15 @@ namespace keshe
             Book temp = bookDetailControler.GetBookbybkID(bookSearch.bkID);
             if (temp == null)
             {
+                temp = bookDetailControler.GetBookbybkID(bookSearch_reader.bkID);
+                readonlymode();
+            }
+            if (temp == null)
+            {
                 MessageBox.Show("连接数据库失败，请检查您的网络连接！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _instance = null;
                 this.Dispose();
+                return;
             }
 
             textBox_bkID.Text = temp.bkID.ToString();

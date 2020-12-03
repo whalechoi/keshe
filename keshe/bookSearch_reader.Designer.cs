@@ -1,7 +1,7 @@
 ﻿
 namespace keshe
 {
-    partial class bookSearch
+    partial class bookSearch_reader
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,8 @@ namespace keshe
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bookSearch));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bookSearch_reader));
+            this.dgv_target = new System.Windows.Forms.DataGridView();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel_type = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -39,20 +40,46 @@ namespace keshe
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBox_text = new System.Windows.Forms.ToolStripTextBox();
             this.tableLayoutPanel_main = new System.Windows.Forms.TableLayoutPanel();
-            this.dgv_target = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel_bottom = new System.Windows.Forms.TableLayoutPanel();
             this.label_info = new System.Windows.Forms.Label();
             this.button_previous = new System.Windows.Forms.Button();
             this.button_next = new System.Windows.Forms.Button();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.编辑图书信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除图书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看图书详细信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.借阅此图书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_target)).BeginInit();
             this.toolStrip.SuspendLayout();
             this.tableLayoutPanel_main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_target)).BeginInit();
             this.tableLayoutPanel_bottom.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // dgv_target
+            // 
+            this.dgv_target.AllowUserToAddRows = false;
+            this.dgv_target.AllowUserToDeleteRows = false;
+            this.dgv_target.AllowUserToResizeRows = false;
+            this.dgv_target.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_target.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgv_target.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_target.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dgv_target.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_target.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_target.Location = new System.Drawing.Point(2, 2);
+            this.dgv_target.Margin = new System.Windows.Forms.Padding(2);
+            this.dgv_target.MultiSelect = false;
+            this.dgv_target.Name = "dgv_target";
+            this.dgv_target.ReadOnly = true;
+            this.dgv_target.RowHeadersVisible = false;
+            this.dgv_target.RowHeadersWidth = 50;
+            this.dgv_target.RowTemplate.Height = 27;
+            this.dgv_target.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgv_target.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_target.Size = new System.Drawing.Size(1178, 595);
+            this.dgv_target.TabIndex = 0;
+            this.dgv_target.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_target_CellMouseClick);
+            this.dgv_target.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_target_CellMouseDoubleClick);
+            this.dgv_target.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_target_CellMouseUp);
             // 
             // toolStrip
             // 
@@ -70,7 +97,7 @@ namespace keshe
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(1182, 32);
-            this.toolStrip.TabIndex = 0;
+            this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
             // toolStripLabel_type
@@ -137,34 +164,7 @@ namespace keshe
             this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel_main.Size = new System.Drawing.Size(1182, 641);
-            this.tableLayoutPanel_main.TabIndex = 1;
-            // 
-            // dgv_target
-            // 
-            this.dgv_target.AllowUserToAddRows = false;
-            this.dgv_target.AllowUserToDeleteRows = false;
-            this.dgv_target.AllowUserToResizeRows = false;
-            this.dgv_target.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_target.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgv_target.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgv_target.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.dgv_target.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_target.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_target.Location = new System.Drawing.Point(2, 2);
-            this.dgv_target.Margin = new System.Windows.Forms.Padding(2);
-            this.dgv_target.MultiSelect = false;
-            this.dgv_target.Name = "dgv_target";
-            this.dgv_target.ReadOnly = true;
-            this.dgv_target.RowHeadersVisible = false;
-            this.dgv_target.RowHeadersWidth = 50;
-            this.dgv_target.RowTemplate.Height = 27;
-            this.dgv_target.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgv_target.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_target.Size = new System.Drawing.Size(1178, 595);
-            this.dgv_target.TabIndex = 0;
-            this.dgv_target.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_target_CellMouseClick);
-            this.dgv_target.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_target_CellMouseDoubleClick);
-            this.dgv_target.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_target_CellMouseUp);
+            this.tableLayoutPanel_main.TabIndex = 3;
             // 
             // tableLayoutPanel_bottom
             // 
@@ -226,46 +226,45 @@ namespace keshe
             // 
             this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.编辑图书信息ToolStripMenuItem,
-            this.删除图书ToolStripMenuItem});
+            this.查看图书详细信息ToolStripMenuItem,
+            this.借阅此图书ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(169, 52);
+            this.contextMenuStrip.Size = new System.Drawing.Size(199, 52);
             // 
-            // 编辑图书信息ToolStripMenuItem
+            // 查看图书详细信息ToolStripMenuItem
             // 
-            this.编辑图书信息ToolStripMenuItem.Name = "编辑图书信息ToolStripMenuItem";
-            this.编辑图书信息ToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
-            this.编辑图书信息ToolStripMenuItem.Text = "编辑图书信息";
-            this.编辑图书信息ToolStripMenuItem.Click += new System.EventHandler(this.编辑图书信息ToolStripMenuItem_Click);
+            this.查看图书详细信息ToolStripMenuItem.Name = "查看图书详细信息ToolStripMenuItem";
+            this.查看图书详细信息ToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.查看图书详细信息ToolStripMenuItem.Text = "查看图书详细信息";
+            this.查看图书详细信息ToolStripMenuItem.Click += new System.EventHandler(this.查看图书信息ToolStripMenuItem_Click);
             // 
-            // 删除图书ToolStripMenuItem
+            // 借阅此图书ToolStripMenuItem
             // 
-            this.删除图书ToolStripMenuItem.Name = "删除图书ToolStripMenuItem";
-            this.删除图书ToolStripMenuItem.Size = new System.Drawing.Size(168, 24);
-            this.删除图书ToolStripMenuItem.Text = "删除图书";
-            this.删除图书ToolStripMenuItem.Click += new System.EventHandler(this.删除图书ToolStripMenuItem_Click);
+            this.借阅此图书ToolStripMenuItem.Name = "借阅此图书ToolStripMenuItem";
+            this.借阅此图书ToolStripMenuItem.Size = new System.Drawing.Size(198, 24);
+            this.借阅此图书ToolStripMenuItem.Text = "借阅此图书";
+            this.借阅此图书ToolStripMenuItem.Click += new System.EventHandler(this.借阅图书ToolStripMenuItem_Click);
             // 
-            // bookSearch
+            // bookSearch_available
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 673);
             this.Controls.Add(this.tableLayoutPanel_main);
             this.Controls.Add(this.toolStrip);
             this.Font = new System.Drawing.Font("字由心雨 常规体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1200, 720);
-            this.Name = "bookSearch";
-            this.Text = "查找您要维护的图书";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.bookSearch_FormClosing);
-            this.Load += new System.EventHandler(this.bookSearch_Load);
-            this.Resize += new System.EventHandler(this.bookSearch_Resize);
+            this.Name = "bookSearch_available";
+            this.Text = "查找您需要借阅的图书";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.bookSearch_available_FormClosing);
+            this.Load += new System.EventHandler(this.bookSearch_available_Load);
+            this.Resize += new System.EventHandler(this.bookSearch_available_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_target)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.tableLayoutPanel_main.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_target)).EndInit();
             this.tableLayoutPanel_bottom.ResumeLayout(false);
             this.tableLayoutPanel_bottom.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
@@ -275,21 +274,21 @@ namespace keshe
 
         #endregion
 
+        private System.Windows.Forms.DataGridView dgv_target;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripLabel toolStripLabel_type;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox_type;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox_text;
-        private System.Windows.Forms.ToolStripButton toolStripButton_search;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox_type;
+        private System.Windows.Forms.ToolStripButton toolStripButton_search;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox_text;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_main;
-        private System.Windows.Forms.DataGridView dgv_target;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_bottom;
         private System.Windows.Forms.Label label_info;
         private System.Windows.Forms.Button button_previous;
         private System.Windows.Forms.Button button_next;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem 编辑图书信息ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 删除图书ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查看图书详细信息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 借阅此图书ToolStripMenuItem;
     }
 }

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace keshe
 {
-    public partial class bookSearch : Form
+    public partial class bookSearch_reader : Form
     {
         private static readonly int _maxrow = 20;
         public static int bkID = -1;
@@ -29,17 +29,17 @@ namespace keshe
                 bkID = -1;
             }
         }
-        private static bookSearch _instance = null; // 单例模式
-        public static bookSearch CreateInstance()
+        private static bookSearch_reader _instance = null; // 单例模式
+        public static bookSearch_reader CreateInstance()
         {
             if (_instance == null)
             {
-                _instance = new bookSearch();
+                _instance = new bookSearch_reader();
             }
             return _instance;
         }
 
-        private bookSearch()
+        private bookSearch_reader()
         {
             InitializeComponent();
         }
@@ -52,6 +52,10 @@ namespace keshe
                 for (int i = 0; i < dgv_target.RowCount; i++)
                 {
                     dgv_target.Rows[i].Height = h;
+                    if (dgv_target.Rows[i].Cells[7].Value.ToString() != "在馆")
+                    {
+                        dgv_target.Rows[i].DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+                    }
                     if (dgv_target.Rows[i].Cells[0].Value.ToString() == "0")
                     {
                         dgv_target.Rows[i].DefaultCellStyle.BackColor = Color.Blue;
@@ -107,7 +111,7 @@ namespace keshe
             }
         }
 
-        private void bookSearch_Load(object sender, EventArgs e)
+        private void bookSearch_available_Load(object sender, EventArgs e)
         {
             toolStripComboBox_type.SelectedIndex = 0;
             dgv_target.DataSource = bookSearchControler.GetDTby("_ALL", "", 0, _maxrow);
@@ -250,7 +254,7 @@ namespace keshe
             dvg_style();
             button_check();
         }
-        private void bookSearch_Resize(object sender, EventArgs e)
+        private void bookSearch_available_Resize(object sender, EventArgs e)
         {
             if (dgv_target.RowCount != 0)
             {
@@ -273,16 +277,6 @@ namespace keshe
                         MessageBox.Show("该图书属于系统，禁止对其进行任何操作！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    if (dgv_target.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Red)
-                    {
-                        MessageBox.Show("对当前图书的删除操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                    if (dgv_target.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Orange)
-                    {
-                        MessageBox.Show("对当前图书的修改操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
                     this.dgv_target.Rows[e.RowIndex].Selected = true;//是否选中当前行
                     target = e.RowIndex;
                     this.dgv_target.CurrentCell = this.dgv_target.Rows[e.RowIndex].Cells[0];
@@ -295,36 +289,42 @@ namespace keshe
             }
         }
 
-        private void 删除图书ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 借阅图书ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GlobalObject.bookSource.bkID = Int32.Parse(dgv_target.Rows[target].Cells[0].Value.ToString());
-            GlobalObject.bookSource.bkCode = dgv_target.Rows[target].Cells[1].Value.ToString();
-            GlobalObject.actionSource.actionSource = "Book";
-            GlobalObject.actionSource.actionModel = GlobalObject.bookSource;
-            GlobalObject.actionSource.actionType = "Delete";
-            GlobalObject.actionSource.actionDescription = $"删除图书 {GlobalObject.bookSource.bkCode}(bkID:{GlobalObject.bookSource.bkID}) 。";
+            if (dgv_target.Rows[target].DefaultCellStyle.BackColor == Color.Green)
+            {
+                MessageBox.Show("对当前图书的借阅操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dgv_target.Rows[target].DefaultCellStyle.BackColor == Color.LightGoldenrodYellow)
+            {
+                MessageBox.Show("当前图书不在馆，无法借阅！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            GlobalObject.borrowSource.bkID = Int32.Parse(dgv_target.Rows[target].Cells[0].Value.ToString());
+            GlobalObject.borrowSource.rdID = GlobalObject.reader.rdID;
+            GlobalObject.borrowSource.OperatorLend = "For Debug Only!";
+            GlobalObject.actionSource.actionSource = "Borrow";
+            GlobalObject.actionSource.actionModel = GlobalObject.borrowSource;
+            GlobalObject.actionSource.actionType = "Borrow";
+            GlobalObject.actionSource.actionDescription = $"借阅图书 {GlobalObject.borrowSource.bkID}(rdID:{GlobalObject.borrowSource.rdID})。";
             main.addAction(GlobalObject.actionSource);
-            dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Red;
-            label_info.Text = $"[Info] 删除图书 bkCode:{dgv_target.Rows[target].Cells[1].Value}(bkID:{dgv_target.Rows[target].Cells[0].Value}) 已挂起，就绪";
+            dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Green;
+            label_info.Text = $"[Info] 借阅图书 bkCode:{dgv_target.Rows[target].Cells[1].Value}(bkID:{dgv_target.Rows[target].Cells[0].Value}) 已挂起，就绪";
         }
 
-        private void bookSearch_FormClosing(object sender, FormClosingEventArgs e)
+        private void bookSearch_available_FormClosing(object sender, FormClosingEventArgs e)
         {
             bkID = -1;
             _instance = null;
             this.Dispose();
         }
 
-        private void 编辑图书信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 查看图书信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             bkID = Int32.Parse(dgv_target.Rows[target].Cells[0].Value.ToString());
             Form _bookDetail = bookDetail.CreateInstance();
-            if (_bookDetail.ShowDialog() == DialogResult.OK)
-            {
-                bkID = -1;
-                dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Orange;
-                label_info.Text = $"[Info] 修改图书信息 bkCode:{dgv_target.Rows[target].Cells[1].Value}(bkID:{dgv_target.Rows[target].Cells[0].Value}) 已挂起，就绪";
-            }
+            _bookDetail.ShowDialog();
         }
 
         private void dgv_target_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
