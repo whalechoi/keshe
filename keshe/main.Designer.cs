@@ -124,14 +124,14 @@ namespace keshe
             // 新书入库ToolStripMenuItem
             // 
             this.新书入库ToolStripMenuItem.Name = "新书入库ToolStripMenuItem";
-            this.新书入库ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.新书入库ToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.新书入库ToolStripMenuItem.Text = "新书入库";
             this.新书入库ToolStripMenuItem.Click += new System.EventHandler(this.新书入库ToolStripMenuItem_Click);
             // 
             // 图书维护ToolStripMenuItem
             // 
             this.图书维护ToolStripMenuItem.Name = "图书维护ToolStripMenuItem";
-            this.图书维护ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.图书维护ToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.图书维护ToolStripMenuItem.Text = "图书维护";
             this.图书维护ToolStripMenuItem.Click += new System.EventHandler(this.图书维护ToolStripMenuItem_Click);
             // 
@@ -166,7 +166,7 @@ namespace keshe
             this.添加读者类别ToolStripMenuItem,
             this.读者类别维护ToolStripMenuItem});
             this.读者类别管理ToolStripMenuItem.Name = "读者类别管理ToolStripMenuItem";
-            this.读者类别管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.读者类别管理ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.读者类别管理ToolStripMenuItem.Text = "读者类别管理";
             // 
             // 添加读者类别ToolStripMenuItem
@@ -184,7 +184,7 @@ namespace keshe
             // 权限管理ToolStripMenuItem
             // 
             this.权限管理ToolStripMenuItem.Name = "权限管理ToolStripMenuItem";
-            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.权限管理ToolStripMenuItem.Text = "权限管理";
             // 
             // 借阅ToolStripMenuItem
@@ -216,6 +216,7 @@ namespace keshe
             this.还书ToolStripMenuItem.Name = "还书ToolStripMenuItem";
             this.还书ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.还书ToolStripMenuItem.Text = "还书";
+            this.还书ToolStripMenuItem.Click += new System.EventHandler(this.还书ToolStripMenuItem_Click);
             // 
             // 用户ToolStripMenuItem
             // 
@@ -246,28 +247,28 @@ namespace keshe
             // 提交全部操作ToolStripMenuItem
             // 
             this.提交全部操作ToolStripMenuItem.Name = "提交全部操作ToolStripMenuItem";
-            this.提交全部操作ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.提交全部操作ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.提交全部操作ToolStripMenuItem.Text = "提交全部操作";
             this.提交全部操作ToolStripMenuItem.Click += new System.EventHandler(this.提交全部操作ToolStripMenuItem_Click);
             // 
             // 放弃全部操作ToolStripMenuItem
             // 
             this.放弃全部操作ToolStripMenuItem.Name = "放弃全部操作ToolStripMenuItem";
-            this.放弃全部操作ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.放弃全部操作ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.放弃全部操作ToolStripMenuItem.Text = "放弃全部操作";
             this.放弃全部操作ToolStripMenuItem.Click += new System.EventHandler(this.放弃全部操作ToolStripMenuItem_Click);
             // 
             // 退出系统ToolStripMenuItem
             // 
             this.退出系统ToolStripMenuItem.Name = "退出系统ToolStripMenuItem";
-            this.退出系统ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.退出系统ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.退出系统ToolStripMenuItem.Text = "退出系统";
             this.退出系统ToolStripMenuItem.Click += new System.EventHandler(this.退出系统ToolStripMenuItem_Click);
             // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
             this.关于ToolStripMenuItem.Text = "关于";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 

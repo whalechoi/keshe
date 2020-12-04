@@ -8,6 +8,68 @@ namespace keshe
 {
     public partial class borrowSearch : Form
     {
+        public static bool isReturnMode = false;
+        delegate void ContinueOrReturn();
+        private void ContinueBook()
+        {
+            if (dgv_target.Rows[target].DefaultCellStyle.BackColor == Color.Green)
+            {
+                MessageBox.Show("对当前图书的续借操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dgv_target.Rows[target].DefaultCellStyle.BackColor == Color.Indigo)
+            {
+                MessageBox.Show("对当前图书的还书操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dgv_target.Rows[target].DefaultCellStyle.BackColor != Color.LightGoldenrodYellow)
+            {
+                MessageBox.Show("您已还书，无法进行当前操作！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            GlobalObject.borrowSource.BorrowID = Int64.Parse(dgv_target.Rows[target].Cells[0].Value.ToString());
+            GlobalObject.borrowSource.bkID = Int32.Parse(dgv_target.Rows[target].Cells[1].Value.ToString());
+            GlobalObject.actionSource.actionSource = "Borrow";
+            GlobalObject.actionSource.actionModel = GlobalObject.borrowSource;
+            GlobalObject.actionSource.actionType = "Continue";
+            GlobalObject.actionSource.actionDescription = $"续借图书 {GlobalObject.borrowSource.bkID}(BorrowID:{GlobalObject.borrowSource.BorrowID} rdID:{GlobalObject.reader.rdID})。";
+            main.addAction(GlobalObject.actionSource);
+            dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Green;
+            label_info.Text = $"[Info] 续借图书 bkID:{dgv_target.Rows[target].Cells[1].Value} 已挂起，就绪";
+        }
+        private void ReturnBook()
+        {
+            if (dgv_target.Rows[target].DefaultCellStyle.BackColor == Color.Green)
+            {
+                MessageBox.Show("对当前图书的续借操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dgv_target.Rows[target].DefaultCellStyle.BackColor == Color.Indigo)
+            {
+                MessageBox.Show("对当前图书的还书操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dgv_target.Rows[target].DefaultCellStyle.BackColor != Color.LightGoldenrodYellow)
+            {
+                MessageBox.Show("您已还书，无法进行当前操作！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            GlobalObject.borrowSource.BorrowID = Int64.Parse(dgv_target.Rows[target].Cells[0].Value.ToString());
+            GlobalObject.borrowSource.bkID = Int32.Parse(dgv_target.Rows[target].Cells[1].Value.ToString());
+            GlobalObject.actionSource.actionSource = "Borrow";
+            GlobalObject.actionSource.actionModel = GlobalObject.borrowSource;
+            GlobalObject.actionSource.actionType = "Return";
+            GlobalObject.actionSource.actionDescription = $"归还图书 {GlobalObject.borrowSource.bkID}(BorrowID:{GlobalObject.borrowSource.BorrowID} rdID:{GlobalObject.reader.rdID})。";
+            main.addAction(GlobalObject.actionSource);
+            main.BorrowNotReturn--;
+            dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Indigo;
+            label_info.Text = $"[Info] 归还图书 bkID:{dgv_target.Rows[target].Cells[1].Value} 已挂起，就绪";
+        }
+        private void ReturnMode()
+        {
+            this.Text = "请选择您要归还的借阅记录";
+            借阅此图书ToolStripMenuItem.Text = "归还此图书";
+        }
         private static readonly int _maxrow = 10;
         public static Int64 borrowID = -1;
         private int index = -1;
@@ -107,6 +169,10 @@ namespace keshe
 
         private void borrowSearch_Load(object sender, EventArgs e)
         {
+            if (isReturnMode)
+            {
+                ReturnMode();
+            }
             toolStripComboBox_type.SelectedIndex = 0;
             dgv_target.DataSource = borrowSearchControler.GetDTby("_ALL", "", 0, _maxrow, GlobalObject.reader.rdID);
             index = 1;
@@ -253,31 +319,16 @@ namespace keshe
 
         private void 续借图书ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dgv_target.Rows[target].DefaultCellStyle.BackColor == Color.Green)
+            ContinueOrReturn x;
+            if (isReturnMode)
             {
-                MessageBox.Show("对当前图书的续借操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                x = new ContinueOrReturn(ReturnBook);
             }
-            if (dgv_target.Rows[target].DefaultCellStyle.BackColor == Color.Indigo)
+            else
             {
-                MessageBox.Show("对当前图书的还书操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                x = new ContinueOrReturn(ContinueBook);
             }
-            if (dgv_target.Rows[target].DefaultCellStyle.BackColor != Color.LightGoldenrodYellow)
-            {
-                MessageBox.Show("您已还书，无法进行当前操作！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            GlobalObject.borrowSource.BorrowID = Int64.Parse(dgv_target.Rows[target].Cells[0].Value.ToString());
-            GlobalObject.borrowSource.bkID = Int32.Parse(dgv_target.Rows[target].Cells[1].Value.ToString());
-            GlobalObject.actionSource.actionSource = "Borrow";
-            GlobalObject.actionSource.actionModel = GlobalObject.borrowSource;
-            GlobalObject.actionSource.actionType = "Continue";
-            GlobalObject.actionSource.actionDescription = $"续借图书 {GlobalObject.borrowSource.bkID}(BorrowID:{GlobalObject.borrowSource.BorrowID} rdID:{GlobalObject.reader.rdID})。";
-            main.addAction(GlobalObject.actionSource);
-            dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Green;
-            label_info.Text = $"[Info] 续借图书 bkID:{dgv_target.Rows[target].Cells[1].Value} 已挂起，就绪";
+            x();
         }
 
         private void borrowSearch_available_FormClosing(object sender, FormClosingEventArgs e)

@@ -354,8 +354,22 @@ namespace keshe
 
         private void 续借ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form _borrowSearch = borrowSearch.CreateInstance();
-            _borrowSearch.Show();
+            if (!borrowSearch.isExist())
+            {
+                borrowSearch.isReturnMode = false;
+                Form _borrowSearch = borrowSearch.CreateInstance();
+                _borrowSearch.Show();
+            }
+        }
+
+        private void 还书ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!borrowSearch.isExist())
+            {
+                borrowSearch.isReturnMode = true;
+                Form _borrowSearch = borrowSearch.CreateInstance();
+                _borrowSearch.Show();
+            }
         }
     }
 }
