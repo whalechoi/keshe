@@ -10,6 +10,14 @@ namespace keshe.BLL
         /// 此类为主界面的控制类，仅提供静态方法，禁止继承或实例化。
         /// </summary>
         private mainControler() { }
+        public static Int32 GetBorrowMax(Reader reader)
+        {
+            return ReaderTypeDAL.GetCanLendQtyByID(reader.rdType);
+        }
+        public static Int32 GetBorrowNotReturn(Reader reader)
+        {
+            return BorrowDAL.Counter(reader.rdID);
+        }
         public static Int32 SubmitAction(UserAction action)
         {
             switch (action.actionSource)

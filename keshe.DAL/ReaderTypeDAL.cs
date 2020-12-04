@@ -140,5 +140,15 @@ namespace keshe.DAL
             return MySqlHelper.DataRowToT<ReaderType>(dr);
         }
         #endregion
+        /// <summary>
+        /// 由读者类型ID(rdType)得到该读者可借书本书
+        /// </summary>
+        #region GetCanLendQtyByID
+        public static Int32 GetCanLendQtyByID(Int16 rdType)
+        {
+            DataRow dr = GetDRByID(rdType);
+            return MySqlHelper.DataRowToT<ReaderType>(dr).CanLendQty;
+        }
+        #endregion
     }
 }

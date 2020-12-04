@@ -78,7 +78,14 @@ namespace keshe
                                 dgv_target.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
                             }
                         }
-
+                        if (action.actionSource == "Borrow" && action.actionType == "Borrow")
+                        {
+                            Borrow tmp = (Borrow)action.actionModel;
+                            if (dgv_target.Rows[i].Cells[0].Value.ToString() == tmp.bkID.ToString())
+                            {
+                                dgv_target.Rows[i].DefaultCellStyle.BackColor = Color.Green;
+                            }
+                        }
                     }
                 }
             }
@@ -277,6 +284,17 @@ namespace keshe
                         MessageBox.Show("该图书属于系统，禁止对其进行任何操作！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    if (dgv_target.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Red)
+                    {
+                        MessageBox.Show("对当前图书的删除操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (dgv_target.Rows[e.RowIndex].DefaultCellStyle.BackColor == Color.Orange)
+                    {
+                        MessageBox.Show("对当前图书的修改操作已存在于操作队列！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     this.dgv_target.Rows[e.RowIndex].Selected = true;//是否选中当前行
                     target = e.RowIndex;
                     this.dgv_target.CurrentCell = this.dgv_target.Rows[e.RowIndex].Cells[0];
@@ -301,6 +319,11 @@ namespace keshe
                 MessageBox.Show("当前图书不在馆，无法借阅！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (main.BorrowNotReturn >= main.BorrowMax)
+            {
+                MessageBox.Show($"当前已借阅{main.BorrowNotReturn}本书，您最多借阅{main.BorrowMax}本书。\n请归还部分图书后再尝试借阅！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             GlobalObject.borrowSource.bkID = Int32.Parse(dgv_target.Rows[target].Cells[0].Value.ToString());
             GlobalObject.borrowSource.rdID = GlobalObject.reader.rdID;
             GlobalObject.borrowSource.OperatorLend = "For Debug Only!";
@@ -310,6 +333,7 @@ namespace keshe
             GlobalObject.actionSource.actionDescription = $"借阅图书 {GlobalObject.borrowSource.bkID}(rdID:{GlobalObject.borrowSource.rdID})。";
             main.addAction(GlobalObject.actionSource);
             dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Green;
+            main.BorrowNotReturn++;
             label_info.Text = $"[Info] 借阅图书 bkCode:{dgv_target.Rows[target].Cells[1].Value}(bkID:{dgv_target.Rows[target].Cells[0].Value}) 已挂起，就绪";
         }
 
@@ -359,11 +383,7 @@ namespace keshe
                     target = e.RowIndex;
                     bkID = Int32.Parse(dgv_target.Rows[target].Cells[0].Value.ToString());
                     Form _bookDetail = bookDetail.CreateInstance();
-                    if (_bookDetail.ShowDialog() == DialogResult.OK)
-                    {
-                        dgv_target.Rows[target].DefaultCellStyle.BackColor = Color.Orange;
-                        label_info.Text = $"[Info] 修改图书信息 bkCode:{dgv_target.Rows[target].Cells[1].Value}(bkID:{dgv_target.Rows[target].Cells[0].Value}) 已挂起，就绪";
-                    }
+                    _bookDetail.ShowDialog();
                 }
             }
         }

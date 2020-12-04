@@ -9,6 +9,8 @@ namespace keshe
 {
     public partial class main : Form
     {
+        public static Int32 BorrowMax = -1;
+        public static Int32 BorrowNotReturn = -1;
         public static readonly BindingList<UserAction> ActionList = new BindingList<UserAction>();
         private int index = -1;
         public static void addAction(UserAction action)
@@ -31,6 +33,8 @@ namespace keshe
                     bookSearch.disposeAll();
                     ActionList.Clear();
                     GlobalObject.logout();
+                    BorrowMax = -1;
+                    BorrowNotReturn = -1;
                     _instance = null;
                     this.Dispose();
                     System.Environment.Exit(0);
@@ -97,6 +101,13 @@ namespace keshe
 
         private void main_Load(object sender, EventArgs e)
         {
+            BorrowMax = mainControler.GetBorrowMax(GlobalObject.reader);
+            BorrowNotReturn = mainControler.GetBorrowNotReturn(GlobalObject.reader);
+            if (BorrowNotReturn == -1)
+            {
+                MessageBox.Show("程序发生内部错误，即将强制退出！", "错误：", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Environment.Exit(0);
+            }
             this.Text = $"keshe 图书管理系统 v{Assembly.GetExecutingAssembly().GetName().Version.ToString()} 祝您阅读愉快！ 当前登录：{GlobalObject.reader.rdName}";
             dgv_Actions.DataSource = ActionList;
             dvg_style();
@@ -161,6 +172,8 @@ namespace keshe
                 bookAdd.disposeAll();
                 ActionList.Clear();
                 GlobalObject.logout();
+                BorrowMax = -1;
+                BorrowNotReturn = -1;
                 _instance = null;
                 this.Dispose();
             }
@@ -197,7 +210,19 @@ namespace keshe
 
         private void 放弃全部操作ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ActionList.Clear();
+            for (int i = 0; i < ActionList.Count; i++)
+            {
+                if (ActionList[i].actionSource == "Borrow" && ActionList[i].actionType == "Borrow")
+                {
+                    BorrowNotReturn--;
+                }
+                if (ActionList[i].actionSource == "Borrow" && ActionList[i].actionType == "Return")
+                {
+                    BorrowNotReturn++;
+                }
+                ActionList.Remove(ActionList[i]);
+                i--; // ActionList.Count在上一步中减小了1，所以这里要让i不变！
+            }
             toolStripStatusLabel.Text = $"[Info] 已放弃全部操作，就绪";
         }
 
@@ -205,6 +230,14 @@ namespace keshe
         {
             if (index != -1)
             {
+                if (ActionList[index].actionSource == "Borrow" && ActionList[index].actionType == "Borrow")
+                {
+                    BorrowNotReturn--;
+                }
+                if (ActionList[index].actionSource == "Borrow" && ActionList[index].actionType == "Return")
+                {
+                    BorrowNotReturn++;
+                }
                 toolStripStatusLabel.Text = $"[Info] 放弃操作 {ActionList[index].actionDescription} 成功，就绪";
                 ActionList.RemoveAt(index);
                 index = -1;
@@ -317,6 +350,12 @@ namespace keshe
         {
             Form _bookSearch_available = bookSearch_reader.CreateInstance();
             _bookSearch_available.Show();
+        }
+
+        private void 续借ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form _borrowSearch = borrowSearch.CreateInstance();
+            _borrowSearch.Show();
         }
     }
 }

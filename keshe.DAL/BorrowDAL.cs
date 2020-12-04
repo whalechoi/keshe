@@ -169,8 +169,85 @@ namespace keshe.DAL
         public static int Continue(Borrow borrow)
         {
             int rows = 0;
+            MySqlParameter[] parameters =
+            {
+                new MySqlParameter("?inBorrowID",MySqlDbType.Int64)
+            };
+            parameters[0].Value = borrow.BorrowID;
+            parameters[0].Direction = ParameterDirection.Input;
+            try
+            {
+                rows = MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.StoredProcedure, "usp_continue_book", parameters);
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return rows;
         }
         #endregion
+        /// <summary>
+        /// 获取读者未还本书
+        /// </summary>
+        #region Counter
+        public static Int32 Counter(Int32 rdID)
+        {
+            Int32 counter = -1;
+            MySqlParameter[] parameters =
+            {
+                new MySqlParameter("?inrdID",MySqlDbType.Int32),
+                new MySqlParameter("?outCount",MySqlDbType.Int32)
+            };
+            parameters[0].Value = rdID;
+            parameters[0].Direction = ParameterDirection.Input;
+            parameters[1].Direction = ParameterDirection.Output;
+            try
+            {
+                MySqlHelper.ExecuteNonQuery(_strConnection, CommandType.StoredProcedure, "usp_get_borrow_count", parameters);
+                counter = (Int32)parameters[1].Value;
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return counter;
+        }
+        #endregion
+        /// <summary>
+        /// 查找
+        /// </summary>
+        #region Searchby
+        public static DataTable Searchby(string type, string content, int row, int number, int rdID)
+        {
+            string sql = $"select BorrowID as 借书顺序号, bkID as 图书序号, ldContinueTimes as 续借次数, ldDateOut as 借书日期, ldDateRetPlan as 应还日期, lsHasReturn as 是否还书, OperatorLend as 借书操作员 from TB_Borrow where rdID={rdID}";
+            MySqlParameter parameter = null;
+            switch (type)
+            {
+                case "_ALL":
+                    sql = sql + $" limit {row}, {number}";
+                    return MySqlHelper.GetData(_strConnection, CommandType.Text, sql);
+                case "BorrowID":
+                    sql = sql + $" and BorrowID=?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.Int64);
+                    parameter.Value = Int64.Parse(content);
+                    break;
+                case "bkID":
+                    sql = sql + $" and bkID=?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.Int32);
+                    parameter.Value = Int32.Parse(content);
+                    break;
+                case "OperatorLend":
+                    sql = sql + $" and OperatorLend=?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
+                    parameter.Value = content;
+                    break;
+                default:
+                    throw (new Exception("Error search type!"));
+            }
+            MySqlParameter[] parameters = { parameter };
+            return MySqlHelper.GetData(_strConnection, CommandType.Text, sql, parameters);
+        }
+        #endregion
+
     }
 }

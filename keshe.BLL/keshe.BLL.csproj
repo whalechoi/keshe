@@ -48,6 +48,7 @@
     <Compile Include="bookAddControler.cs" />
     <Compile Include="bookDetailControler.cs" />
     <Compile Include="bookSearchControler.cs" />
+    <Compile Include="borrowSearchControler.cs" />
     <Compile Include="loginControler.cs" />
     <Compile Include="mainControler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

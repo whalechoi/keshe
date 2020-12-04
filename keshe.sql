@@ -79,7 +79,7 @@ insert into `TB_ReaderType` values(5,'教师',12,60,2,0.05,0);
 -- default table TB_Reader
 insert into `TB_Reader` values
 (0, '用户已被移除', '男', 0, '', '', '', '2000-01-01', null, '注销', 0, '202CB962AC59075B964B07152D234B70', 0),
-(2020001, 'whalechoi', '男', 2, 'Yangtze University', '12345678901', 'cj1369636717@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 1);
+(2020001, 'whalechoi', '男', 2, 'Yangtze University', '12345678901', 'cj1369636717@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 5);
 
 -- default table TB_Book
 insert into `TB_Book` values
@@ -108,7 +108,7 @@ delimiter //
 create trigger `TB_Book` before delete on `TB_Book`
 for each row
 begin
-	update `TB_Borrow` set `bkID` = 0 where bkID = old.bkID;
+	update `TB_Borrow` set `bkID` = 0, `lsHasReturn` = 1  where bkID = old.bkID;
 end //
 delimiter ;
 
@@ -144,5 +144,26 @@ begin
 	update TB_Book set bkStatus = '在馆' where bkID =(
 		select TB_Borrow.bkID from TB_Borrow where TB_Borrow.BorrowID=inBorrowID
 	);
+end //
+delimiter ;
+
+delimiter //
+create procedure `usp_continue_book` (in inBorrowID bigint)
+begin
+	select CanLendDay into @CanLendDay from TB_ReaderType where rdType=(
+		select TB_Reader.rdType from TB_Reader where TB_Reader.rdID=(
+			select TB_Borrow.rdID from TB_Borrow where TB_Borrow.BorrowID=inBorrowID
+		)
+	);
+	set @ContinueTimes=(select ldContinueTimes from TB_Borrow where BorrowID=inBorrowID)+1;
+	set @DateRetPlan=DATE_ADD((select ldDateRetPlan from TB_Borrow where BorrowID=inBorrowID), interval @CanLendDay day);
+	update TB_Borrow set ldContinueTimes=@ContinueTimes, ldDateRetPlan=@DateRetPlan where BorrowID=inBorrowID;
+end //
+delimiter ;
+
+delimiter //
+create procedure `usp_get_borrow_count` (in inrdID int,out outCount int)
+begin
+	select count(*) into outCount from TB_Borrow where rdID=inrdID and lsHasReturn=0;
 end //
 delimiter ;

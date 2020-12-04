@@ -196,10 +196,13 @@ namespace keshe.DAL
             }
         }
         #endregion
-        #region
+        /// <summary>
+        /// 查找
+        /// </summary>
+        #region Searchby
         public static DataTable Searchby(string type, string content, int row, int number)
         {
-            string sql = "select bkID as 图书序号, bkCode as 图书编号, bkName as 图书名称, bkAuthor as 图书作者, bkPress as 出版社名, bkISBN 标准ISBN, bkDatePress as 出版日期, bkStatus as 图书状态  from TB_Book";
+            string sql = "select bkID as 图书序号, bkCode as 图书编号, bkName as 图书名称, bkAuthor as 图书作者, bkPress as 出版社名, bkISBN as 标准ISBN, bkDatePress as 出版日期, bkStatus as 图书状态  from TB_Book";
             MySqlParameter parameter = null;
             switch (type)
             {

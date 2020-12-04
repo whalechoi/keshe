@@ -105,6 +105,12 @@
     <Compile Include="bookSearch_reader.Designer.cs">
       <DependentUpon>bookSearch_reader.cs</DependentUpon>
     </Compile>
+    <Compile Include="borrowSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="borrowSearch.Designer.cs">
+      <DependentUpon>borrowSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="changePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bookSearch_reader.resx">
       <DependentUpon>bookSearch_reader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="borrowSearch.resx">
+      <DependentUpon>borrowSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="changePassword.resx">
       <DependentUpon>changePassword.cs</DependentUpon>

@@ -1289,6 +1289,7 @@ namespace keshe.DAL
             return item;
         }
         #endregion
+
         #region NullToMySqlNull
         public static object NullToMySqlNull(object obj)
         {
