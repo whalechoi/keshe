@@ -62,6 +62,8 @@ namespace keshe
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
+            this.DialogResult = DialogResult.Cancel;
             _instance = null;
             this.Dispose();
         }

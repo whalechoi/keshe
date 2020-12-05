@@ -31,6 +31,9 @@ namespace keshe
                 {
                     bookAdd.disposeAll();
                     bookSearch.disposeAll();
+                    bookSearch_reader.disposeAll();
+                    readerSearch.disposeAll();
+
                     ActionList.Clear();
                     GlobalObject.logout();
                     BorrowMax = -1;
@@ -57,14 +60,7 @@ namespace keshe
 
         private bool canClose()
         {
-            if (ActionList.Count != 0)
-            {
-                DialogResult dr = MessageBox.Show($"您还有 {ActionList.Count} 个操作未提交，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (dr != DialogResult.OK)
-                {
-                    return false;
-                }
-            }
+
             if (bookAdd.isExist())
             {
                 DialogResult dr = MessageBox.Show($"检测到您正在添加图书，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -76,6 +72,38 @@ namespace keshe
             if (bookSearch.isExist())
             {
                 DialogResult dr = MessageBox.Show($"检测到您正在维护图书，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr != DialogResult.OK)
+                {
+                    return false;
+                }
+            }
+            if (bookSearch_reader.isExist())
+            {
+                DialogResult dr = MessageBox.Show($"检测到您正在借阅图书，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr != DialogResult.OK)
+                {
+                    return false;
+                }
+            }
+            if (borrowSearch.isExist())
+            {
+                DialogResult dr = MessageBox.Show($"检测到您正在续借或归还图书，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr != DialogResult.OK)
+                {
+                    return false;
+                }
+            }
+            if (readerSearch.isExist())
+            {
+                DialogResult dr = MessageBox.Show($"检测到您正在进行权限管理，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dr != DialogResult.OK)
+                {
+                    return false;
+                }
+            }
+            if (ActionList.Count != 0)
+            {
+                DialogResult dr = MessageBox.Show($"您还有 {ActionList.Count} 个操作未提交，是否继续？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dr != DialogResult.OK)
                 {
                     return false;
@@ -170,6 +198,10 @@ namespace keshe
             if (canClose())
             {
                 bookAdd.disposeAll();
+                bookSearch.disposeAll();
+                bookSearch_reader.disposeAll();
+                readerSearch.disposeAll();
+
                 ActionList.Clear();
                 GlobalObject.logout();
                 BorrowMax = -1;
@@ -181,14 +213,20 @@ namespace keshe
 
         private void 密码修改ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form _changePassword = changePassword.CreateInstance();
-            _changePassword.ShowDialog();
+            if (!changePassword.isExist())
+            {
+                Form _changePassword = changePassword.CreateInstance();
+                _changePassword.ShowDialog();
+            }
         }
 
         private void 新书入库ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form _bookAdd = bookAdd.CreateInstance();
-            _bookAdd.Show();
+            if (!bookAdd.isExist())
+            {
+                Form _bookAdd = bookAdd.CreateInstance();
+                _bookAdd.Show();
+            }
         }
         private void dgv_Actions_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -257,6 +295,11 @@ namespace keshe
                     }
                     else
                     {
+                        if (ActionList[index].actionSource == "Reader" && ActionList[index].actionType == "Password")
+                        {
+                            Reader tmp = (Reader)ActionList[index].actionModel;
+                            GlobalObject.reader.rdPwd = tmp.rdPwd;
+                        }
                         toolStripStatusLabel.Text = $"[Info] 提交操作 {ActionList[index].actionDescription} 成功，就绪";
                         ActionList.RemoveAt(index);
                     }
@@ -283,6 +326,11 @@ namespace keshe
                     }
                     else
                     {
+                        if (ActionList[i].actionSource == "Reader" && ActionList[i].actionType == "Password")
+                        {
+                            Reader tmp = (Reader)ActionList[i].actionModel;
+                            GlobalObject.reader.rdPwd = tmp.rdPwd;
+                        }
                         ActionList.Remove(ActionList[i]);
                         i--; // ActionList.Count在上一步中减小了1，所以这里要让i不变！
                     }
@@ -319,6 +367,11 @@ namespace keshe
                         else
                         {
                             toolStripStatusLabel.Text = $"[Info] 提交操作 {ActionList[index].actionDescription} 成功，就绪";
+                            if (ActionList[index].actionSource == "Reader" && ActionList[index].actionType == "Password")
+                            {
+                                Reader tmp = (Reader)ActionList[index].actionModel;
+                                GlobalObject.reader.rdPwd = tmp.rdPwd;
+                            }
                             ActionList.RemoveAt(index);
                         }
                     }
@@ -342,14 +395,20 @@ namespace keshe
 
         private void 图书维护ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form _bookSearch = bookSearch.CreateInstance();
-            _bookSearch.Show();
+            if (!bookSearch.isExist())
+            {
+                Form _bookSearch = bookSearch.CreateInstance();
+                _bookSearch.Show();
+            }
         }
 
         private void 借书ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form _bookSearch_available = bookSearch_reader.CreateInstance();
-            _bookSearch_available.Show();
+            if (!bookSearch_reader.isExist())
+            {
+                Form _bookSearch_available = bookSearch_reader.CreateInstance();
+                _bookSearch_available.Show();
+            }
         }
 
         private void 续借ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -369,6 +428,16 @@ namespace keshe
                 borrowSearch.isReturnMode = true;
                 Form _borrowSearch = borrowSearch.CreateInstance();
                 _borrowSearch.Show();
+            }
+        }
+
+        private void 权限管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!readerSearch.isExist())
+            {
+                readerSearch.isRBACMode = true;
+                Form _readerSearch = readerSearch.CreateInstance();
+                _readerSearch.Show();
             }
         }
     }

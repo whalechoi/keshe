@@ -200,6 +200,7 @@ namespace keshe
             // 
             this.button_previous.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_previous.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_previous.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_previous.Location = new System.Drawing.Point(983, 4);
             this.button_previous.Margin = new System.Windows.Forms.Padding(2);
             this.button_previous.Name = "button_previous";
@@ -245,10 +246,12 @@ namespace keshe
             this.借阅此图书ToolStripMenuItem.Text = "借阅此图书";
             this.借阅此图书ToolStripMenuItem.Click += new System.EventHandler(this.借阅图书ToolStripMenuItem_Click);
             // 
-            // bookSearch_available
+            // bookSearch_reader
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AcceptButton = this.button_next;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.CancelButton = this.button_previous;
             this.ClientSize = new System.Drawing.Size(1182, 673);
             this.Controls.Add(this.tableLayoutPanel_main);
             this.Controls.Add(this.toolStrip);
@@ -256,7 +259,7 @@ namespace keshe
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1200, 720);
-            this.Name = "bookSearch_available";
+            this.Name = "bookSearch_reader";
             this.Text = "查找您需要借阅的图书";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.bookSearch_available_FormClosing);
             this.Load += new System.EventHandler(this.bookSearch_available_Load);

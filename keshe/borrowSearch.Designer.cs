@@ -197,6 +197,7 @@ namespace keshe
             // 
             this.button_previous.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_previous.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button_previous.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_previous.Location = new System.Drawing.Point(683, 4);
             this.button_previous.Margin = new System.Windows.Forms.Padding(2);
             this.button_previous.Name = "button_previous";
@@ -244,8 +245,10 @@ namespace keshe
             // 
             // borrowSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AcceptButton = this.button_next;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.CancelButton = this.button_previous;
             this.ClientSize = new System.Drawing.Size(882, 533);
             this.Controls.Add(this.tableLayoutPanel_main);
             this.Controls.Add(this.toolStrip);
@@ -257,7 +260,7 @@ namespace keshe
             this.Text = "请选择您要续借的借阅记录";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.borrowSearch_available_FormClosing);
             this.Load += new System.EventHandler(this.borrowSearch_Load);
-            this.Resize += new System.EventHandler(this.bookSearch_Resize);
+            this.Resize += new System.EventHandler(this.borrowSearch_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_target)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();

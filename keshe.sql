@@ -79,7 +79,22 @@ insert into `TB_ReaderType` values(5,'教师',12,60,2,0.05,0);
 -- default table TB_Reader
 insert into `TB_Reader` values
 (0, '用户已被移除', '男', 0, '', '', '', '2000-01-01', null, '注销', 0, '202CB962AC59075B964B07152D234B70', 0),
-(2020001, 'whalechoi', '男', 2, 'Yangtze University', '12345678901', 'cj1369636717@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 5);
+(2020001, 'whalechoi', '男', 2, 'Yangtze University', '12345678901', 'cj1369636717@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 5),
+(2020002, 'tester1', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020003, 'tester2', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020004, 'tester3', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020005, 'tester4', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020006, 'tester5', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020007, 'tester6', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020008, 'tester7', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020009, 'tester8', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020010, 'tester9', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020011, 'tester10', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020012, 'tester11', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020013, 'tester12', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020014, 'tester13', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020015, 'tester14', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0),
+(2020016, 'tester15', '男', 2, 'Yangtze University', '12345678901', 'tester@gmail.com', '2018-09-01', null, '有效', 0, '202CB962AC59075B964B07152D234B70', 0);
 
 -- default table TB_Book
 insert into `TB_Book` values

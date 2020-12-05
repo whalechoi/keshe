@@ -85,6 +85,24 @@ namespace keshe.BLL
                             {
                                 return 0;
                             }
+                        case "Password":
+                            try
+                            {
+                                return ReaderDAL.Password((Reader)action.actionModel);
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
+                        case "Permission":
+                            try
+                            {
+                                return ReaderDAL.Permission((Reader)action.actionModel);
+                            }
+                            catch (Exception)
+                            {
+                                return 0;
+                            }
                         default:
                             throw new Exception("Error actionType!");
                     }

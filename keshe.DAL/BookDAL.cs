@@ -20,20 +20,20 @@ namespace keshe.DAL
             MySqlParameter[] parameters =
             {
                 new MySqlParameter("?bkID",MySqlDbType.Int32),
-                new MySqlParameter("?bkCode",MySqlDbType.VarChar),
-                new MySqlParameter("?bkName",MySqlDbType.VarChar),
-                new MySqlParameter("?bkAuthor",MySqlDbType.VarChar),
-                new MySqlParameter("?bkPress",MySqlDbType.VarChar),
+                new MySqlParameter("?bkCode",MySqlDbType.VarChar,20),
+                new MySqlParameter("?bkName",MySqlDbType.VarChar,50),
+                new MySqlParameter("?bkAuthor",MySqlDbType.VarChar,30),
+                new MySqlParameter("?bkPress",MySqlDbType.VarChar,50),
                 new MySqlParameter("?bkDatePress",MySqlDbType.DateTime),
-                new MySqlParameter("?bkISBN",MySqlDbType.VarChar),
-                new MySqlParameter("?bkCatalog",MySqlDbType.VarChar),
+                new MySqlParameter("?bkISBN",MySqlDbType.VarChar,15),
+                new MySqlParameter("?bkCatalog",MySqlDbType.VarChar,30),
                 new MySqlParameter("?bkLanguage",MySqlDbType.Int16),
                 new MySqlParameter("?bkPages",MySqlDbType.Int32),
                 new MySqlParameter("?bkPrice",MySqlDbType.NewDecimal),
                 new MySqlParameter("?bkDateIn",MySqlDbType.DateTime),
                 new MySqlParameter("?bkBrief",MySqlDbType.Text),
                 new MySqlParameter("?bkCover",MySqlDbType.MediumBlob),
-                new MySqlParameter("?bkStatus",MySqlDbType.VarChar)
+                new MySqlParameter("?bkStatus",MySqlDbType.VarChar,2)
             };
             parameters[0].Value = book.bkID;
             parameters[1].Value = book.bkCode;
@@ -108,20 +108,20 @@ namespace keshe.DAL
                 + "where bkID=?bkID";
             MySqlParameter[] parameters =
             {
-                new MySqlParameter("?bkCode",MySqlDbType.VarChar),
-                new MySqlParameter("?bkName",MySqlDbType.VarChar),
-                new MySqlParameter("?bkAuthor",MySqlDbType.VarChar),
-                new MySqlParameter("?bkPress",MySqlDbType.VarChar),
+                new MySqlParameter("?bkCode",MySqlDbType.VarChar,20),
+                new MySqlParameter("?bkName",MySqlDbType.VarChar,50),
+                new MySqlParameter("?bkAuthor",MySqlDbType.VarChar,30),
+                new MySqlParameter("?bkPress",MySqlDbType.VarChar,50),
                 new MySqlParameter("?bkDatePress",MySqlDbType.DateTime),
-                new MySqlParameter("?bkISBN",MySqlDbType.VarChar),
-                new MySqlParameter("?bkCatalog",MySqlDbType.VarChar),
+                new MySqlParameter("?bkISBN",MySqlDbType.VarChar,15),
+                new MySqlParameter("?bkCatalog",MySqlDbType.VarChar,30),
                 new MySqlParameter("?bkLanguage",MySqlDbType.Int16),
                 new MySqlParameter("?bkPages",MySqlDbType.Int32),
                 new MySqlParameter("?bkPrice",MySqlDbType.NewDecimal),
                 new MySqlParameter("?bkDateIn",MySqlDbType.DateTime),
                 new MySqlParameter("?bkBrief",MySqlDbType.Text),
                 new MySqlParameter("?bkCover",MySqlDbType.MediumBlob),
-                new MySqlParameter("?bkStatus",MySqlDbType.VarChar),
+                new MySqlParameter("?bkStatus",MySqlDbType.VarChar,2),
                 new MySqlParameter("?bkID",MySqlDbType.Int32)
             };
             parameters[0].Value = book.bkCode;
@@ -180,6 +180,9 @@ namespace keshe.DAL
             return MySqlHelper.DataRowToT<Book>(dr);
         }
         #endregion
+        /// <summary>
+        /// 获取最后一本图书
+        /// </summary>
         #region GetLastObject
         public static Book GetLastObject()
         {
@@ -215,29 +218,29 @@ namespace keshe.DAL
                     parameter.Value = Int32.Parse(content);
                     break;
                 case "bkCode":
-                    sql = sql + $" where bkCode=?content limit {row}, {number}";
-                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
-                    parameter.Value = content;
+                    sql = sql + $" where bkCode like ?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar, 20);
+                    parameter.Value = $"{content}%";
                     break;
                 case "bkName":
-                    sql = sql + $" where bkName=?content limit {row}, {number}";
-                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
-                    parameter.Value = content;
+                    sql = sql + $" where bkName like ?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar, 50);
+                    parameter.Value = $"%{content}%";
                     break;
                 case "bkAuthor":
-                    sql = sql + $" where bkAuthor=?content limit {row}, {number}";
-                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
-                    parameter.Value = content;
+                    sql = sql + $" where bkAuthor like ?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar, 30);
+                    parameter.Value = $"%{content}%";
                     break;
                 case "bkPress":
-                    sql = sql + $" where bkPress=?content limit {row}, {number}";
-                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
-                    parameter.Value = content;
+                    sql = sql + $" where bkPress like ?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar, 50);
+                    parameter.Value = $"%{content}%";
                     break;
                 case "bkISBN":
-                    sql = sql + $" where bkISBN=?content limit {row}, {number}";
-                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
-                    parameter.Value = content;
+                    sql = sql + $" where bkISBN like ?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar, 15);
+                    parameter.Value = $"%{content}%";
                     break;
                 default:
                     throw (new Exception("Error search type!"));

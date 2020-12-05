@@ -287,7 +287,7 @@ namespace keshe
             dvg_style();
             button_check();
         }
-        private void bookSearch_Resize(object sender, EventArgs e)
+        private void borrowSearch_Resize(object sender, EventArgs e)
         {
             if (dgv_target.RowCount != 0)
             {

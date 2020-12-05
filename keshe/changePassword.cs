@@ -39,7 +39,7 @@ namespace keshe
         {
             foreach (UserAction action in main.ActionList)
             {
-                if (action.actionSource == "Reader" && action.actionType == "Update")
+                if (action.actionSource == "Reader" && action.actionType == "Password")
                 {
                     Reader tmp = (Reader)action.actionModel;
                     if (tmp.rdID == GlobalObject.reader.rdID)
@@ -76,21 +76,11 @@ namespace keshe
             }
             GlobalObject.readerSource.rdID = GlobalObject.reader.rdID;
             GlobalObject.readerSource.rdName = GlobalObject.reader.rdName;
-            GlobalObject.readerSource.rdSex = GlobalObject.reader.rdSex;
-            GlobalObject.readerSource.rdType = GlobalObject.reader.rdType;
-            GlobalObject.readerSource.rdDept = GlobalObject.reader.rdDept;
-            GlobalObject.readerSource.rdPhone = GlobalObject.reader.rdPhone;
-            GlobalObject.readerSource.rdEmail = GlobalObject.reader.rdEmail;
-            GlobalObject.readerSource.rdDateReg = GlobalObject.reader.rdDateReg;
-            GlobalObject.readerSource.rdPhoto = GlobalObject.reader.rdPhoto;
-            GlobalObject.readerSource.rdStatus = GlobalObject.reader.rdStatus;
-            GlobalObject.readerSource.rdBorrowQty = GlobalObject.reader.rdBorrowQty;
             GlobalObject.readerSource.rdPwd = EncryptProvider.Md5(textBox_new_pwd.Text);
-            GlobalObject.readerSource.rdAdminRoles = GlobalObject.reader.rdAdminRoles;
 
             GlobalObject.actionSource.actionSource = "Reader";
             GlobalObject.actionSource.actionModel = GlobalObject.readerSource;
-            GlobalObject.actionSource.actionType = "Update";
+            GlobalObject.actionSource.actionType = "Password";
             GlobalObject.actionSource.actionDescription = $"修改用户 {GlobalObject.readerSource.rdName}(rdID:{GlobalObject.readerSource.rdID}) 的密码";
 
             main.addAction(GlobalObject.actionSource);

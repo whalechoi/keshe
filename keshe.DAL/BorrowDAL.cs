@@ -134,8 +134,8 @@ namespace keshe.DAL
                 new MySqlParameter("?ldOverMoney",MySqlDbType.NewDecimal),
                 new MySqlParameter("?ldPunishMoney",MySqlDbType.NewDecimal),
                 new MySqlParameter("?lsHasReturn",MySqlDbType.Bit),
-                new MySqlParameter("?OperatorLend",MySqlDbType.VarChar),
-                new MySqlParameter("?OperatorRet",MySqlDbType.VarChar),
+                new MySqlParameter("?OperatorLend",MySqlDbType.VarChar,20),
+                new MySqlParameter("?OperatorRet",MySqlDbType.VarChar,20),
                 new MySqlParameter("?BorrowID",MySqlDbType.NewDecimal)
             };
             parameters[0].Value = borrow.rdID;
@@ -237,9 +237,9 @@ namespace keshe.DAL
                     parameter.Value = Int32.Parse(content);
                     break;
                 case "OperatorLend":
-                    sql = sql + $" and OperatorLend=?content limit {row}, {number}";
-                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar);
-                    parameter.Value = content;
+                    sql = sql + $" and OperatorLend like ?content limit {row}, {number}";
+                    parameter = new MySqlParameter("?content", MySqlDbType.VarChar, 20);
+                    parameter.Value = $"%{content}%";
                     break;
                 default:
                     throw (new Exception("Error search type!"));

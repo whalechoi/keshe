@@ -166,7 +166,7 @@ namespace keshe
             this.添加读者类别ToolStripMenuItem,
             this.读者类别维护ToolStripMenuItem});
             this.读者类别管理ToolStripMenuItem.Name = "读者类别管理ToolStripMenuItem";
-            this.读者类别管理ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.读者类别管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.读者类别管理ToolStripMenuItem.Text = "读者类别管理";
             // 
             // 添加读者类别ToolStripMenuItem
@@ -184,8 +184,9 @@ namespace keshe
             // 权限管理ToolStripMenuItem
             // 
             this.权限管理ToolStripMenuItem.Name = "权限管理ToolStripMenuItem";
-            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(184, 26);
+            this.权限管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.权限管理ToolStripMenuItem.Text = "权限管理";
+            this.权限管理ToolStripMenuItem.Click += new System.EventHandler(this.权限管理ToolStripMenuItem_Click);
             // 
             // 借阅ToolStripMenuItem
             // 

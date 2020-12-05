@@ -52,6 +52,7 @@
     <Compile Include="loginControler.cs" />
     <Compile Include="mainControler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="readerSearchControler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\keshe.DAL\keshe.DAL.csproj">

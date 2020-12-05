@@ -20,7 +20,7 @@ namespace keshe.DAL
             MySqlParameter[] parameters =
             {
                 new MySqlParameter("?rdType",MySqlDbType.Int16),
-                new MySqlParameter("?rdTypeName",MySqlDbType.VarChar),
+                new MySqlParameter("?rdTypeName",MySqlDbType.VarChar,20),
                 new MySqlParameter("?CanLendQty",MySqlDbType.Int32),
                 new MySqlParameter("?CanLendDay",MySqlDbType.Int32),
                 new MySqlParameter("?CanContinueTimes",MySqlDbType.Int32),
@@ -84,7 +84,7 @@ namespace keshe.DAL
                 + "where rdType=?rdType";
             MySqlParameter[] parameters =
             {
-                new MySqlParameter("?rdTypeName",MySqlDbType.VarChar),
+                new MySqlParameter("?rdTypeName",MySqlDbType.VarChar,20),
                 new MySqlParameter("?CanLendQty",MySqlDbType.Int32),
                 new MySqlParameter("?CanLendDay",MySqlDbType.Int32),
                 new MySqlParameter("?CanContinueTimes",MySqlDbType.Int32),
