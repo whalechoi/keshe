@@ -1,10 +1,13 @@
-﻿using System;
+﻿using keshe.BLL;
+using keshe.Model;
+using System;
 using System.Windows.Forms;
 
 namespace keshe
 {
     public partial class changePermission : Form
     {
+        private Int16 permission = 0;
         public static bool isExist()
         {
             if (_instance != null)
@@ -74,7 +77,11 @@ namespace keshe
 
         private void button_OK_Click(object sender, EventArgs e)
         {
-
+            if (permission == GetPermission())
+            {
+                MessageBox.Show("该用户的权限没有发生变化！", "提示：", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
             GlobalObject.readerSource.rdID = readerSearch.rdID;
             GlobalObject.readerSource.rdAdminRoles = GetPermission();
 
@@ -95,6 +102,32 @@ namespace keshe
             this.DialogResult = DialogResult.Cancel;
             _instance = null;
             this.Dispose();
+        }
+
+        private void changePermission_Load(object sender, EventArgs e)
+        {
+            Reader target = loginControler.GetReader(readerSearch.rdID);
+            if (target == null)
+            {
+                return;
+            }
+            permission = target.rdAdminRoles;
+            if ((permission & 0b1000) == 0b1000)
+            {
+                checkBox_borrowCardAdmin.Checked = true;
+            }
+            if ((permission & 0b0100) == 0b0100)
+            {
+                checkBox_bookAdmin.Checked = true;
+            }
+            if ((permission & 0b0010) == 0b0010)
+            {
+                checkBox_borrowAdmin.Checked = true;
+            }
+            if ((permission & 0b0001) == 0b0001)
+            {
+                checkBox_systemAdmin.Checked = true;
+            }
         }
     }
 }

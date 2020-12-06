@@ -53,11 +53,12 @@ namespace keshe
             this.tableLayoutPanel_main.Controls.Add(this.tableLayoutPanel_bottom, 0, 1);
             this.tableLayoutPanel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_main.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel_main.Name = "tableLayoutPanel_main";
             this.tableLayoutPanel_main.RowCount = 2;
             this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel_main.Size = new System.Drawing.Size(422, 233);
+            this.tableLayoutPanel_main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel_main.Size = new System.Drawing.Size(338, 186);
             this.tableLayoutPanel_main.TabIndex = 0;
             // 
             // tableLayoutPanel_top
@@ -71,12 +72,13 @@ namespace keshe
             this.tableLayoutPanel_top.Controls.Add(this.checkBox_borrowAdmin, 0, 1);
             this.tableLayoutPanel_top.Controls.Add(this.checkBox_systemAdmin, 1, 1);
             this.tableLayoutPanel_top.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_top.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel_top.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel_top.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel_top.Name = "tableLayoutPanel_top";
             this.tableLayoutPanel_top.RowCount = 2;
             this.tableLayoutPanel_top.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel_top.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_top.Size = new System.Drawing.Size(416, 177);
+            this.tableLayoutPanel_top.Size = new System.Drawing.Size(334, 142);
             this.tableLayoutPanel_top.TabIndex = 0;
             // 
             // checkBox_borrowCardAdmin
@@ -84,9 +86,10 @@ namespace keshe
             this.checkBox_borrowCardAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_borrowCardAdmin.AutoSize = true;
             this.checkBox_borrowCardAdmin.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_borrowCardAdmin.Location = new System.Drawing.Point(27, 28);
+            this.checkBox_borrowCardAdmin.Location = new System.Drawing.Point(21, 22);
+            this.checkBox_borrowCardAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox_borrowCardAdmin.Name = "checkBox_borrowCardAdmin";
-            this.checkBox_borrowCardAdmin.Size = new System.Drawing.Size(154, 32);
+            this.checkBox_borrowCardAdmin.Size = new System.Drawing.Size(125, 26);
             this.checkBox_borrowCardAdmin.TabIndex = 0;
             this.checkBox_borrowCardAdmin.Text = "借书证管理员";
             this.checkBox_borrowCardAdmin.UseVisualStyleBackColor = true;
@@ -96,9 +99,10 @@ namespace keshe
             this.checkBox_bookAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_bookAdmin.AutoSize = true;
             this.checkBox_bookAdmin.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_bookAdmin.Location = new System.Drawing.Point(245, 28);
+            this.checkBox_bookAdmin.Location = new System.Drawing.Point(196, 22);
+            this.checkBox_bookAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox_bookAdmin.Name = "checkBox_bookAdmin";
-            this.checkBox_bookAdmin.Size = new System.Drawing.Size(134, 32);
+            this.checkBox_bookAdmin.Size = new System.Drawing.Size(109, 26);
             this.checkBox_bookAdmin.TabIndex = 1;
             this.checkBox_bookAdmin.Text = "图书管理员";
             this.checkBox_bookAdmin.UseVisualStyleBackColor = true;
@@ -108,9 +112,10 @@ namespace keshe
             this.checkBox_borrowAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_borrowAdmin.AutoSize = true;
             this.checkBox_borrowAdmin.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_borrowAdmin.Location = new System.Drawing.Point(37, 116);
+            this.checkBox_borrowAdmin.Location = new System.Drawing.Point(29, 93);
+            this.checkBox_borrowAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox_borrowAdmin.Name = "checkBox_borrowAdmin";
-            this.checkBox_borrowAdmin.Size = new System.Drawing.Size(134, 32);
+            this.checkBox_borrowAdmin.Size = new System.Drawing.Size(109, 26);
             this.checkBox_borrowAdmin.TabIndex = 2;
             this.checkBox_borrowAdmin.Text = "借阅管理员";
             this.checkBox_borrowAdmin.UseVisualStyleBackColor = true;
@@ -120,9 +125,10 @@ namespace keshe
             this.checkBox_systemAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox_systemAdmin.AutoSize = true;
             this.checkBox_systemAdmin.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_systemAdmin.Location = new System.Drawing.Point(245, 116);
+            this.checkBox_systemAdmin.Location = new System.Drawing.Point(196, 93);
+            this.checkBox_systemAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox_systemAdmin.Name = "checkBox_systemAdmin";
-            this.checkBox_systemAdmin.Size = new System.Drawing.Size(134, 32);
+            this.checkBox_systemAdmin.Size = new System.Drawing.Size(109, 26);
             this.checkBox_systemAdmin.TabIndex = 3;
             this.checkBox_systemAdmin.Text = "系统管理员";
             this.checkBox_systemAdmin.UseVisualStyleBackColor = true;
@@ -132,25 +138,27 @@ namespace keshe
             this.tableLayoutPanel_bottom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel_bottom.ColumnCount = 3;
             this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel_bottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel_bottom.Controls.Add(this.button_OK, 1, 0);
             this.tableLayoutPanel_bottom.Controls.Add(this.button_Cancel, 2, 0);
             this.tableLayoutPanel_bottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_bottom.Location = new System.Drawing.Point(3, 186);
+            this.tableLayoutPanel_bottom.Location = new System.Drawing.Point(2, 148);
+            this.tableLayoutPanel_bottom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel_bottom.Name = "tableLayoutPanel_bottom";
             this.tableLayoutPanel_bottom.RowCount = 1;
             this.tableLayoutPanel_bottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_bottom.Size = new System.Drawing.Size(416, 44);
+            this.tableLayoutPanel_bottom.Size = new System.Drawing.Size(334, 36);
             this.tableLayoutPanel_bottom.TabIndex = 1;
             // 
             // button_OK
             // 
             this.button_OK.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button_OK.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_OK.Location = new System.Drawing.Point(259, 3);
+            this.button_OK.Location = new System.Drawing.Point(208, 2);
+            this.button_OK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_OK.Name = "button_OK";
-            this.button_OK.Size = new System.Drawing.Size(74, 38);
+            this.button_OK.Size = new System.Drawing.Size(59, 30);
             this.button_OK.TabIndex = 0;
             this.button_OK.Text = "修改";
             this.button_OK.UseVisualStyleBackColor = true;
@@ -161,9 +169,10 @@ namespace keshe
             this.button_Cancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button_Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Cancel.Font = new System.Drawing.Font("字由心雨 常规体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Cancel.Location = new System.Drawing.Point(339, 3);
+            this.button_Cancel.Location = new System.Drawing.Point(272, 2);
+            this.button_Cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_Cancel.Name = "button_Cancel";
-            this.button_Cancel.Size = new System.Drawing.Size(74, 38);
+            this.button_Cancel.Size = new System.Drawing.Size(59, 30);
             this.button_Cancel.TabIndex = 1;
             this.button_Cancel.Text = "取消";
             this.button_Cancel.UseVisualStyleBackColor = true;
@@ -172,23 +181,24 @@ namespace keshe
             // changePermission
             // 
             this.AcceptButton = this.button_OK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.button_Cancel;
-            this.ClientSize = new System.Drawing.Size(422, 233);
+            this.ClientSize = new System.Drawing.Size(338, 186);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel_main);
             this.Font = new System.Drawing.Font("字由心雨 常规体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "changePermission";
             this.ShowInTaskbar = false;
             this.Text = "权限管理";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.changePermission_Load);
             this.tableLayoutPanel_main.ResumeLayout(false);
             this.tableLayoutPanel_top.ResumeLayout(false);
             this.tableLayoutPanel_top.PerformLayout();
